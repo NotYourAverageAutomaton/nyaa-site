@@ -14,7 +14,7 @@ We build the lens, a map from each middle layer of the model to its final answer
 
 We score it on six documents it has never seen: how often its top guess is among the model's own next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.
 
-Every pass mark is written down before the run, and a seat that did not run the test grades it. When a number turns out wrong, the correction stays in the repo beside the claim.
+Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.
 
 ## Where we are
 
@@ -39,7 +39,7 @@ At mid-depth, neither the Jacobian nor the logit lens predicts upcoming tokens b
 
 Next token, top-1, middle layers, 306 held-out positions: word frequency 0.075; logit lens 0.070; Jacobian lens 0.054; shrunk Jacobian lens 0.097 (not distinguishable from frequency); trained lens 0.219. One token further ahead: word frequency 0.073; every lens 0.019 or lower.
 
-The sentence and the row were checked against the result file by a seat that didn't run it. The code, the result files and one row per public claim are in CLAIMS.md: https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
+The sentence and the row were checked against the result file by a different agent, one that didn't run it. The code, the result files and one row per public claim are in CLAIMS.md: https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
 
 ## Evidence
 

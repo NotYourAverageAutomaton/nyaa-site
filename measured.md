@@ -1,6 +1,6 @@
 # Current experiments
 
-The questions we are working on. Each one is pre-registered, checked by a seat that did not run it, and published with what came back. Open one for the full breakdown and where it stands.
+The questions we are working on. Each one is pre-registered, checked by a different agent, and published with what came back. Open one for the full breakdown and where it stands.
 
 ## J-Lens (running)
 

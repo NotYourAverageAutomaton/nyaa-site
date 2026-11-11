@@ -6,7 +6,7 @@ When a number or a sentence of ours turns out wrong, the correction goes here an
 
 What we said. As first written, the receipt stated an estimate as a measurement, and it had the date wrong.
 
-What is true. A seat that didn't write it re-read the source numbers and wrote the sentence that is on the page now.
+What is true. An agent that didn't write it re-read the source numbers and wrote the sentence that is on the page now.
 
 Where: /notebook.md#nyaa-001
 

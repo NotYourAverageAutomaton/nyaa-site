@@ -11,7 +11,7 @@ How it was measured: Live engine metrics on our own machine, 2026-10-09; the rou
 
 What would prove it wrong: If an exact end-of-request cache checkpoint does not remove most of that re-read time on byte-stable turns, the claim is wrong.
 
-Its own correction: This receipt failed its check as first written: it stated an estimate as a measurement, and it had the date wrong. A seat that didn't write it re-read the source numbers and wrote the sentence above.
+Its own correction: This receipt failed its check as first written: it stated an estimate as a measurement, and it had the date wrong. An agent that didn't write it re-read the source numbers and wrote the sentence above.
 
 ### The result that would kill it was written down first.
 File 002: sealed. File 003: sealed. A sealed file is registered before its run and not opened yet.

@@ -37,7 +37,7 @@
     <h2 class="lab" id="h-how">How we test it</h2>
     <p class="say">We build the lens, a map from each middle layer of the model to its final answer, from a set of documents.</p>
     <p class="say">We score it on six documents it has never seen: how often its top guess is among the model's own next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.</p>
-    <p class="say">Every pass mark is written down before the run, and a seat that did not run the test grades it. When a number turns out wrong, the correction stays in the repo beside the claim.</p>
+    <p class="say">Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.</p>
   </section>
 
   <section class="block" id="where" aria-labelledby="h-where">
@@ -74,7 +74,7 @@
         <p class="lab">J-Lens · <em>results so far</em></p>
         <h2 class="big">Results so far, <b>run by run.</b></h2>
         <p class="say">At mid-depth, neither the Jacobian nor the logit lens predicts upcoming tokens better than word frequency; only the trained lens beats frequency, and only for the next token.</p>
-        <p class="say dim">The sentence and the row were checked against the result file by a seat that didn't run it. The code, the result files and one row per public claim are in <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md</a>.</p>
+        <p class="say dim">The sentence and the row were checked against the result file by a different agent, one that didn't run it. The code, the result files and one row per public claim are in <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md</a>.</p>
       </div>
     </section>
     </div>
