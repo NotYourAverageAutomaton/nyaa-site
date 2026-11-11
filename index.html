@@ -49,6 +49,8 @@
   var cv = document.getElementById("field"), cx = cv.getContext && cv.getContext("2d");
   if (!cx){ document.documentElement.classList.remove("js"); vz.forEach(function(v){ v.classList.add("in"); }); return; }
   var W = 0, H = 0, D = 1, pts = [], ring = null, t0 = 0, mx = -9999, my = -9999, live = true;
+  // touch: a finger moves the field while down and fades out over 0.6 s; with no finger on a touch-only screen a slow ghost point wanders
+  var touchDown = false, relT = 0, gs = 0, hoverNone = !!(window.matchMedia && matchMedia("(hover: none)").matches);
   function build(){
     var r = cv.getBoundingClientRect(); D = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height;
     cv.width = Math.round(W * D); cv.height = Math.round(H * D); cx.setTransform(D, 0, 0, D, 0, 0);
@@ -64,9 +66,15 @@
   function draw(now){
     if (!t0) t0 = now; var t = reduce ? 99 : (now - t0) / 1000;
     cx.clearRect(0, 0, W, H);
+    var st = 1, px = mx, py = my;
+    if (!touchDown && relT){ st = 1 - (now - relT) / 600; if (st <= 0){ st = 0; relT = 0; } }
+    if (hoverNone && !touchDown && !relT){
+      if (!gs) gs = now;
+      px = W * (.5 + .32 * Math.sin(t * .23)); py = H * (.42 + .22 * Math.sin(t * .31 + 1.3)); st = .85 * Math.min(1, (now - gs) / 800);
+    } else gs = 0;
     for (var k = 0; k < pts.length; k++){
       var p = pts[k], a = ease((t - p.d * 1.1) / 1.2), x = p.sx + (p.gx - p.sx) * a, y = p.sy + (p.gy - p.sy) * a;
-      var dx = x - mx, dy = y - my, dist = Math.sqrt(dx * dx + dy * dy), push = dist < 130 ? (1 - dist / 130) : 0;
+      var dx = x - px, dy = y - py, dist = Math.sqrt(dx * dx + dy * dy), push = (dist < 130 ? (1 - dist / 130) : 0) * st;
       x += dx / (dist || 1) * push * 16; y += dy / (dist || 1) * push * 16;
       if (p === ring){
         var g = ease((t - 2.0) / .9), rad = 3 + g * 15;
@@ -82,7 +90,13 @@
   }
   addEventListener("resize", function(){ build(); if (reduce) requestAnimationFrame(draw); });
   cv.parentNode.addEventListener("pointermove", function(e){ var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; }, {passive:true});
-  cv.parentNode.addEventListener("pointerleave", function(){ mx = my = -9999; });
+  cv.parentNode.addEventListener("pointerleave", function(){ if (!touchDown) mx = my = -9999; });
+  function touchAt(e){ var tc = e.touches && e.touches[0]; if (!tc) return; var r = cv.getBoundingClientRect(); mx = tc.clientX - r.left; my = tc.clientY - r.top; touchDown = true; relT = 0; }
+  cv.parentNode.addEventListener("touchstart", touchAt, {passive:true});
+  cv.parentNode.addEventListener("touchmove", touchAt, {passive:true});
+  function touchUp(){ if (touchDown){ touchDown = false; relT = performance.now(); } }
+  cv.parentNode.addEventListener("touchend", touchUp, {passive:true});
+  cv.parentNode.addEventListener("touchcancel", touchUp, {passive:true});
   if ("IntersectionObserver" in window && !reduce) new IntersectionObserver(function(es){ var on = es[0].isIntersecting; if (on && !live){ live = true; requestAnimationFrame(draw); } else live = on; }).observe(cv);
   build(); requestAnimationFrame(draw);
 })();
