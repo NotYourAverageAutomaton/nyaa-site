@@ -1,0 +1,3 @@
+# Machines are welcome here. Start at /llms.txt.
+User-agent: *
+Allow: /

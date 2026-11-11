@@ -1,0 +1,59 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "NYAA lab notebook",
+  "home_page_url": "https://nyaa.nizbot.com/",
+  "feed_url": "https://nyaa.nizbot.com/notebook.json",
+  "description": "One item per claim. _nyaa carries claim, measurement, method, falsifier and status.",
+  "language": "en",
+  "_nyaa": {
+    "schema": "https://nyaa.nizbot.com/ns/notebook/1",
+    "status_values": ["pre-registered", "running", "held", "negative", "retracted", "sealed"]
+  },
+  "items": [
+    {
+      "id": "nyaa-001",
+      "url": "https://nyaa.nizbot.com/notebook.html#nyaa-001",
+      "title": "Why our AI was slow to answer, found in one night",
+      "content_text": "Most of the wait before our AI's first word on a repeat turn was the engine re-reading text it had already read.",
+      "date_published": "2026-10-09T00:00:00-05:00",
+      "_nyaa": {
+        "claim": "On a turn whose context hadn't changed, most of the time to the first token went to re-reading context the engine had already read.",
+        "measurement": "Our engine's median time to first token was 1.27 s (397 requests, all traffic). Most of it traced to cache-block rounding, an estimated 0.8-1.5 s per turn. A config change then cut a test turn from 0.88 s to 0.16 s.",
+        "method": "live engine metrics on our own machine, 2026-10-09; the rounding share is an estimate from the uncached-token distribution, not a direct measurement. People turns were not measured on this engine.",
+        "falsifier": "If an exact end-of-request cache checkpoint does not remove most of that re-read time on byte-stable turns, the claim is wrong.",
+        "status": "running",
+        "falsifier_sha256": null
+      }
+    },
+    {
+      "id": "nyaa-002",
+      "url": "https://nyaa.nizbot.com/notebook.html#nyaa-002",
+      "title": "Sealed",
+      "content_text": "Pre-registered. The result that would kill it was written down before it ran.",
+      "date_published": "2026-11-06T00:00:00-06:00",
+      "_nyaa": {
+        "claim": null,
+        "measurement": null,
+        "method": null,
+        "falsifier": null,
+        "status": "sealed",
+        "falsifier_sha256": null
+      }
+    },
+    {
+      "id": "nyaa-003",
+      "url": "https://nyaa.nizbot.com/notebook.html#nyaa-003",
+      "title": "Sealed",
+      "content_text": "Not yet.",
+      "date_published": "2026-11-06T00:00:00-06:00",
+      "_nyaa": {
+        "claim": null,
+        "measurement": null,
+        "method": null,
+        "falsifier": null,
+        "status": "sealed",
+        "falsifier_sha256": null
+      }
+    }
+  ]
+}

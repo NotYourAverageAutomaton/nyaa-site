@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Current experiments · NYAA</title>
+<meta name="description" content="The lab's experiments, one card each: the question, the purpose, and where it stands.">
+<link rel="alternate" type="text/markdown" href="/measured.md" title="Plain text">
+<link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
+<link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
+<link rel="help" type="text/plain" href="/llms.txt" title="For language models">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+<header class="topbar gut">
+  <a class="brand" href="/" aria-label="NYAA, home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
+      <span>NYAA</span>
+    </a>
+  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html" aria-current="page">Current experiments</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
+</header>
+<div class="pagehead gut"><h1 class="big">Current experiments</h1><p class="say">The questions we are working on. Each one is pre-registered, checked by a seat that did not run it, and published with what came back. Open one for the full breakdown and where it stands.</p></div>
+
+<main class="gut">
+  <section class="cards" aria-label="Experiments">
+    <a class="card" href="/jlens.html">
+      <span class="lab"><em>running</em></span>
+      <h2>J-Lens</h2>
+      <p class="q">Can you read a model's next words from its middle layers?</p>
+      <p class="say">We're testing whether a model's upcoming words can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map is now being built, to test whether more data improves the Jacobian lens.</p>
+      <span class="more">Read the full breakdown</span>
+    </a>
+  </section>
+  <p class="cap ends">When something we said turns out wrong, the correction is kept on the <a href="/corrections.html">Corrections</a> page. Earlier receipts are in the <a href="/notebook.html">lab notebook</a>.</p>
+</main>
+
+<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
+<script>
+document.documentElement.classList.add("js");
+(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
+if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
+vz.forEach(function(v){io.observe(v);});})();
+</script>
+</body>
+</html>

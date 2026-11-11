@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lab notebook · NYAA</title>
+<meta name="description" content="Receipts filed in the lab's notebook feed: what was measured, how, and what would prove it wrong.">
+<link rel="alternate" type="text/markdown" href="/notebook.md" title="Plain text">
+<link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
+<link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
+<link rel="help" type="text/plain" href="/llms.txt" title="For language models">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+<header class="topbar gut">
+  <a class="brand" href="/" aria-label="NYAA, home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
+      <span>NYAA</span>
+    </a>
+  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
+</header>
+<div class="pagehead gut"><h1 class="big">Lab notebook</h1><p class="say">Receipts filed in the notebook feed, as <a href="/notebook.json">JSON</a> and <a href="/notebook.xml">RSS</a>. Each says what was measured, how, and what result would prove it wrong.</p></div>
+
+<main class="gut">
+  <div class="band">
+  <section class="rc" id="nyaa-001">
+      <div class="viz" data-reveal>
+        <div class="row"><p class="lab"><span>Before</span><span>0.88 s</span></p><div class="bars"><div class="bar" style="width:100%"></div></div></div>
+        <div class="row"><p class="lab"><span>After</span><span>0.16 s</span></p><div class="bars"><div class="bar k" style="width:18.2%"></div></div></div>
+        <p class="cap">Time to the first token of an answer, one test turn. Bars are to scale.</p>
+      </div>
+      <div>
+        <p class="lab">File 001 · 2026-10-09 · <em>running</em></p>
+        <h2 class="big">Why our AI was slow to answer, <b>found in one night.</b></h2>
+        <p class="say">Our engine's median time to first token was 1.27 s (397 requests, all traffic). Most of it traced to cache-block rounding, an estimated 0.8-1.5 s per turn. A config change then cut a test turn from 0.88 s to 0.16 s.</p>
+        <dl>
+          <dt>How it was measured</dt>
+          <dd>Live engine metrics on our own machine, 2026-10-09; the rounding share is an estimate from the uncached-token distribution, not a direct measurement. People turns were not measured on this engine.</dd>
+          <dt>What would prove it wrong</dt>
+          <dd>If an exact end-of-request cache checkpoint does not remove most of that re-read time on byte-stable turns, the claim is wrong.</dd>
+          <dt>Its own correction</dt>
+          <dd>This receipt failed its check as first written: it stated an estimate as a measurement, and it had the date wrong. A seat that didn't write it re-read the source numbers and wrote the sentence above.</dd>
+        </dl>
+      </div>
+    </section>
+
+  <section class="rc" id="sealed">
+      <div class="viz" data-reveal>
+        <div class="sealed">
+          <div id="nyaa-002"><i></i><span>File 002 · sealed</span></div>
+          <div id="nyaa-003"><i></i><span>File 003 · sealed</span></div>
+        </div>
+        <p class="cap">A sealed file is registered before its run and not opened yet.</p>
+      </div>
+      <div>
+        <p class="lab">Two files · <em>sealed</em></p>
+        <h2 class="big">The result that would kill it <b>was written down first.</b></h2>
+        <p class="say">File 001 and the two sealed files are in the notebook feed as <a href="/notebook.json">JSON</a> and <a href="/notebook.xml">RSS</a>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
+<script>
+document.documentElement.classList.add("js");
+(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
+if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
+vz.forEach(function(v){io.observe(v);});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NYAA · Not Your Average Automaton</title>
+<meta name="description" content="A home lab where one person and ten AI agents build and measure in the open. Each claim comes with how it was measured and what result would prove it wrong.">
+<link rel="alternate" type="text/markdown" href="/index.md" title="Plain text">
+<link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
+<link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
+<link rel="help" type="text/plain" href="/llms.txt" title="For language models">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+<div class="landing">
+<header class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="frame gut menu-under">
+    <a class="brand" href="/" aria-label="NYAA, home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
+      <span>NYAA</span>
+    </a>
+    <nav class="menu" aria-label="Site"><a href="/" aria-current="page">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
+    <div class="stage">
+    <h1 aria-label="Not your average automaton"><span class="a">Not your</span><span class="b">average</span><span class="a">automaton</span></h1>
+    <p class="tag">Cutting the edge of what's possible, <b>together.</b></p>
+    <div class="line" aria-hidden="true"></div>
+    <p class="cue"><i></i>One person. Ten AI agents. Built and measured in the open.</p>
+    </div>
+  </div>
+</header>
+<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
+
+  // ---- receipts settle as they scroll in (they are already correct without this) ----
+  var vz = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (reduce || !("IntersectionObserver" in window)) vz.forEach(function(v){ v.classList.add("in"); });
+  else { var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {threshold:.25});
+         vz.forEach(function(v){ io.observe(v); }); }
+
+  // ---- the field: scattered dots fall into rank; one becomes the ring ----
+  var cv = document.getElementById("field"), cx = cv.getContext && cv.getContext("2d");
+  if (!cx){ document.documentElement.classList.remove("js"); vz.forEach(function(v){ v.classList.add("in"); }); return; }
+  var W = 0, H = 0, D = 1, pts = [], ring = null, t0 = 0, mx = -9999, my = -9999, live = true;
+  function build(){
+    var r = cv.getBoundingClientRect(); D = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height;
+    cv.width = Math.round(W * D); cv.height = Math.round(H * D); cx.setTransform(D, 0, 0, D, 0, 0);
+    var pitch = W < 600 ? 30 : 38, cols = Math.ceil(W / pitch) + 1, rows = Math.ceil(H / pitch) + 1, ox = (W - (cols - 1) * pitch) / 2, oy = (H - (rows - 1) * pitch) / 2;
+    pts = []; var rc = Math.round(cols * (W < 760 ? .78 : .74)), rr = W < 721 ? 2 : Math.max(3, Math.round(rows * .17));
+    for (var j = 0; j < rows; j++) for (var i = 0; i < cols; i++){
+      var s = Math.sin(i * 127.1 + j * 311.7) * 43758.5453, u = s - Math.floor(s), s2 = Math.sin(i * 269.5 + j * 183.3) * 43758.5453, v = s2 - Math.floor(s2);
+      var p = {gx: ox + i * pitch, gy: oy + j * pitch, sx: (u - .5) * W * 1.6 + W / 2, sy: (v - .5) * H * 1.6 + H / 2, d: (u * .55 + (i / cols) * .45), ph: v * 6.283};
+      if (i === rc && j === rr) ring = p; pts.push(p);
+    }
+  }
+  function ease(x){ return x < 0 ? 0 : x > 1 ? 1 : 1 - Math.pow(1 - x, 3); }
+  function draw(now){
+    if (!t0) t0 = now; var t = reduce ? 99 : (now - t0) / 1000;
+    cx.clearRect(0, 0, W, H);
+    for (var k = 0; k < pts.length; k++){
+      var p = pts[k], a = ease((t - p.d * 1.1) / 1.2), x = p.sx + (p.gx - p.sx) * a, y = p.sy + (p.gy - p.sy) * a;
+      var dx = x - mx, dy = y - my, dist = Math.sqrt(dx * dx + dy * dy), push = dist < 130 ? (1 - dist / 130) : 0;
+      x += dx / (dist || 1) * push * 16; y += dy / (dist || 1) * push * 16;
+      if (p === ring){
+        var g = ease((t - 2.0) / .9), rad = 3 + g * 15;
+        cx.beginPath(); cx.arc(x, y, rad, 0, 6.283); cx.lineWidth = 1.5 + g * 3; cx.strokeStyle = g > 0 ? "#D19A3A" : "#2C3447"; cx.stroke();
+        if (g > 0){ cx.beginPath(); cx.arc(x, y, rad + 16 + (reduce ? 0 : Math.sin(t * 1.4) * 4), 0, 6.283); cx.lineWidth = 1; cx.strokeStyle = "rgba(209,154,58," + (.22 * g) + ")"; cx.stroke(); }
+        continue;
+      }
+      var breathe = reduce ? 0 : Math.sin(t * .9 + p.ph) * .12, fade = 1 - .55 * Math.min(1, y / H);   // dimmer toward the text
+      cx.globalAlpha = (.35 + .4 * a + breathe + push * .5) * fade; cx.fillStyle = push > .05 ? "#E8EAEE" : "#6A7388";
+      cx.beginPath(); cx.arc(x, y, 2.1 + push * 1.6, 0, 6.283); cx.fill(); cx.globalAlpha = 1;
+    }
+    if (!reduce && live) requestAnimationFrame(draw);
+  }
+  addEventListener("resize", function(){ build(); if (reduce) requestAnimationFrame(draw); });
+  cv.parentNode.addEventListener("pointermove", function(e){ var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; }, {passive:true});
+  cv.parentNode.addEventListener("pointerleave", function(){ mx = my = -9999; });
+  if ("IntersectionObserver" in window && !reduce) new IntersectionObserver(function(es){ var on = es[0].isIntersecting; if (on && !live){ live = true; requestAnimationFrame(draw); } else live = on; }).observe(cv);
+  build(); requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

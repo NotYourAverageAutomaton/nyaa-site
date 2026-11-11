@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:nyaa="https://nyaa.nizbot.com/ns/notebook/1">
+<channel>
+  <title>NYAA lab notebook</title>
+  <link>https://nyaa.nizbot.com/</link>
+  <description>One item per claim, with claim, measurement, method, falsifier and status.</description>
+  <language>en</language>
+  <item>
+    <guid isPermaLink="false">nyaa-001</guid>
+    <title>Why our AI was slow to answer, found in one night</title>
+    <link>https://nyaa.nizbot.com/notebook.html#nyaa-001</link>
+    <pubDate>Fri, 09 Oct 2026 00:00:00 -0500</pubDate>
+    <description>Most of the wait before our AI's first word on a repeat turn was the engine re-reading text it had already read.</description>
+    <nyaa:claim>On a turn whose context hadn't changed, most of the time to the first token went to re-reading context the engine had already read.</nyaa:claim>
+    <nyaa:measurement>Our engine's median time to first token was 1.27 s (397 requests, all traffic). Most of it traced to cache-block rounding, an estimated 0.8-1.5 s per turn. A config change then cut a test turn from 0.88 s to 0.16 s.</nyaa:measurement>
+    <nyaa:method>live engine metrics on our own machine, 2026-10-09; the rounding share is an estimate from the uncached-token distribution, not a direct measurement. People turns were not measured on this engine.</nyaa:method>
+    <nyaa:falsifier>If an exact end-of-request cache checkpoint does not remove most of that re-read time on byte-stable turns, the claim is wrong.</nyaa:falsifier>
+    <nyaa:status>running</nyaa:status>
+  </item>
+  <item>
+    <guid isPermaLink="false">nyaa-002</guid>
+    <title>Sealed</title>
+    <link>https://nyaa.nizbot.com/notebook.html#nyaa-002</link>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 -0600</pubDate>
+    <description>Pre-registered. The result that would kill it was written down before it ran.</description>
+    <nyaa:status>sealed</nyaa:status>
+  </item>
+  <item>
+    <guid isPermaLink="false">nyaa-003</guid>
+    <title>Sealed</title>
+    <link>https://nyaa.nizbot.com/notebook.html#nyaa-003</link>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 -0600</pubDate>
+    <description>Not yet.</description>
+    <nyaa:status>sealed</nyaa:status>
+  </item>
+</channel>
+</rss>
