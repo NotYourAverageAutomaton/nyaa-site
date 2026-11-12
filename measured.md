@@ -12,7 +12,7 @@ Full breakdown: /jlens.md
 
 ## Continuous Cognition (held)
 
-Can a memory-decay policy choose what to keep inside a fixed budget, without leaking what it should have dropped?
+Can a memory-decay policy choose what to keep inside a fixed budget, without repeating what it should have dropped?
 
 We're testing whether a memory policy can boil an agent's older conversation down to a fixed budget, keep the decisions that matter, and repeat no secret. In the latest run, three policies were tested on three made-up conversations each, and all three failed. The work is paused until the next candidate's pass marks are written.
 

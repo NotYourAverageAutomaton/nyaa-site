@@ -2,11 +2,11 @@
 
 Status: held. Paused. The latest run is graded; the next candidate is being designed, and nothing runs until its pass marks are written.
 
-Can a memory-decay policy choose what to keep inside a fixed budget, without leaking what it should have dropped?
+Can a memory-decay policy choose what to keep inside a fixed budget, without repeating what it should have dropped?
 
 ## Why it matters
 
-An agent that works for days keeps running out of room, and each time its older turns are boiled down to a summary. If the summary keeps the chatter and drops the decisions, the agent forgets why it is doing what it is doing. And a memory process that keeps everything, or lets out what it should forget, can't be trusted to run between turns on its own. People forget most details but keep what mattered; we want a version of that we can write down and test.
+An agent that works for days keeps running out of room, and each time its older turns are boiled down to a summary. If the summary keeps the chatter and drops the decisions, the agent forgets why it is doing what it is doing. And a memory process that keeps everything, or repeats what it should forget, can't be trusted to run between turns on its own. People forget most details but keep what mattered; we want a version of that we can write down and test.
 
 ## How we test it
 
