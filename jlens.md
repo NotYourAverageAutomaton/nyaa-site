@@ -26,7 +26,7 @@ Figure: How we test the J-lens: three readers of the model's middle layers, each
 - 2026-11-06: Found a bug in our own checker: its answer-key copy of the model had no causal mask, so it could read ahead. The two tests that ran on it were withdrawn as proof. (CLAIMS.md rows 4.1, 4.2)
 - 2026-11-07: Map rebuilt from 22 documents. It cleared its pre-written bar against the 6-document map (the score it used was later judged too easy), but in the middle layers it is still worse than the logit lens. (CLAIMS.md rows 5.2 to 5.4)
 - 2026-11-10: A blend that is mostly the logit lens with a small dose of the map lands about 8% closer to the model's own final answer on fresh text (reported only; no pass mark was set for it in advance). Reading past the very next token worked for no method. (CLAIMS.md rows 6.1, 6.4, 6.6)
-- Running: A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token. (CLAIMS.md row 6.10)
+- Running: A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token. Stage 2 is running. As of the morning of 12 November 2026, 15 of the 32 new documents are fitted, about five a night. The pass mark was signed before the run, and nobody looks at the result until all 32 are in. (CLAIMS.md row 6.10)
 
 ## What's next
 
@@ -60,7 +60,7 @@ Only the papers our method uses. For each: what we took, and what we did differe
    Took: the Jacobian lens (the average derivative of the final state with respect to a middle layer) and its layer-by-layer signature.
    Different: we built our own implementation from the paper, using the authors' code only as a check. We ran it on a different, larger model and scored it against a plain word-frequency guess.
 2. Nora Belrose, Igor Ostrovsky, Lev McKinney, Zach Furman, Logan Smith, Danny Halawi, Stella Biderman, Jacob Steinhardt. Eliciting Latent Predictions from Transformers with the Tuned Lens. arXiv, 2023. https://arxiv.org/abs/2303.08112
-   Took: the trained lens, as the comparison every other lens is measured against.
+   Took: the trained lens, as the strong comparison: the best a lens can do when it is trained for the job.
    Different: trained on our own text and scored on held-out positions against word frequency.
 3. Koyena Pal, Jiuding Sun, Andrew Yuan, Byron C. Wallace, David Bau. Future Lens: Anticipating Subsequent Tokens from a Single Hidden State. CoNLL, 2023. https://arxiv.org/abs/2311.04897
    Took: reading tokens further ahead than the next one, and its top-k measure.
