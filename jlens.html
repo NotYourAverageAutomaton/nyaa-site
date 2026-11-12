@@ -51,7 +51,7 @@
   <section class="block" id="how" aria-labelledby="h-how">
     <h2 class="lab" id="h-how">How we test it</h2>
     <p class="say">We build the lens, a map from each middle layer of the model to its final answer, from a set of documents.</p>
-    <p class="say">We score it on six documents it has never seen: how often its top guess is among the model's own next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.</p>
+    <p class="say">We score it on six documents it has never seen: how often its top guess is among the text's next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.</p>
     <p class="say">Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.</p>
     <figure class="fig">
 <svg class="diagram" viewBox="0 0 760 400" role="img" aria-labelledby="jd-t jd-d" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@
 <text x="564" y="149" fill="var(--muted)" font-family="var(--body)" font-size="11.5">how far it lands from it</text>
 <text x="564" y="164" fill="var(--muted)" font-family="var(--body)" font-size="11.5">(lower is better), and how</text>
 <text x="564" y="179" fill="var(--muted)" font-family="var(--body)" font-size="11.5">often its top guess is among</text>
-<text x="564" y="194" fill="var(--muted)" font-family="var(--body)" font-size="11.5">the model's next tokens.</text>
+<text x="564" y="194" fill="var(--muted)" font-family="var(--body)" font-size="11.5">the text's next tokens.</text>
 <text x="564" y="209" fill="var(--muted)" font-family="var(--body)" font-size="11.5"></text>
 <text x="564" y="224" fill="var(--muted)" font-family="var(--body)" font-size="11.5">A plain word-frequency guess</text>
 <text x="564" y="239" fill="var(--muted)" font-family="var(--body)" font-size="11.5">is scored the same way.</text>
@@ -265,6 +265,18 @@
       <li><a href="https://github.com/NotYourAverageAutomaton/j-lens">j-lens repo<span>code, result files, logs</span></a></li>
       <li><a href="/corrections.html#j-lens">Corrections<span>what we got wrong, word for word</span></a></li>
     </ul>
+  </section>
+
+  <section class="block" id="built-on" aria-labelledby="h-built">
+    <h2 class="lab" id="h-built">Built on</h2>
+    <p class="say">Only the papers our method uses. For each: what we took, and what we did differently.</p>
+    <ol class="cites">
+      <li><p class="cite">Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, T. Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, Jack Lindsey. <a href="https://transformer-circuits.pub/2026/workspace" rel="noreferrer">Verbalizable Representations Form a Global Workspace in Language Models</a>. Anthropic, Transformer Circuits, 2026.</p><p class="say"><b>Took:</b> the Jacobian lens (the average derivative of the final state with respect to a middle layer) and its layer-by-layer signature.</p><p class="say"><b>Different:</b> we built our own implementation from the paper, using the authors&#x27; code only as a check. We ran it on a different, larger model and scored it against a plain word-frequency guess.</p></li>
+      <li><p class="cite">Nora Belrose, Igor Ostrovsky, Lev McKinney, Zach Furman, Logan Smith, Danny Halawi, Stella Biderman, Jacob Steinhardt. <a href="https://arxiv.org/abs/2303.08112" rel="noreferrer">Eliciting Latent Predictions from Transformers with the Tuned Lens</a>. arXiv, 2023.</p><p class="say"><b>Took:</b> the trained lens, as the comparison every other lens is measured against.</p><p class="say"><b>Different:</b> trained on our own text and scored on held-out positions against word frequency.</p></li>
+      <li><p class="cite">Koyena Pal, Jiuding Sun, Andrew Yuan, Byron C. Wallace, David Bau. <a href="https://arxiv.org/abs/2311.04897" rel="noreferrer">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</a>. CoNLL, 2023.</p><p class="say"><b>Took:</b> reading tokens further ahead than the next one, and its top-k measure.</p><p class="say"><b>Different:</b> all positions of real text, not only the ones the model gets right, with frequency and shuffled baselines.</p></li>
+      <li><p class="cite">nostalgebraist. The logit lens. Blog post, 2020.</p><p class="say"><b>Took:</b> reading a middle layer straight through the model&#x27;s own final output layer, with nothing learned in between.</p><p class="say"><b>Different:</b> we use it only as the simplest baseline; every other lens has to beat it.</p></li>
+    </ol>
+    <p class="say dim">Further reading: Hernandez et al., <a href="https://arxiv.org/abs/2308.09124" rel="noreferrer">Linearity of Relation Decoding in Transformer Language Models</a>, arXiv, 2023.</p>
   </section>
 </main>
 

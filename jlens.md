@@ -12,7 +12,7 @@ A 2026 paper, 'Verbalizable Representations Form a Global Workspace in Language 
 
 We build the lens, a map from each middle layer of the model to its final answer, from a set of documents.
 
-We score it on six documents it has never seen: how often its top guess is among the model's own next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.
+We score it on six documents it has never seen: how often its top guess is among the text's next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.
 
 Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.
 
@@ -51,5 +51,24 @@ Figure: Does our map get better with more documents? Distance from the model's o
 - prereg/: https://github.com/NotYourAverageAutomaton/j-lens/tree/main/prereg
 - j-lens repo: https://github.com/NotYourAverageAutomaton/j-lens
 - Corrections: /corrections.md
+
+## Built on
+
+Only the papers our method uses. For each: what we took, and what we did differently.
+
+1. Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, T. Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, Jack Lindsey. Verbalizable Representations Form a Global Workspace in Language Models. Anthropic, Transformer Circuits, 2026. https://transformer-circuits.pub/2026/workspace
+   Took: the Jacobian lens (the average derivative of the final state with respect to a middle layer) and its layer-by-layer signature.
+   Different: we built our own implementation from the paper, using the authors' code only as a check. We ran it on a different, larger model and scored it against a plain word-frequency guess.
+2. Nora Belrose, Igor Ostrovsky, Lev McKinney, Zach Furman, Logan Smith, Danny Halawi, Stella Biderman, Jacob Steinhardt. Eliciting Latent Predictions from Transformers with the Tuned Lens. arXiv, 2023. https://arxiv.org/abs/2303.08112
+   Took: the trained lens, as the comparison every other lens is measured against.
+   Different: trained on our own text and scored on held-out positions against word frequency.
+3. Koyena Pal, Jiuding Sun, Andrew Yuan, Byron C. Wallace, David Bau. Future Lens: Anticipating Subsequent Tokens from a Single Hidden State. CoNLL, 2023. https://arxiv.org/abs/2311.04897
+   Took: reading tokens further ahead than the next one, and its top-k measure.
+   Different: all positions of real text, not only the ones the model gets right, with frequency and shuffled baselines.
+4. nostalgebraist. The logit lens. Blog post, 2020.
+   Took: reading a middle layer straight through the model's own final output layer, with nothing learned in between.
+   Different: we use it only as the simplest baseline; every other lens has to beat it.
+
+Further reading: Hernandez et al., Linearity of Relation Decoding in Transformer Language Models, arXiv, 2023. https://arxiv.org/abs/2308.09124
 
 Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. Full text: /LICENSE

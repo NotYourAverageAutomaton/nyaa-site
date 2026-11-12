@@ -140,6 +140,16 @@
       <li><a href="/corrections.html">Corrections<span>what we got wrong, word for word</span></a></li>
     </ul>
   </section>
+
+  <section class="block" id="built-on" aria-labelledby="h-built">
+    <h2 class="lab" id="h-built">Built on</h2>
+    <p class="say">Only the papers our method uses. For each: what we took, and what we did differently.</p>
+    <ol class="cites">
+      <li><p class="cite">Xubin Hao, Hongjin Meng, Xin Yin, Jiawei Zhu, Chenpeng Cao. <a href="https://arxiv.org/abs/2607.00692" rel="noreferrer">Self-GC: Self-Governing Context for Long-Horizon LLM Agents</a>. arXiv, 2026.</p><p class="say"><b>Took:</b> memory as numbered objects that can be folded away with a pointer left behind, and fetched back when needed.</p><p class="say"><b>Different:</b> we test whether a folded decision is actually fetched back when asked, which the paper does not measure, on made-up dialogue rather than tool-heavy sessions.</p></li>
+      <li><p class="cite">Guanghui Min, Liang Wu, Mingjia Shi, Yinhan He, Mayank Darbari, Liangjie Hong, Chen Chen. <a href="https://arxiv.org/abs/2609.36526" rel="noreferrer">Adapting Context Compression for Long-Horizon Agents with Counterfactual Continuations</a>. arXiv, 2026.</p><p class="say"><b>Took:</b> damage from summarising concentrates at a few compaction steps, so we check memory after each step.</p><p class="say"><b>Different:</b> we only check after each step; we do not rerun alternative continuations as the paper does.</p></li>
+    </ol>
+    <p class="say dim">Further reading: Zhang et al., <a href="https://arxiv.org/abs/2611.08433" rel="noreferrer">MedGraph: Maintaining Patient State with Graph Memory for Long-Term Medical Dialogue</a>, arXiv, 2026 (read for our next design; not used yet).</p>
+  </section>
 </main>
 
 <footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>

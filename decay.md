@@ -36,4 +36,17 @@ The pre-registrations and result files are kept inside the lab for now. When the
 
 - Corrections: /corrections.md
 
+## Built on
+
+Only the papers our method uses. For each: what we took, and what we did differently.
+
+1. Xubin Hao, Hongjin Meng, Xin Yin, Jiawei Zhu, Chenpeng Cao. Self-GC: Self-Governing Context for Long-Horizon LLM Agents. arXiv, 2026. https://arxiv.org/abs/2607.00692
+   Took: memory as numbered objects that can be folded away with a pointer left behind, and fetched back when needed.
+   Different: we test whether a folded decision is actually fetched back when asked, which the paper does not measure, on made-up dialogue rather than tool-heavy sessions.
+2. Guanghui Min, Liang Wu, Mingjia Shi, Yinhan He, Mayank Darbari, Liangjie Hong, Chen Chen. Adapting Context Compression for Long-Horizon Agents with Counterfactual Continuations. arXiv, 2026. https://arxiv.org/abs/2609.36526
+   Took: damage from summarising concentrates at a few compaction steps, so we check memory after each step.
+   Different: we only check after each step; we do not rerun alternative continuations as the paper does.
+
+Further reading: Zhang et al., MedGraph: Maintaining Patient State with Graph Memory for Long-Term Medical Dialogue, arXiv, 2026 (read for our next design; not used yet). https://arxiv.org/abs/2611.08433
+
 Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. Full text: /LICENSE

@@ -232,3 +232,9 @@ main .note{max-width:1180px;margin:0 auto;padding-block:0 48px;color:var(--muted
 .fig .scroll{overflow-x:auto;scrollbar-color:var(--hairline) transparent}
 .fig svg{display:block;width:100%;height:auto}
 .fig .chart{min-width:640px}
+.cites{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:22px;max-width:66ch}
+.cites li{border-top:1px solid var(--hairline);padding-top:14px}
+.cites .cite{margin:0;color:var(--text);font-weight:600}
+.cites .cite a{color:var(--text);text-decoration-color:var(--brass);text-underline-offset:3px}
+.cites .say{margin:6px 0 0;max-width:none;color:var(--muted)} .cites .say b{color:var(--text);font-weight:600}
+#built-on .say.dim a{color:var(--muted)}
