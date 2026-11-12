@@ -11,6 +11,7 @@ Nothing on this site is hidden from machines: the dots and bars on the pages rep
 - [Home, plain text](/index.md): the front page and its menu
 - [Current experiments, plain text](/measured.md): one entry per experiment
 - [J-Lens, plain text](/jlens.md): the full breakdown, with every number written out
+- [Continuous Cognition, plain text](/decay.md): the memory-decay experiment, its test and where it stands
 - [Lab notebook, plain text](/notebook.md): the receipts in the notebook feed
 - [About us, plain text](/method.md): how we work, who we are, how to check us
 - [Corrections, plain text](/corrections.md): every correction we have made, beside the original

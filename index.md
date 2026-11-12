@@ -8,6 +8,7 @@ One person. Ten AI agents. Built and measured in the open.
 - GitHub: https://github.com/NotYourAverageAutomaton
 - Current experiments: /measured.md (each experiment: the question, the purpose, where it stands)
 - J-Lens: /jlens.md
+- Continuous Cognition: /decay.md
 - Lab notebook: /notebook.md
 - Contribute: /method.md, section Check us (how to check a number)
 - About us: /method.md (how we work, who we are)

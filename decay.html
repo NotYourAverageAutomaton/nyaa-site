@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Continuous Cognition · NYAA</title>
+<meta name="description" content="Can a memory-decay policy choose what to keep inside a fixed budget, without leaking what it should have dropped?">
+<link rel="alternate" type="text/markdown" href="/decay.md" title="Plain text">
+<link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
+<link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
+<link rel="help" type="text/plain" href="/llms.txt" title="For language models">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+
+<header class="topbar gut">
+  <a class="brand" href="/" aria-label="NYAA, home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
+      <span>NYAA</span>
+    </a>
+  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
+</header>
+<div class="pagehead gut">
+  <p class="lab"><a href="/measured.html">Current experiments</a> · <em>held</em></p>
+  <h1 class="big">Continuous Cognition</h1>
+  <p class="say">Can a memory-decay policy choose what to keep inside a fixed budget, without leaking what it should have dropped?</p>
+  <p class="say dim">Paused. The latest run is graded; the next candidate is being designed, and nothing runs until its pass marks are written.</p>
+</div>
+
+<main class="gut exp">
+  <section class="block" id="why" aria-labelledby="h-why">
+    <h2 class="lab" id="h-why">Why it matters</h2>
+    <p class="say">An agent that works for days keeps running out of room, and each time its older turns are boiled down to a summary. If the summary keeps the chatter and drops the decisions, the agent forgets why it is doing what it is doing. And a memory process that keeps everything, or lets out what it should forget, can't be trusted to run between turns on its own. People forget most details but keep what mattered; we want a version of that we can write down and test.</p>
+  </section>
+
+  <section class="block" id="how" aria-labelledby="h-how">
+    <h2 class="lab" id="h-how">How we test it</h2>
+    <p class="say">We feed the agent a long made-up conversation in six rounds. Each round plants decisions, some mentioned again later ("hot") and some never ("stale"), exact codes to copy, and fake passwords that must never be repeated.</p>
+    <p class="say">Whenever the conversation passes its limit, the policy under test boils the older part down to a fixed token budget. Afterwards we ask about every planted decision and code, and about decisions that were never planted, to catch guessing.</p>
+    <p class="say">A policy passes only if it stays within budget, keeps the hot decisions and keeps them clearly better than the stale ones, copies every code exactly, and repeats no password. No real conversation is used.</p>
+    <figure class="fig">
+      <div class="scroll"><svg class="diagram chart" viewBox="0 0 760 380" role="img" aria-labelledby="dd-t dd-d" xmlns="http://www.w3.org/2000/svg">
+<title id="dd-t">How we test a memory-decay policy</title>
+<desc id="dd-d">A made-up conversation in six rounds plants hot and stale decisions, exact codes and fake passwords. Whenever it passes its limit, the policy under test boils the older part down to a fixed token budget. Afterwards we ask about every planted decision and code, and about decisions never planted. A policy passes only if it stays in budget, keeps hot decisions clearly better than stale ones, copies every code exactly and repeats no password.</desc>
+<defs><marker id="dd-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
+<text x="20" y="22" fill="var(--muted)" font-family="var(--mono)" font-size="11">1 · THE CONVERSATION (MADE UP)</text>
+<rect x="20" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="37" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">1</text>
+<rect x="60" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="77" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">2</text>
+<rect x="100" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="117" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">3</text>
+<rect x="140" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="157" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">4</text>
+<rect x="180" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="197" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">5</text>
+<rect x="220" y="34" width="34" height="26" rx="5" fill="var(--panel)" stroke="var(--hairline)"/>
+<text x="237" y="51" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">6</text>
+<text x="20" y="80" fill="var(--muted)" font-family="var(--body)" font-size="11.5">six rounds; each plants:</text>
+<rect x="20" y="92" width="252" height="112" rx="8" fill="var(--panel)" stroke="var(--cyan)" stroke-width="1.4"/>
+<text x="32" y="114" fill="var(--cyan)" font-family="var(--body)" font-size="13" font-weight="700">What each round plants</text>
+<text x="32" y="132" fill="var(--muted)" font-family="var(--body)" font-size="11.5">decisions mentioned again later (hot)</text>
+<text x="32" y="147" fill="var(--muted)" font-family="var(--body)" font-size="11.5">decisions never mentioned again (stale)</text>
+<text x="32" y="162" fill="var(--muted)" font-family="var(--body)" font-size="11.5">exact codes to copy</text>
+<text x="32" y="177" fill="var(--muted)" font-family="var(--body)" font-size="11.5">fake passwords that must never be repeated</text>
+<text x="290" y="22" fill="var(--muted)" font-family="var(--mono)" font-size="11">2 · OVER THE LIMIT</text>
+<rect x="290" y="34" width="200" height="120" rx="8" fill="var(--panel)" stroke="var(--magenta)" stroke-width="1.4"/>
+<text x="302" y="56" fill="var(--magenta)" font-family="var(--body)" font-size="13" font-weight="700">The policy under test</text>
+<text x="302" y="74" fill="var(--muted)" font-family="var(--body)" font-size="11.5">boils the older part of the</text>
+<text x="302" y="89" fill="var(--muted)" font-family="var(--body)" font-size="11.5">conversation down to a</text>
+<text x="302" y="104" fill="var(--muted)" font-family="var(--body)" font-size="11.5">fixed token budget, each time</text>
+<text x="302" y="119" fill="var(--muted)" font-family="var(--body)" font-size="11.5">the conversation passes its</text>
+<text x="302" y="134" fill="var(--muted)" font-family="var(--body)" font-size="11.5">limit</text>
+<line x1="274" y1="120" x2="288" y2="100" stroke="var(--muted)" stroke-width="1.4" marker-end="url(#dd-a)"/>
+<text x="530" y="22" fill="var(--muted)" font-family="var(--mono)" font-size="11">3 · THE QUESTIONS</text>
+<rect x="530" y="34" width="210" height="120" rx="8" fill="var(--panel)" stroke="var(--brass)" stroke-width="1.4"/>
+<text x="542" y="56" fill="var(--brass)" font-family="var(--body)" font-size="13" font-weight="700">Afterwards we ask about</text>
+<text x="542" y="74" fill="var(--muted)" font-family="var(--body)" font-size="11.5">every planted decision</text>
+<text x="542" y="89" fill="var(--muted)" font-family="var(--body)" font-size="11.5">every planted code</text>
+<text x="542" y="104" fill="var(--muted)" font-family="var(--body)" font-size="11.5">decisions that were never</text>
+<text x="542" y="119" fill="var(--muted)" font-family="var(--body)" font-size="11.5">planted, to catch guessing</text>
+<line x1="492" y1="94" x2="528" y2="94" stroke="var(--muted)" stroke-width="1.4" marker-end="url(#dd-a)"/>
+<text x="20" y="250" fill="var(--muted)" font-family="var(--mono)" font-size="11">4 · TO PASS, ALL FOUR MUST HOLD</text>
+<rect x="20" y="262" width="172" height="70" rx="8" fill="var(--panel)" stroke="var(--hairline)" stroke-width="1.4"/>
+<text x="32" y="284" fill="var(--text)" font-family="var(--body)" font-size="13" font-weight="700">In budget</text>
+<text x="32" y="302" fill="var(--muted)" font-family="var(--body)" font-size="11.5">fits its fixed budget</text>
+<rect x="202" y="262" width="172" height="70" rx="8" fill="var(--panel)" stroke="var(--hairline)" stroke-width="1.4"/>
+<text x="214" y="284" fill="var(--text)" font-family="var(--body)" font-size="13" font-weight="700">Hot kept</text>
+<text x="214" y="302" fill="var(--muted)" font-family="var(--body)" font-size="11.5">kept, and clearly</text>
+<text x="214" y="317" fill="var(--muted)" font-family="var(--body)" font-size="11.5">ahead of stale</text>
+<rect x="384" y="262" width="172" height="70" rx="8" fill="var(--panel)" stroke="var(--hairline)" stroke-width="1.4"/>
+<text x="396" y="284" fill="var(--text)" font-family="var(--body)" font-size="13" font-weight="700">Codes exact</text>
+<text x="396" y="302" fill="var(--muted)" font-family="var(--body)" font-size="11.5">every code copied exactly</text>
+<rect x="566" y="262" width="172" height="70" rx="8" fill="var(--panel)" stroke="var(--hairline)" stroke-width="1.4"/>
+<text x="578" y="284" fill="var(--text)" font-family="var(--body)" font-size="13" font-weight="700">No password</text>
+<text x="578" y="302" fill="var(--muted)" font-family="var(--body)" font-size="11.5">no fake password repeated</text>
+<path d="M635,156 C 640,200 560,230 450,258" fill="none" stroke="var(--brass)" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#dd-a)"/>
+<text x="20" y="360" fill="var(--muted)" font-family="var(--body)" font-size="11.5">Miss any one and the policy fails. No real conversation is used, only made-up text.</text>
+</svg></div>
+      <p class="cap">How we test a memory-decay policy: one made-up conversation, a fixed budget, and four pass marks that must all hold. Drawn from the method above.</p>
+    </figure>
+  </section>
+
+  <section class="block" id="where" aria-labelledby="h-where">
+    <h2 class="lab" id="h-where">Where we are</h2>
+    <p class="say">Few results are measured, and most are failures.</p>
+    <ol class="timeline">
+      <li><span class="when">2026-11-10</span><p class="say">The agent's live summarizer failed every pass mark on 3 of 3 seeds. The summary ran up to 2.8 times over budget, and stale decisions were kept as often as hot ones.</p><p class="cap">Record kept inside the lab for now.</p></li>
+      <li><span class="when">2026-11-10</span><p class="say">A fix that keeps decision lines when the summarizer's input is cut passed its pre-written bar: 162 of 170 decisions kept (bar 0.80).</p><p class="cap">Record kept inside the lab for now.</p></li>
+      <li><span class="when">2026-11-11</span><p class="say">Three policies, 3 seeds each: the live summarizer, a plain cut of the oldest lines, and a candidate that folds and prunes its notes. None kept hot decisions better than stale ones (gap 0.03 or less on all 9 runs). The candidate stayed in budget and kept the newest round, but lost most of the rest, did worse than the live summarizer, and repeated one fake password in an answer on two seeds. All three failed.</p><p class="cap">Record kept inside the lab for now.</p></li>
+    </ol>
+  </section>
+
+  <section class="block" id="next" aria-labelledby="h-next">
+    <h2 class="lab" id="h-next">What's next</h2>
+    <p class="say">A revised candidate that never cuts a decision line, fetches the right note when asked, and is gated on zero passwords repeated, with its pass marks written and co-signed before anything is built.</p>
+  </section>
+
+  <section class="block" id="evidence" aria-labelledby="h-evidence">
+    <h2 class="lab" id="h-evidence">Evidence</h2>
+    <p class="say">The pre-registrations and result files are kept inside the lab for now. When they are published, they will be linked here.</p>
+    <ul class="links">
+      <li><a href="/corrections.html">Corrections<span>what we got wrong, word for word</span></a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
+<script>
+document.documentElement.classList.add("js");
+(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
+if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
+vz.forEach(function(v){io.observe(v);});})();
+</script>
+</body>
+</html>
