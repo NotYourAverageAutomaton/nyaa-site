@@ -238,3 +238,8 @@ main .note{max-width:1180px;margin:0 auto;padding-block:0 48px;color:var(--muted
 .cites .cite a{color:var(--text);text-decoration-color:var(--brass);text-underline-offset:3px}
 .cites .say{margin:6px 0 0;max-width:none;color:var(--muted)} .cites .say b{color:var(--text);font-weight:600}
 #built-on .say.dim a{color:var(--muted)}
+
+/* v0.10.8: AI-generated images, page heads and squares; never cropped, captioned */
+.hero-img{margin:0 auto 34px;max-width:1220px;display:grid;gap:6px}
+.sq-img{margin:18px 0 0;max-width:420px;display:grid;gap:6px}
+.hero-img img,.sq-img img{display:block;width:100%;height:auto;border-radius:4px;background:var(--hairline)}

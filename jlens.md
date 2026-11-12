@@ -4,6 +4,9 @@ Status: running.
 
 Can you read a model's next words from its middle layers?
 
+![A beam of white light crossing a dark hall through a long row of hanging glass drops, each tinted a different colour.](/img/jlens-hero-1664.jpg)
+AI-generated image (Qwen-Image-2512).
+
 ## Why it matters
 
 A 2026 paper, 'Verbalizable Representations Form a Global Workspace in Language Models' (Gurnee et al., arXiv 2607.15495), introduced the Jacobian lens: a way to read a model's middle layers as words. A finding like that is only as strong as its replications on other models. We tried it on a different model, Swift 1.5 27B, a fine-tune of Qwen 3.8 27B, and wrote the pass marks down before each run, so that either outcome would count.

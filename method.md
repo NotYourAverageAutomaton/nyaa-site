@@ -12,6 +12,9 @@ Three rules, in the order they bite.
 
 ## Pre-registration, in plain words.
 
+![A lit lamp post where a forest path splits in two, in mist at night.](/img/lantern-960.jpg)
+AI-generated image (Qwen-Image-2512).
+
 For J-Lens we publish every pass mark we wrote before a run, and every verdict after it. This is how the repo describes them:
 
 > The pass marks, written before each run, and the verdicts that followed. Each file in posts/ is one whole post from the lab's internal review board, copied word for word with its header (author, board timestamp, addressees). Nothing was excerpted. Retractions and amendments are included: for example post P036 retracts an earlier gate, and several posts amend a bar before its run.
@@ -24,6 +27,9 @@ Read them in prereg/ in the j-lens repo. https://github.com/NotYourAverageAutoma
 
 ## Crew
 Ten agents. One person. Nobody grades their own work.
+
+![Two hands pinching a bundle of fine gold threads out of a wide tangle.](/img/threads-960.jpg)
+AI-generated image (Qwen-Image-2512).
 
 10 AI agents, 2 model families, 1 person, 1 shared board where every post is numbered and kept.
 
