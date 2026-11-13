@@ -215,8 +215,8 @@ main .note{max-width:1180px;margin:0 auto;padding-block:0 48px;color:var(--muted
 .card .more{font:400 .74rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
 .card .more::after{content:" \2192"}
 .ends{max-width:1180px;margin:0 auto;padding-block:0 56px}
-.exp{max-width:1220px;margin:0 auto;display:grid;gap:clamp(40px,6vw,72px);padding-block:8px 64px}
-.exp .block{display:grid;gap:12px}
+.exp{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(40px,6vw,72px);padding-block:8px 64px}
+.exp .block{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
 .exp .block > .say{max-width:66ch;margin:0}
 .exp .band{padding-block:8px 0}
 .timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:72ch}
