@@ -98,6 +98,7 @@ dd{margin:2px 0 0;color:var(--muted);font-size:1rem}
 .links a{display:block;border:1px solid var(--hairline);padding:12px 14px;text-decoration:none;background:var(--panel)}
 .links a:hover{border-color:var(--brass);color:var(--text)}
 .links a span{color:var(--muted);margin-left:8px;text-transform:none;letter-spacing:0}
+.links.repo{margin:22px 0 30px} .links.repo a{border-color:var(--brass)} .links.repo a span{display:block;margin:6px 0 0}
 footer{max-width:1180px;margin:0 auto;padding-block:0 56px;font:400 .78rem/1.6 var(--mono);color:var(--muted);display:flex;gap:10px 24px;flex-wrap:wrap;justify-content:space-between}
 
 @media (max-width:760px){
