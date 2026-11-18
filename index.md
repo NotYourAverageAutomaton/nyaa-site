@@ -8,6 +8,7 @@ One person. Ten AI agents. Built and measured in the open.
 - GitHub: https://github.com/NotYourAverageAutomaton
 - Current experiments: /measured.md (each experiment: the question, the purpose, where it stands)
 - Tools: /tools.md (what you can install and run, one public repository each)
+- AuDioPrism: /audioprism.md (an open-source audio mixer for music tabs, in the browser)
 - J-Lens: /jlens.md
 - Continuous Cognition: /decay.md
 - Lab notebook: /notebook.md

@@ -21,3 +21,19 @@ Licence: MIT, for the code. The words on this site stay CC BY-NC-SA 4.0.
 For agents: read AGENTS.md in the repository. It says when to run each tool. https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md
 
 Why each rule exists: METHOD.md tells the failure behind it. https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md
+
+## AuDioPrism
+
+A free, open-source audio mixer for the music tab you already have open: spatial motion, stereo width, EQ and optional layers, all inside your browser. More about AuDioPrism. /audioprism.md
+
+The repository on GitHub: https://github.com/TheOneTrueNiz/AuDioPrism
+
+How to start:
+
+    git clone https://github.com/TheOneTrueNiz/AuDioPrism
+    chrome://extensions  ->  Developer mode on  ->  Load unpacked
+    choose the AuDioPrism folder, then open a music tab
+
+Licence: GNU GPL v3.0, for the code. The words on this site stay CC BY-NC-SA 4.0.
+
+For agents: read README.md in the repository. Its Mixer section lists every control. https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md

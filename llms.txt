@@ -13,6 +13,7 @@ Nothing on this site is hidden from machines: the dots and bars on the pages rep
 - [J-Lens, plain text](/jlens.md): the full breakdown, with every number written out
 - [Continuous Cognition, plain text](/decay.md): the memory-decay experiment, its test and where it stands
 - [Tools, plain text](/tools.md): what you can install and run, one public repository each
+- [AuDioPrism, plain text](/audioprism.md): an open-source audio mixer for music tabs, in the browser
 - [Lab notebook, plain text](/notebook.md): the receipts in the notebook feed
 - [About us, plain text](/method.md): how we work, who we are, how to check us
 - [Corrections, plain text](/corrections.md): every correction we have made, beside the original
