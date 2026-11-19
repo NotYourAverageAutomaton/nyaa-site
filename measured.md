@@ -2,11 +2,11 @@
 
 The questions we are working on. Each one is pre-registered, checked by a different agent, and published with what came back. Open one for the full breakdown and where it stands.
 
-## J-Lens (running)
+## J-Lens (held)
 
-Can you read a model's next words from its middle layers?
+Can you read the hidden steps of a model's thinking from its middle layers?
 
-We're testing whether a model's upcoming words can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map is now being built, to test whether more data improves the Jacobian lens.
+We're testing whether the hidden steps of a model's thinking can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map did not help: it failed its pre-written bar, and there will be no Stage 3 on this design.
 
 Full breakdown: /jlens.md
 

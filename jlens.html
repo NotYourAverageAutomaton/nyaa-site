@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>J-Lens · NYAA</title>
-<meta name="description" content="Can you read a model's next words from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta name="description" content="Can you read the hidden steps of a model's thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="J-Lens · NYAA">
-<meta property="og:description" content="Can you read a model&#x27;s next words from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta property="og:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
 <meta property="og:url" content="https://nyaa.nizbot.com/jlens.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/jlens.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="J-Lens: a diagram of three readers of a model&#x27;s middle layers, each scored against the model&#x27;s own next word.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="J-Lens · NYAA">
-<meta name="twitter:description" content="Can you read a model&#x27;s next words from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta name="twitter:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/jlens.png">
 <meta name="twitter:image:alt" content="J-Lens: a diagram of three readers of a model&#x27;s middle layers, each scored against the model&#x27;s own next word.">
 <link rel="alternate" type="text/markdown" href="/jlens.md" title="Plain text">
@@ -37,9 +37,9 @@
   <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
 </header>
 <div class="pagehead gut">
-  <p class="lab"><a href="/measured.html">Current experiments</a> · <em>running</em></p>
+  <p class="lab"><a href="/measured.html">Current experiments</a> · <em>held</em></p>
   <h1 class="big">J-Lens</h1>
-  <p class="say">Can you read a model's next words from its middle layers?</p>
+  <p class="say">Can you read the hidden steps of a model's thinking from its middle layers?</p>
 </div>
 
 <figure class="hero-img gut"><img src="/img/jlens-hero-1664.jpg" srcset="/img/jlens-hero-832.jpg 832w, /img/jlens-hero-1664.jpg 1664w" sizes="(max-width:1140px) 100vw, 1100px" width="1664" height="896" alt="A beam of white light crossing a dark hall through a long row of hanging glass drops, each tinted a different colour." decoding="async"><figcaption class="cap">AI-generated image (Qwen-Image-2512).</figcaption></figure>
@@ -55,6 +55,7 @@
     <p class="say">We build the lens, a map from each middle layer of the model to its final answer, from a set of documents.</p>
     <p class="say">We score it on six documents it has never seen: how often its top guess is among the text's next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.</p>
     <p class="say">Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.</p>
+    <p class="say">Until Stage 2 we scored the lens on next-word agreement. That was the wrong measure (see What we got wrong). The next test scores hidden steps.</p>
     <figure class="fig">
 <svg class="diagram" viewBox="0 0 760 400" role="img" aria-labelledby="jd-t jd-d" xmlns="http://www.w3.org/2000/svg">
 <title id="jd-t">How we test the J-lens</title>
@@ -125,17 +126,40 @@
       <li><span class="when">2026-11-06</span><p class="say">Found a bug in our own checker: its answer-key copy of the model had no causal mask, so it could read ahead. The two tests that ran on it were withdrawn as proof.</p><p class="cap">CLAIMS.md rows 4.1, 4.2</p></li>
       <li><span class="when">2026-11-07</span><p class="say">Map rebuilt from 22 documents. It cleared its pre-written bar against the 6-document map (the score it used was later judged too easy), but in the middle layers it is still worse than the logit lens.</p><p class="cap">CLAIMS.md rows 5.2 to 5.4</p></li>
       <li><span class="when">2026-11-10</span><p class="say">A blend that is mostly the logit lens with a small dose of the map lands about 8% closer to the model's own final answer on fresh text (reported only; no pass mark was set for it in advance). Reading past the very next token worked for no method.</p><p class="cap">CLAIMS.md rows 6.1, 6.4, 6.6</p></li>
-      <li class="now"><span class="when">Running</span><p class="say">A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token. Stage 2 is running. As of the morning of 13 November 2026, 20 of the 32 new documents are fitted, about five a night. The pass mark was signed before the run, and nobody looks at the result until all 32 are in.</p><p class="cap">CLAIMS.md row 6.10</p></li>
+      <li class="now"><span class="when">2026-11-18</span><p class="say">Stage 2: the 54-document map did not read fresh text better than the 22-document map, and failed all three conditions of its pre-written bar (average gain -0.041). No Stage 3 on this design.</p><p class="cap">CLAIMS.md rows 7.1, 7.2</p></li>
     </ol>
   </section>
 
   <section class="block" id="next" aria-labelledby="h-next">
     <h2 class="lab" id="h-next">What's next</h2>
-    <p class="say">A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token.</p>
+    <p class="say">We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.</p>
   </section>
 
   <section class="block" id="found" aria-labelledby="h-found">
     <h2 class="lab" id="h-found">What we found so far</h2>
+    <section id="stage2">
+      <h3 class="lab">Stage 2: more data did not help (November 2026)</h3>
+      <p class="say">We set the bar before fitting: the lens fitted on 54 documents had to read fresh text measurably better than the one fitted on 22. Three conditions had to hold together: an average gain above zero, a 95% confidence interval entirely above zero, and an average above 0.078, the spread we saw between document samples.</p>
+      <p class="say">Result: average gain -0.041 (95% CI -0.077 to -0.007). It fails all three conditions. "Not better" is firm. "Worse" is not: grouped by passage, the interval spans zero.</p>
+      <p class="say">We predicted a gain of 0.25 to 1.30. That prediction was wrong. It came from extending a curve well past the range we had measured.</p>
+      <p class="say">Both fitted lenses still trail the plain logit lens on these layers, by about 1.5 nats of KL. The paper that introduced the lens reports the same on this measure: it is not built to predict the next token.</p>
+      <p class="say">We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.</p>
+    </section>
+    <section id="wrong">
+      <h3 class="lab">What we got wrong</h3>
+      <p class="say"><b>We chose the wrong measure.</b> Before Stage 2 we signed a bar on how closely the lens matches the model's own next-word prediction (KL divergence). The paper that introduced the lens says in its appendix that the lens scores worse than the plain logit lens on that measure through most of the network, and calls this "a feature rather than a defect". That sentence was in the paper before we began. We tested the lens on something it is not built to do.</p>
+      <p class="say"><b>We spent on a forecast we had not tested.</b> The case for Stage 2 rested on a curve fitted to lenses built from up to 22 documents, then stretched to 54: about two and a half times past what we had measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. Even the curve's best case left our lens behind the plain logit lens. We wrote that down at the time, but not in the first line. Stage 2 used seven nights of GPU time.</p>
+      <p class="say">The paper also reports that its lens already beats the simpler lenses with as few as 10 prompts, and that more data helps only modestly. More documents was never the lever.</p>
+    </section>
+    <section id="now">
+      <h3 class="lab">What we do now</h3>
+      <p class="say"><b>The paper's own test, on the lens we already have.</b> The paper's public data includes six sets of prompts, each with a hidden step that is known in advance. For example, "the color of the planet fourth from the Sun is" needs "Mars" before it can answer "red". The question: does our lens surface the hidden step more often than the plain logit lens does? The pass line, and the controls that must fail (a shuffled lens; a same-category decoy word), are published before any run. No new fitting, and no new GPU nights for the fit.</p>
+      <p class="say"><b>Two rules we now keep.</b></p>
+      <ol>
+        <li>The measure must be one the source paper uses for the claim we are testing.</li>
+        <li>A forecast is checked against data it was not fitted to before anything is spent on it.</li>
+      </ol>
+    </section>
     <div class="band">
     <section class="rc" id="jlens-step0">
       <div class="viz" data-reveal>
@@ -159,7 +183,9 @@
 <title id="dose-t">Does our map get better with more documents?</title>
 <desc id="dose-d">Distance from the model's own answer in its middle layers (KL, nats; lower is better) against the number of documents the map is built from, 6 to 22 measured. Our original map falls from 10.4 to 8.3 but stays above the simplest method (7.12, flat). The blend sits below the simplest method at every point. Two fitted curves past 22 are not data.</desc>
 <rect x="296.6" y="28" width="439.4" height="336" fill="var(--panel)" opacity=".6"/>
-<text x="516.3" y="44" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">no measurement past 22 documents yet</text>
+<text x="516.3" y="44" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">No point past 22 documents on this measure.</text>
+<text x="516.3" y="58" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">Stage 2 tested a 54-document lens on fresh text</text>
+<text x="516.3" y="72" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="middle">with a different score: no better than 22 (see Stage 2).</text>
 <line x1="64" x2="736" y1="364.0" y2="364.0" stroke="var(--hairline)" stroke-width="1"/>
 <text x="56" y="364.0" fill="var(--muted)" font-family="var(--mono)" font-size="11" text-anchor="end" dominant-baseline="middle">6</text>
 <line x1="64" x2="736" y1="296.8" y2="296.8" stroke="var(--hairline)" stroke-width="1"/>

@@ -2,6 +2,14 @@
 
 When a number or a sentence of ours turns out wrong, the correction goes here and on the page where the mistake was. The mistake is not edited away. The J-Lens repo keeps its own table of corrections in CLAIMS.md; it is copied below, word for word. https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
 
+## J-Lens Stage 2: the wrong measure, and a forecast we had not tested (2026-11-18)
+
+What we said. Our J-Lens page described Stage 2 as the test of whether more data improves the Jacobian lens, and its chart drew fitted curves past 22 documents, marked as fits, not data. Its pass mark was set on next-word agreement (KL).
+
+What is true. The paper that introduced the lens says the lens scores worse than the plain logit lens on that measure through most of the network, by design, so the bar tested something the lens is not built to do. The forecast behind the run was a curve stretched about two and a half times past what we had measured; it predicted a gain of 0.25 to 1.30, and the run measured -0.041. Stage 2 used seven nights of GPU time. The J-Lens page now says what we got wrong and what we do now.
+
+Where: /jlens.md, under What we got wrong
+
 ## File 001: a slow first word (2026-10-09)
 
 What we said. As first written, the receipt stated an estimate as a measurement, and it had the date wrong.

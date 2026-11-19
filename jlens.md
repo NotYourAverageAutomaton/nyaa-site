@@ -1,8 +1,8 @@
 # J-Lens
 
-Status: running.
+Status: held.
 
-Can you read a model's next words from its middle layers?
+Can you read the hidden steps of a model's thinking from its middle layers?
 
 ![A beam of white light crossing a dark hall through a long row of hanging glass drops, each tinted a different colour.](/img/jlens-hero-1664.jpg)
 AI-generated image (Qwen-Image-2512).
@@ -19,6 +19,8 @@ We score it on six documents it has never seen: how often its top guess is among
 
 Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.
 
+Until Stage 2 we scored the lens on next-word agreement. That was the wrong measure (see What we got wrong). The next test scores hidden steps.
+
 Figure: How we test the J-lens: three readers of the model's middle layers, each scored against the model's own answer. Drawn from the method above.
 
 ## Where we are
@@ -29,13 +31,42 @@ Figure: How we test the J-lens: three readers of the model's middle layers, each
 - 2026-11-06: Found a bug in our own checker: its answer-key copy of the model had no causal mask, so it could read ahead. The two tests that ran on it were withdrawn as proof. (CLAIMS.md rows 4.1, 4.2)
 - 2026-11-07: Map rebuilt from 22 documents. It cleared its pre-written bar against the 6-document map (the score it used was later judged too easy), but in the middle layers it is still worse than the logit lens. (CLAIMS.md rows 5.2 to 5.4)
 - 2026-11-10: A blend that is mostly the logit lens with a small dose of the map lands about 8% closer to the model's own final answer on fresh text (reported only; no pass mark was set for it in advance). Reading past the very next token worked for no method. (CLAIMS.md rows 6.1, 6.4, 6.6)
-- Running: A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token. Stage 2 is running. As of the morning of 13 November 2026, 20 of the 32 new documents are fitted, about five a night. The pass mark was signed before the run, and nobody looks at the result until all 32 are in. (CLAIMS.md row 6.10)
+- 2026-11-18: Stage 2: the 54-document map did not read fresh text better than the 22-document map, and failed all three conditions of its pre-written bar (average gain -0.041). No Stage 3 on this design. (CLAIMS.md rows 7.1, 7.2)
 
 ## What's next
 
-A bigger map: 54 documents instead of 22, planned over seven nights, with its pass mark signed before the run. Nobody looks at the result until it is finished. It tests whether more data improves the Jacobian lens against the logit lens; it does not re-test reading past the next token.
+We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.
 
 ## What we found so far
+
+### Stage 2: more data did not help (November 2026)
+
+We set the bar before fitting: the lens fitted on 54 documents had to read fresh text measurably better than the one fitted on 22. Three conditions had to hold together: an average gain above zero, a 95% confidence interval entirely above zero, and an average above 0.078, the spread we saw between document samples.
+
+Result: average gain -0.041 (95% CI -0.077 to -0.007). It fails all three conditions. "Not better" is firm. "Worse" is not: grouped by passage, the interval spans zero.
+
+We predicted a gain of 0.25 to 1.30. That prediction was wrong. It came from extending a curve well past the range we had measured.
+
+Both fitted lenses still trail the plain logit lens on these layers, by about 1.5 nats of KL. The paper that introduced the lens reports the same on this measure: it is not built to predict the next token.
+
+We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.
+
+### What we got wrong
+
+**We chose the wrong measure.** Before Stage 2 we signed a bar on how closely the lens matches the model's own next-word prediction (KL divergence). The paper that introduced the lens says in its appendix that the lens scores worse than the plain logit lens on that measure through most of the network, and calls this "a feature rather than a defect". That sentence was in the paper before we began. We tested the lens on something it is not built to do.
+
+**We spent on a forecast we had not tested.** The case for Stage 2 rested on a curve fitted to lenses built from up to 22 documents, then stretched to 54: about two and a half times past what we had measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. Even the curve's best case left our lens behind the plain logit lens. We wrote that down at the time, but not in the first line. Stage 2 used seven nights of GPU time.
+
+The paper also reports that its lens already beats the simpler lenses with as few as 10 prompts, and that more data helps only modestly. More documents was never the lever.
+
+### What we do now
+
+**The paper's own test, on the lens we already have.** The paper's public data includes six sets of prompts, each with a hidden step that is known in advance. For example, "the color of the planet fourth from the Sun is" needs "Mars" before it can answer "red". The question: does our lens surface the hidden step more often than the plain logit lens does? The pass line, and the controls that must fail (a shuffled lens; a same-category decoy word), are published before any run. No new fitting, and no new GPU nights for the fit.
+
+**Two rules we now keep.**
+
+1. The measure must be one the source paper uses for the claim we are testing.
+2. A forecast is checked against data it was not fitted to before anything is spent on it.
 
 ### Results so far, run by run.
 J-Lens. Status: results so far. Not filed in the notebook yet.

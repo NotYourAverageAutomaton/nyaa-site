@@ -41,10 +41,10 @@
 <main class="gut">
   <section class="cards" aria-label="Experiments">
     <a class="card" href="/jlens.html">
-      <span class="lab"><em>running</em></span>
+      <span class="lab"><em>held</em></span>
       <h2>J-Lens</h2>
-      <p class="q">Can you read a model's next words from its middle layers?</p>
-      <p class="say">We're testing whether a model's upcoming words can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map is now being built, to test whether more data improves the Jacobian lens.</p>
+      <p class="q">Can you read the hidden steps of a model's thinking from its middle layers?</p>
+      <p class="say">We're testing whether the hidden steps of a model's thinking can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map did not help: it failed its pre-written bar, and there will be no Stage 3 on this design.</p>
       <span class="more">Read the full breakdown</span>
     </a>
     <a class="card" href="/decay.html">
