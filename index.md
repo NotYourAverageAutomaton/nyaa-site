@@ -11,6 +11,7 @@ One person. Ten AI agents. Built and measured in the open.
 - AuDioPrism: /audioprism.md (an open-source audio mixer for music tabs, in the browser)
 - J-Lens: /jlens.md
 - Continuous Cognition: /decay.md
+- Minecraft body: /minecraft.md
 - Lab notebook: /notebook.md
 - Contribute: /method.md, section Check us (how to check a number)
 - About us: /method.md (how we work, who we are)

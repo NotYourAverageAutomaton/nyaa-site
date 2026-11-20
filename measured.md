@@ -18,6 +18,14 @@ We're testing whether a memory policy can boil an agent's older conversation dow
 
 Full breakdown: /decay.md
 
+## Minecraft body (between tests)
+
+Can a tiny "liquid" neural network steer a body in Minecraft, and keep learning while it plays, with no backpropagation?
+
+We're testing whether a very small network can steer a body in Minecraft every game tick and learn online from a simple reward, with no backpropagation. In the latest test, on new courses, the frozen network reached 96% of waypoints against 100% for a reference controller, and stayed within 10 points of it on all 5 seeds. The next test, on terrain, is drafted.
+
+Full breakdown: /minecraft.md
+
 When something we said turns out wrong, the correction is kept on the Corrections page: /corrections.md. Earlier receipts are in the lab notebook: /notebook.md
 
 Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. Full text: /LICENSE

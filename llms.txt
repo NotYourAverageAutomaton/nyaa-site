@@ -12,6 +12,7 @@ Nothing on this site is hidden from machines: the dots and bars on the pages rep
 - [Current experiments, plain text](/measured.md): one entry per experiment
 - [J-Lens, plain text](/jlens.md): the full breakdown, with every number written out
 - [Continuous Cognition, plain text](/decay.md): the memory-decay experiment, its test and where it stands
+- [Minecraft body, plain text](/minecraft.md): a small liquid network steering a body in Minecraft, its test and where it stands
 - [Tools, plain text](/tools.md): what you can install and run, one public repository each
 - [AuDioPrism, plain text](/audioprism.md): an open-source audio mixer for music tabs, in the browser
 - [Lab notebook, plain text](/notebook.md): the receipts in the notebook feed
