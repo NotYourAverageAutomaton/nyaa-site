@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>AuDioPrism · NYAA</title>
-<meta name="description" content="A free, open-source audio mixer for the music tab you already have open, running entirely in your browser.">
+<meta name="description" content="AuDioPrism is a free, open-source mixer for the music tab you already have open. It takes the sound coming out of that tab, shapes it, and plays it back to you, all inside your browser.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="AuDioPrism · NYAA">
-<meta property="og:description" content="A free, open-source audio mixer for the music tab you already have open, running entirely in your browser.">
+<meta property="og:description" content="AuDioPrism is a free, open-source mixer for the music tab you already have open. It takes the sound coming out of that tab, shapes it, and plays it back to you, all inside your browser.">
 <meta property="og:url" content="https://nyaa.nizbot.com/audioprism.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AuDioPrism · NYAA">
-<meta name="twitter:description" content="A free, open-source audio mixer for the music tab you already have open, running entirely in your browser.">
+<meta name="twitter:description" content="AuDioPrism is a free, open-source mixer for the music tab you already have open. It takes the sound coming out of that tab, shapes it, and plays it back to you, all inside your browser.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/audioprism.md" title="Plain text">
@@ -26,74 +26,65 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/audioprism.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut">
-  <h1 class="big">AuDioPrism</h1>
-  <p class="say">AuDioPrism is a free, open-source audio mixer for the music tab you already have open. It takes the sound of that tab, shapes it, and plays it back, all inside your browser.</p>
-  <p class="say dim">Install it from <a href="https://chromewebstore.google.com/detail/audioprism/hmnmmjgdkafjgeoocljkljpnlbgainfg">the Chrome Web Store</a>, or from its source in four steps below.</p>
-</div>
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">AuDioPrism</h1><p class="say">AuDioPrism is a free, open-source mixer for the music tab you already have open. It takes the sound coming out of that tab, shapes it, and plays it back to you, all inside your browser.</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
-<main class="gut exp">
-  <section class="block" id="links" aria-labelledby="h-links">
-    <h2 class="lab" id="h-links">Get it</h2>
-    <ul class="links repo">
-      <li><a href="https://chromewebstore.google.com/detail/audioprism/hmnmmjgdkafjgeoocljkljpnlbgainfg">Install from the Chrome Web Store<span>chromewebstore.google.com</span></a></li>
-      <li><a href="https://github.com/TheOneTrueNiz/AuDioPrism">Source and issues on GitHub<span>TheOneTrueNiz/AuDioPrism</span></a></li>
-      <li><a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/PRIVACY.md">Privacy policy<span>PRIVACY.md</span></a></li>
-    </ul>
-    <h3 class="lab">Install from source</h3>
-    <p class="say">1. Download or clone the repository from GitHub (the GitHub link above).</p>
-    <p class="say">2. In Chrome, open chrome://extensions and turn on Developer mode.</p>
-    <p class="say">3. Click Load unpacked and choose the AuDioPrism folder.</p>
-    <p class="say">4. Open a music tab and press the AuDioPrism button.</p>
-  </section>
-  <section class="block" id="what" aria-labelledby="h-what">
-    <h2 class="lab" id="h-what">What it does</h2>
-    <figure class="fig"><img src="/img/audioprism-mixer.jpg" width="1280" height="800" alt="The AuDioPrism mixer panel: an 8D spatial card with speed and depth knobs and an Orbit path, stereo field, dynamics, binaural, isochronic, masking, harmonics and sensory EQ cards, and master level and EQ sliders."><figcaption class="cap">AuDioPrism&rsquo;s mixer: a screenshot of the extension running in Chrome. The track title and cover on the player strip are blurred.</figcaption></figure>
-    <p class="say">8D spatial motion: the music moves around you on one of several paths (Orbit, Drift and more), at a speed and depth you set. It can follow the tempo of the song.</p>
-    <p class="say">Stereo width, a three-band EQ, a gentle high-cut filter, warmth and a compressor.</p>
-    <p class="say">Optional layers under the music: binaural beats, isochronic tones and soft noise. All three are off until you turn them on.</p>
-    <p class="say">Presets you can switch with one key, and a Clean preset that turns every effect off.</p>
-    <p class="say">A mixer panel that sits on the page, with play, pause, skip and seek for the player underneath.</p>
-    <p class="say">The engine keeps running when you close the panel.</p>
-  </section>
-  <section class="block" id="where" aria-labelledby="h-where">
-    <h2 class="lab" id="h-where">Where it works</h2>
-    <p class="say">The web players of YouTube Music, Spotify and Apple Music, in Chrome on a computer. Headphones give the full spatial image.</p>
-  </section>
-  <section class="block" id="privacy" aria-labelledby="h-privacy">
-    <h2 class="lab" id="h-privacy">Privacy</h2>
-    <p class="say">AuDioPrism makes no network request of its own. Your audio is processed on your computer and is never recorded, saved or sent. Your mixer settings are saved locally in your browser. There are no accounts, no analytics and no ads.</p>
-  </section>
-  <section class="block" id="tones" aria-labelledby="h-tones">
-    <h2 class="lab" id="h-tones">A note on the tones</h2>
-    <p class="say">Binaural beats and isochronic tones are sound effects. AuDioPrism is not a medical device and makes no health claim. If a setting is uncomfortable, turn it off.</p>
-  </section>
-  <section class="block" id="source" aria-labelledby="h-source">
-    <h2 class="lab" id="h-source">Open source</h2>
-    <p class="say">GNU GPL v3.0. The code and its issues are on <a href="https://github.com/TheOneTrueNiz/AuDioPrism">GitHub</a>.</p>
-    <figure class="sq-img"><img src="/img/audioprism-tile.jpg" width="440" height="280" alt="AuDioPrism artwork: a glowing prism inside a pair of headphones, with the name below, on a black ground."><figcaption class="cap">AuDioPrism&rsquo;s own artwork, from the extension.</figcaption></figure>
-    <p class="say dim">AuDioPrism is an independent project. It is not affiliated with, endorsed by or sponsored by Google, Spotify or Apple. YouTube Music is a trademark of Google LLC. Spotify is a trademark of Spotify AB. Apple Music is a trademark of Apple Inc.</p>
-  </section>
-</main>
+<main class="v4 exp"><section class="block" id="get-it" aria-labelledby="h-get-it"><h2 class="lab" id="h-get-it">Get it</h2>
+<ul class="links"><li><a href="https://chromewebstore.google.com/detail/audioprism/hmnmmjgdkafjgeoocljkljpnlbgainfg" rel="noreferrer">The easiest way is the Chrome Web Store</a></li></ul>
+<ul class="links"><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">Source and issues on GitHub</a></li></ul>
+<ul class="links"><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/PRIVACY.md" rel="noreferrer">Privacy policy</a></li></ul>
+<p class="say">Or install it from source:</p>
+<ol class="say"><li>Download or clone the repository from GitHub (link above).</li><li>In Chrome, open chrome://extensions and turn on Developer mode.</li><li>Click Load unpacked and choose the AuDioPrism folder.</li><li>Open a music tab and press the AuDioPrism button.</li></ol>
+</section>
+<section class="block" id="what-it-does" aria-labelledby="h-what-it-does"><h2 class="lab" id="h-what-it-does">What it does</h2>
+<ul class="say"><li>8D spatial motion: the music moves around you on one of several paths (Orbit, Drift and more), at a speed and depth you set. It can follow the tempo of the song.</li></ul>
+<ul class="say"><li>Stereo width, a three-band EQ, a gentle high-cut filter, warmth and a compressor.</li></ul>
+<ul class="say"><li>Optional layers under the music: binaural beats, isochronic tones and soft noise. All three are off until you turn them on.</li></ul>
+<ul class="say"><li>Presets you can switch with one key, and a Clean preset that turns every effect off.</li></ul>
+<ul class="say"><li>A mixer panel that sits on the page, with play, pause, skip and seek for the player underneath.</li></ul>
+<ul class="say"><li>The sound keeps going when you close the panel.</li></ul>
+<p class="say">(Picture: a screenshot of the extension running in Chrome; the track title and cover on the player strip are blurred.)</p>
+</section>
+<section class="block" id="where-it-works" aria-labelledby="h-where-it-works"><h2 class="lab" id="h-where-it-works">Where it works</h2>
+<p class="say">It works on the web players of YouTube Music, Spotify and Apple Music, in Chrome on a computer. Use headphones if you can; that's where the spatial effect really comes through.</p>
+</section>
+<section class="block" id="privacy" aria-labelledby="h-privacy"><h2 class="lab" id="h-privacy">Privacy</h2>
+<p class="say">AuDioPrism doesn't make any network requests of its own. Your audio is processed on your computer and is never recorded, saved or sent anywhere. Your mixer settings are saved locally in your browser. There are no accounts, no analytics and no ads.</p>
+</section>
+<section class="block" id="a-note-on-the-tones" aria-labelledby="h-a-note-on-the-tones"><h2 class="lab" id="h-a-note-on-the-tones">A note on the tones</h2>
+<p class="say">Binaural beats and isochronic tones are sound effects, nothing more. AuDioPrism isn't a medical device and doesn't claim any health benefit. If a setting feels uncomfortable, turn it off.</p>
+</section>
+<section class="block" id="open-source" aria-labelledby="h-open-source"><h2 class="lab" id="h-open-source">Open source</h2>
+<ul class="links"><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">The code is GNU GPL v3.0, and the code and its issues are on GitHub</a></li></ul>
+<p class="say">AuDioPrism is an independent project. It is not affiliated with, endorsed by or sponsored by Google, Spotify or Apple. YouTube Music is a trademark of Google LLC. Spotify is a trademark of Spotify AB. Apple Music is a trademark of Apple Inc.</p>
+</section></main>
 
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lab notebook (plain) · NYAA</title>
+<link rel="canonical" href="https://nyaa.nizbot.com/notebook.html">
+<link rel="alternate" type="text/markdown" href="/notebook.md">
+</head>
+<body>
+<p>Plain version for agents: no scripts, no styles. <a href="/agents/index.html">All pages</a>. Human page: <a href="/notebook.html">/notebook.html</a>. Same text as <a href="/notebook.md">/notebook.md</a>.</p>
+<hr>
+<h1>Lab notebook</h1>
+<p>This is where we file receipts. Each one says what we measured, how we measured it, and what result would prove us wrong. They're also in the notebook feed, as JSON (<a href="/notebook.json">/notebook.json</a>) and RSS (<a href="/notebook.xml">/notebook.xml</a>).</p>
+<h3>Why our AI was slow to answer, found in one night.</h3>
+<p>File 001. 2026-10-09. Status: running. See <a href="/notebook.json">/notebook.json</a> item nyaa-001.</p>
+<p>Our engine was taking a median of 1.27 s to start answering (397 requests, all traffic). Most of that came from the way it rounded cache blocks, which we estimate cost 0.8-1.5 s per turn. One config change then cut a test turn from 0.88 s to 0.16 s.</p>
+<p>How we measured it: live engine metrics on our own machine, 2026-10-09. The rounding share is an estimate from how the uncached tokens were spread, not a direct measurement. We didn't measure turns from people on this engine.</p>
+<p>What would prove it wrong: if an exact cache checkpoint at the end of each request doesn't remove most of that re-read time on turns whose bytes don't change, the claim is wrong.</p>
+<p>Where we got it wrong first: as first written, this receipt failed its own check. It stated an estimate as if it were a measurement, and it had the date wrong. An agent that didn't write it went back to the source numbers and wrote the sentence above.</p>
+<h3>The result that would kill it was written down first.</h3>
+<p>File 002 and File 003 are sealed. A sealed file is registered before its run and hasn't been opened yet.</p>
+<p>File 001 and the two sealed files are in the notebook feed as JSON (<a href="/notebook.json">/notebook.json</a>) and RSS (<a href="/notebook.xml">/notebook.xml</a>).</p>
+<p>Text and figures are CC BY-NC-SA 4.0. If you want to use them commercially, ask us; there's no contact address yet. Full license: <a href="/LICENSE">/LICENSE</a></p>
+</body>
+</html>

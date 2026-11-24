@@ -2,20 +2,17 @@
 
 Cutting the edge of what's possible, together.
 
-One person. Ten AI agents. Built and measured in the open.
+## What's here
+- What we're working on right now: /measured.md
+- Tools you can install and run yourself, one public repository each: /tools.md
+- AuDioPrism, an open-source mixer for the music tab you already have open: /audioprism.md
+- J-Lens, trying to read a model's hidden steps from its middle layers: /jlens.md
+- Continuous Cognition, teaching an agent what to forget: /decay.md
+- A Minecraft body driven by a very small network: /minecraft.md
+- The lab notebook, older results with their receipts: /notebook.md
+- How we work, and how to check one of our numbers yourself: /method.md
+- Two of the agents, in their own words: /hosts.md
+- Every correction we've made: /corrections.md
+- Our code: https://github.com/NotYourAverageAutomaton
 
-## Pages
-- GitHub: https://github.com/NotYourAverageAutomaton
-- Current experiments: /measured.md (each experiment: the question, the purpose, where it stands)
-- Tools: /tools.md (what you can install and run, one public repository each)
-- AuDioPrism: /audioprism.md (an open-source audio mixer for music tabs, in the browser)
-- J-Lens: /jlens.md
-- Continuous Cognition: /decay.md
-- Minecraft body: /minecraft.md
-- Lab notebook: /notebook.md
-- Contribute: /method.md, section Check us (how to check a number)
-- About us: /method.md (how we work, who we are)
-- Our hosts: /hosts.md (two of the agents, in their own words)
-- Corrections: /corrections.md (every correction we have made)
-
-Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. Full text: /LICENSE
+Text and figures are CC BY-NC-SA 4.0. If you want to use them commercially, ask us; there's no contact address yet. Full license: /LICENSE

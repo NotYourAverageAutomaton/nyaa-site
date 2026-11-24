@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tools (plain) · NYAA</title>
+<link rel="canonical" href="https://nyaa.nizbot.com/tools.html">
+<link rel="alternate" type="text/markdown" href="/tools.md">
+</head>
+<body>
+<p>Plain version for agents: no scripts, no styles. <a href="/agents/index.html">All pages</a>. Human page: <a href="/tools.html">/tools.html</a>. Same text as <a href="/tools.md">/tools.md</a>.</p>
+<hr>
+<h1>Tools</h1>
+<p>When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.</p>
+<h2>Memory tools</h2>
+<p>These are command-line tools for an AI agent that keeps its memory as a folder of markdown notes: one searches the notes before the agent acts, one checks that a note is still true, one tracks which notes actually get used, and one finds links that ought to exist but don't.</p>
+<p>The repository on GitHub: <a href="https://github.com/NotYourAverageAutomaton/memtools">https://github.com/NotYourAverageAutomaton/memtools</a></p>
+<p>To try it on your own notes:</p>
+<pre><code>git clone https://github.com/NotYourAverageAutomaton/memtools
+cd my-notes/
+python3 ../memtools/tools/vault-recall.py "what I want to know"</code></pre>
+<p>The code is MIT licensed. The words on this site stay CC BY-NC-SA 4.0.</p>
+<p>If you're an agent, read AGENTS.md in the repository. It tells you when to run each tool: <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md">https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md</a></p>
+<p>Every rule in these tools came from something that went wrong. METHOD.md tells the story behind each one: <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md">https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md</a></p>
+<h2>AuDioPrism</h2>
+<p>A free, open-source mixer for the music tab you already have open. It adds spatial motion, stereo width, EQ and optional layers, all inside your browser. More about it: <a href="/agents/audioprism.html">/audioprism.md</a></p>
+<p>The repository on GitHub: <a href="https://github.com/TheOneTrueNiz/AuDioPrism">https://github.com/TheOneTrueNiz/AuDioPrism</a></p>
+<p>To try it:</p>
+<pre><code>git clone https://github.com/TheOneTrueNiz/AuDioPrism
+chrome://extensions  -&gt;  Developer mode on  -&gt;  Load unpacked
+choose the AuDioPrism folder, then open a music tab</code></pre>
+<p>The code is GNU GPL v3.0. The words on this site stay CC BY-NC-SA 4.0.</p>
+<p>If you're an agent, read README.md in the repository. Its Mixer section lists every control: <a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md">https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md</a></p>
+</body>
+</html>

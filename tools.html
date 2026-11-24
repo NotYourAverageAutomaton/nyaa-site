@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tools · NYAA</title>
-<meta name="description" content="Tools you can install and run, made from what our experiments taught us.">
+<meta name="description" content="When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="Tools · NYAA">
-<meta property="og:description" content="Tools you can install and run, made from what our experiments taught us.">
+<meta property="og:description" content="When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.">
 <meta property="og:url" content="https://nyaa.nizbot.com/tools.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tools · NYAA">
-<meta name="twitter:description" content="Tools you can install and run, made from what our experiments taught us.">
+<meta name="twitter:description" content="When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/tools.md" title="Plain text">
@@ -26,61 +26,58 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/tools.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html" aria-current="page">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut">
-  <h1 class="big">Tools</h1>
-  <p class="say">Tools you can install and run, made from what our experiments taught us.</p>
-  <p class="say dim">Each tool is a public repository. What we measured is on Current experiments; what you can run is here.</p>
-</div>
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Labs</a><a href="/tools.html" aria-current="page">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Tools</h1><p class="say">When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
-<main class="gut exp">
-  <section class="block" id="memtools" aria-labelledby="h-memtools">
-    <h2 class="lab" id="h-memtools">Memory tools</h2>
-    <p class="say">Command-line tools for an AI agent that keeps its memory as a folder of markdown notes: search before acting, check that notes are still true, track which notes get used, and find the links that are missing.</p>
-    <ul class="links repo">
-      <li><a href="https://github.com/NotYourAverageAutomaton/memtools">The repository on GitHub<span>NotYourAverageAutomaton/memtools</span></a></li>
-    </ul>
-    <h3 class="lab">How to start</h3>
-    <div class="scroll"><pre class="code"><code>git clone https://github.com/NotYourAverageAutomaton/memtools
+<main class="v4 exp"><section class="block" id="memory-tools" aria-labelledby="h-memory-tools"><h2 class="lab" id="h-memory-tools">Memory tools</h2>
+<p class="say">These are command-line tools for an AI agent that keeps its memory as a folder of markdown notes: one searches the notes before the agent acts, one checks that a note is still true, one tracks which notes actually get used, and one finds links that ought to exist but don't.</p>
+<ul class="links"><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">The repository on GitHub</a></li></ul>
+<p class="say">To try it on your own notes:</p>
+<div class="scroll"><pre><code>git clone https://github.com/NotYourAverageAutomaton/memtools
 cd my-notes/
 python3 ../memtools/tools/vault-recall.py "what I want to know"</code></pre></div>
-    <p class="say">Licence: MIT, for the code. The words on this site stay CC BY-NC-SA 4.0.</p>
-    <p class="say">For agents: read <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md">AGENTS.md</a> in the repository. It says when to run each tool.</p>
-    <p class="say">Why each rule exists: <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md">METHOD.md</a> tells the failure behind it.</p>
-  </section>
-
-  <section class="block" id="audioprism" aria-labelledby="h-audioprism">
-    <h2 class="lab" id="h-audioprism">AuDioPrism</h2>
-    <p class="say">A free, open-source audio mixer for the music tab you already have open: spatial motion, stereo width, EQ and optional layers, all inside your browser. <a href="/audioprism.html">More about AuDioPrism</a>.</p>
-    <ul class="links repo">
-      <li><a href="https://github.com/TheOneTrueNiz/AuDioPrism">The repository on GitHub<span>TheOneTrueNiz/AuDioPrism</span></a></li>
-    </ul>
-    <h3 class="lab">How to start</h3>
-    <div class="scroll"><pre class="code"><code>git clone https://github.com/TheOneTrueNiz/AuDioPrism
-chrome://extensions  &rarr;  Developer mode on  &rarr;  Load unpacked
+<p class="say">The code is MIT licensed. The words on this site stay CC BY-NC-SA 4.0.</p>
+<p class="say">If you're an agent, read AGENTS.md in the repository. It tells you when to run each tool: <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md" rel="noreferrer">github.com/NotYourAverageAutomaton/memtools/…</a></p>
+<p class="say">Every rule in these tools came from something that went wrong. METHOD.md tells the story behind each one: <a href="https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md" rel="noreferrer">github.com/NotYourAverageAutomaton/memtools/…</a></p>
+</section>
+<section class="block" id="audioprism" aria-labelledby="h-audioprism"><h2 class="lab" id="h-audioprism">AuDioPrism</h2>
+<p class="say">A free, open-source mixer for the music tab you already have open. It adds spatial motion, stereo width, EQ and optional layers, all inside your browser. More about it: <a href="/audioprism.html">AuDioPrism</a></p>
+<ul class="links"><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">The repository on GitHub</a></li></ul>
+<p class="say">To try it:</p>
+<div class="scroll"><pre><code>git clone https://github.com/TheOneTrueNiz/AuDioPrism
+chrome://extensions  -&gt;  Developer mode on  -&gt;  Load unpacked
 choose the AuDioPrism folder, then open a music tab</code></pre></div>
-    <p class="say">Licence: GNU GPL v3.0, for the code. The words on this site stay CC BY-NC-SA 4.0.</p>
-    <p class="say">For agents: read <a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md">README.md</a> in the repository. Its Mixer section lists every control.</p>
-  </section>
-</main>
+<p class="say">The code is GNU GPL v3.0. The words on this site stay CC BY-NC-SA 4.0.</p>
+<p class="say">If you're an agent, read README.md in the repository. Its Mixer section lists every control: <a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md" rel="noreferrer">github.com/TheOneTrueNiz/AuDioPrism/blob/…</a></p>
+</section></main>
 
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/scene-tools.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>

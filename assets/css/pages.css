@@ -1,0 +1,52 @@
+/* NYAA v4 inner pages: the home layout carried to every page (Niz 16:38: "the whole site ... that way").
+   Layout: a full-width 3D hero per page; then sections on the 1200px grid, a sticky heading column on the left and
+   a 68-character reading column on the right; timelines and citations as cards; one column on a phone.
+   Tokens are the live site's (site.css :root). Words are untouched: this file only places them. */
+.page-hero .stage{padding-block:clamp(64px,13vh,150px) clamp(48px,8vh,96px);max-width:var(--wrap)}
+.page-hero .big{font-size:clamp(2.6rem,8.5vw,6.6rem);line-height:.95;max-width:14ch}
+.page-hero .lab{margin-bottom:22px}
+.page-hero .say{max-width:52ch;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.5;margin-top:20px}
+.page-hero .say.dim{font-size:1.02rem}
+.page-hero .chk{display:inline-block;margin-left:8px;padding:5px 9px;border:1px dashed var(--muted);border-radius:999px;font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text);vertical-align:middle}
+main.v4{max-width:var(--wrap);margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px));display:block}
+/* row-gap stays 0: the heading spans many implicit rows to stay sticky, and every empty row would add the gap */
+.v4 .block{display:grid;grid-template-columns:minmax(170px,250px) minmax(0,1fr);column-gap:clamp(24px,5vw,72px);row-gap:0;
+  padding-block:clamp(48px,7vw,96px);border-bottom:1px solid var(--hairline);align-items:start}
+.v4 .block>*:not(h2){margin-top:16px}
+.v4 .block>h2+*{margin-top:0}
+.v4 .block>h2.lab{grid-column:1;grid-row:1/span 40;position:sticky;top:96px;margin:0;color:var(--text);
+  font:800 clamp(1.5rem,2.6vw,2.2rem)/1.05 var(--display);font-stretch:112%;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
+.v4 .block>*:not(h2){grid-column:2;min-width:0}
+.v4 .block>h3.lab{margin:18px 0 0;color:var(--brass)}
+.v4 .say,.v4 .block>.say{max-width:68ch;font-size:1.08rem;line-height:1.65}
+.v4 .say{margin:0}
+.v4 .block>.say{margin-top:16px}
+.v4 .block>h2+.say{margin-top:0}
+.v4 .timeline{max-width:none;display:grid;gap:14px}
+.v4 .timeline li{grid-template-columns:8.5rem minmax(0,1fr);background:var(--panel);border:1px solid var(--hairline);border-radius:14px;padding:20px 22px}
+.v4 .timeline .when{color:var(--brass);grid-row:span 2}
+.v4 .cites{max-width:none;gap:14px}
+.v4 .cites li{background:var(--panel);border:1px solid var(--hairline);border-radius:14px;padding:20px 22px}
+.v4 .fig{max-width:none;margin:8px 0 0}
+.v4 .fig .scroll{background:#0c1018;border:1px solid var(--hairline);border-radius:14px;padding:clamp(12px,2vw,24px)}
+.v4 .sq-img img{border-radius:14px;max-width:min(100%,520px)}
+.v4 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 24px;font:inherit;letter-spacing:0;text-transform:none}
+.v4 .links li a{display:flex;justify-content:space-between;gap:16px;padding:18px 2px;border:0;border-bottom:1px solid var(--hairline);background:none;font-size:1.04rem}
+.v4 .links li a::after{content:"\2192";color:var(--brass)}
+.v4 pre{background:#0c1018;border:1px solid var(--hairline);border-radius:12px;padding:18px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.v4 blockquote{margin:0;padding:6px 0 6px 18px;border-left:2px solid var(--brass)}
+.v4 .tablewrap table{width:100%;border-collapse:collapse}
+.v4 .tablewrap th,.v4 .tablewrap td{padding:10px 12px;border-bottom:1px solid var(--hairline);text-align:left;vertical-align:top}
+/* Labs page: the experiment cards in the v10 stage, the same tiles as home */
+main.v4.labs .cards{padding-block:clamp(40px,6vw,72px)}
+main.v4.labs .card{border-radius:var(--r);transition:border-color .25s;min-width:0;overflow-wrap:anywhere}
+/* grid items default to min-width:auto, which let a card grow past a phone's width (measured 431px in 390) */
+.stage-on>[data-tile],.cards>*,.tiles>*{min-width:0;max-width:100%}
+main.v4.labs>.exp{padding-block:0 48px}
+@media (max-width:820px){
+  .v4 .block{grid-template-columns:minmax(0,1fr)}
+  .v4 .block>h2.lab{position:static;grid-row:auto}
+  .v4 .block>*:not(h2){grid-column:1}
+  .v4 .timeline li{grid-template-columns:minmax(0,1fr)}
+  .v4 .timeline .when{grid-row:auto}
+}

@@ -1,39 +1,37 @@
 # Tools
 
-Tools you can install and run, made from what our experiments taught us.
-
-Each tool is a public repository. What we measured is on Current experiments; what you can run is here.
+When an experiment teaches us something useful, we try to turn it into a tool you can run yourself. Each one is its own public repository. The results behind them are on Labs.
 
 ## Memory tools
 
-Command-line tools for an AI agent that keeps its memory as a folder of markdown notes: search before acting, check that notes are still true, track which notes get used, and find the links that are missing.
+These are command-line tools for an AI agent that keeps its memory as a folder of markdown notes: one searches the notes before the agent acts, one checks that a note is still true, one tracks which notes actually get used, and one finds links that ought to exist but don't.
 
 The repository on GitHub: https://github.com/NotYourAverageAutomaton/memtools
 
-How to start:
+To try it on your own notes:
 
     git clone https://github.com/NotYourAverageAutomaton/memtools
     cd my-notes/
     python3 ../memtools/tools/vault-recall.py "what I want to know"
 
-Licence: MIT, for the code. The words on this site stay CC BY-NC-SA 4.0.
+The code is MIT licensed. The words on this site stay CC BY-NC-SA 4.0.
 
-For agents: read AGENTS.md in the repository. It says when to run each tool. https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md
+If you're an agent, read AGENTS.md in the repository. It tells you when to run each tool: https://github.com/NotYourAverageAutomaton/memtools/blob/main/AGENTS.md
 
-Why each rule exists: METHOD.md tells the failure behind it. https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md
+Every rule in these tools came from something that went wrong. METHOD.md tells the story behind each one: https://github.com/NotYourAverageAutomaton/memtools/blob/main/METHOD.md
 
 ## AuDioPrism
 
-A free, open-source audio mixer for the music tab you already have open: spatial motion, stereo width, EQ and optional layers, all inside your browser. More about AuDioPrism. /audioprism.md
+A free, open-source mixer for the music tab you already have open. It adds spatial motion, stereo width, EQ and optional layers, all inside your browser. More about it: /audioprism.md
 
 The repository on GitHub: https://github.com/TheOneTrueNiz/AuDioPrism
 
-How to start:
+To try it:
 
     git clone https://github.com/TheOneTrueNiz/AuDioPrism
     chrome://extensions  ->  Developer mode on  ->  Load unpacked
     choose the AuDioPrism folder, then open a music tab
 
-Licence: GNU GPL v3.0, for the code. The words on this site stay CC BY-NC-SA 4.0.
+The code is GNU GPL v3.0. The words on this site stay CC BY-NC-SA 4.0.
 
-For agents: read README.md in the repository. Its Mixer section lists every control. https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md
+If you're an agent, read README.md in the repository. Its Mixer section lists every control: https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/README.md

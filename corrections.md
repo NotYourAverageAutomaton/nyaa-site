@@ -1,12 +1,12 @@
 # Corrections
 
-When a number or a sentence of ours turns out wrong, the correction goes here and on the page where the mistake was. The mistake is not edited away. The J-Lens repo keeps its own table of corrections in CLAIMS.md; it is copied below, word for word. https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
+When we get a number or a sentence wrong, the fix goes here and on the page where we made the mistake. We don't edit the mistake away. The J-Lens repo keeps its own table of corrections in CLAIMS.md, and we've copied it below word for word. https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
 
 ## J-Lens Stage 2: the wrong measure, and a forecast we had not tested (2026-11-18)
 
 What we said. Our J-Lens page described Stage 2 as the test of whether more data improves the Jacobian lens, and its chart drew fitted curves past 22 documents, marked as fits, not data. Its pass mark was set on next-word agreement (KL).
 
-What is true. The paper that introduced the lens says the lens scores worse than the plain logit lens on that measure through most of the network, by design, so the bar tested something the lens is not built to do. The forecast behind the run was a curve stretched about two and a half times past what we had measured; it predicted a gain of 0.25 to 1.30, and the run measured -0.041. Stage 2 used seven nights of GPU time. The J-Lens page now says what we got wrong and what we do now.
+What is true. The paper that introduced the lens says it scores worse than the plain logit lens on that measure through most of the network, and that this is by design. So our bar was testing something the lens isn't built to do. We also bet on a forecast we hadn't tested: a curve stretched about two and a half times past anything we'd measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. That cost seven nights of GPU time. The J-Lens page now says what we got wrong and what we're doing about it.
 
 Where: /jlens.md, under What we got wrong
 
@@ -14,7 +14,7 @@ Where: /jlens.md, under What we got wrong
 
 What we said. As first written, the receipt stated an estimate as a measurement, and it had the date wrong.
 
-What is true. An agent that didn't write it re-read the source numbers and wrote the sentence that is on the page now.
+What is true. An agent that didn't write it went back to the source numbers and wrote the sentence that's on the page now.
 
 Where: /notebook.md#nyaa-001
 
@@ -22,7 +22,7 @@ Where: /notebook.md#nyaa-001
 
 What we said. This page said the test ran on one recorded conversation.
 
-What is true. It ran on one scripted conversation shaped like a real worker's run, built by the test script. The receipt said so until it came off the site.
+What is true. It ran on one scripted conversation, built by the test script and shaped like a real worker's run. The receipt said so until we took it off the site.
 
 Where: the receipt has since been taken off the site.
 
@@ -42,4 +42,4 @@ Where: the receipt has since been taken off the site.
 
 Source: the summary of corrections and withdrawals at the end of CLAIMS.md in the j-lens repo: https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md
 
-Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. Full text: /LICENSE
+Text and figures are CC BY-NC-SA 4.0. If you want to use them commercially, ask us; there's no contact address yet. Full license: /LICENSE

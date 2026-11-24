@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Lab notebook · NYAA</title>
-<meta name="description" content="Receipts filed in the lab's notebook feed: what was measured, how, and what would prove it wrong.">
+<meta name="description" content="This is where we file receipts. Each one says what we measured, how we measured it, and what result would prove us wrong. They&#x27;re also in the notebook feed, as JSON (/notebook.json) and RSS…">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="Lab notebook · NYAA">
-<meta property="og:description" content="Receipts filed in the lab&#x27;s notebook feed: what was measured, how, and what would prove it wrong.">
+<meta property="og:description" content="This is where we file receipts. Each one says what we measured, how we measured it, and what result would prove us wrong. They&#x27;re also in the notebook feed, as JSON (/notebook.json) and RSS…">
 <meta property="og:url" content="https://nyaa.nizbot.com/notebook.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lab notebook · NYAA">
-<meta name="twitter:description" content="Receipts filed in the lab&#x27;s notebook feed: what was measured, how, and what would prove it wrong.">
+<meta name="twitter:description" content="This is where we file receipts. Each one says what we measured, how we measured it, and what result would prove us wrong. They&#x27;re also in the notebook feed, as JSON (/notebook.json) and RSS…">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/notebook.md" title="Plain text">
@@ -26,65 +26,44 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/notebook.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut"><h1 class="big">Lab notebook</h1><p class="say">Receipts filed in the notebook feed, as <a href="/notebook.json">JSON</a> and <a href="/notebook.xml">RSS</a>. Each says what was measured, how, and what result would prove it wrong.</p></div>
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Lab notebook</h1><p class="say">This is where we file receipts. Each one says what we measured, how we measured it, and what result would prove us wrong. They're also in the notebook feed, as JSON (/notebook.json) and RSS (/notebook.xml).</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
-<main class="gut">
-  <div class="band">
-  <section class="rc" id="nyaa-001">
-      <div class="viz" data-reveal>
-        <div class="row"><p class="lab"><span>Before</span><span>0.88 s</span></p><div class="bars"><div class="bar" style="width:100%"></div></div></div>
-        <div class="row"><p class="lab"><span>After</span><span>0.16 s</span></p><div class="bars"><div class="bar k" style="width:18.2%"></div></div></div>
-        <p class="cap">Time to the first token of an answer, one test turn. Bars are to scale.</p>
-      </div>
-      <div>
-        <p class="lab">File 001 · 2026-10-09 · <em>running</em></p>
-        <h2 class="big">Why our AI was slow to answer, <b>found in one night.</b></h2>
-        <p class="say">Our engine's median time to first token was 1.27 s (397 requests, all traffic). Most of it traced to cache-block rounding, an estimated 0.8-1.5 s per turn. A config change then cut a test turn from 0.88 s to 0.16 s.</p>
-        <dl>
-          <dt>How it was measured</dt>
-          <dd>Live engine metrics on our own machine, 2026-10-09; the rounding share is an estimate from the uncached-token distribution, not a direct measurement. People turns were not measured on this engine.</dd>
-          <dt>What would prove it wrong</dt>
-          <dd>If an exact end-of-request cache checkpoint does not remove most of that re-read time on byte-stable turns, the claim is wrong.</dd>
-          <dt>Its own correction</dt>
-          <dd>This receipt failed its check as first written: it stated an estimate as a measurement, and it had the date wrong. An agent that didn't write it re-read the source numbers and wrote the sentence above.</dd>
-        </dl>
-      </div>
-    </section>
+<main class="v4 exp"><h3 class="lab">Why our AI was slow to answer, found in one night.</h3>
+<p class="say">File 001. 2026-10-09. Status: running. See /notebook.json item nyaa-001.</p>
+<p class="say">Our engine was taking a median of 1.27 s to start answering (397 requests, all traffic). Most of that came from the way it rounded cache blocks, which we estimate cost 0.8-1.5 s per turn. One config change then cut a test turn from 0.88 s to 0.16 s.</p>
+<p class="say">How we measured it: live engine metrics on our own machine, 2026-10-09. The rounding share is an estimate from how the uncached tokens were spread, not a direct measurement. We didn't measure turns from people on this engine.</p>
+<p class="say">What would prove it wrong: if an exact cache checkpoint at the end of each request doesn't remove most of that re-read time on turns whose bytes don't change, the claim is wrong.</p>
+<p class="say">Where we got it wrong first: as first written, this receipt failed its own check. It stated an estimate as if it were a measurement, and it had the date wrong. An agent that didn't write it went back to the source numbers and wrote the sentence above.</p>
+<h3 class="lab">The result that would kill it was written down first.</h3>
+<p class="say">File 002 and File 003 are sealed. A sealed file is registered before its run and hasn't been opened yet.</p>
+<p class="say">File 001 and the two sealed files are in the notebook feed as JSON (/notebook.json) and RSS (/notebook.xml).</p></main>
 
-  <section class="rc" id="sealed">
-      <div class="viz" data-reveal>
-        <div class="sealed">
-          <div id="nyaa-002"><i></i><span>File 002 · sealed</span></div>
-          <div id="nyaa-003"><i></i><span>File 003 · sealed</span></div>
-        </div>
-        <p class="cap">A sealed file is registered before its run and not opened yet.</p>
-      </div>
-      <div>
-        <p class="lab">Two files · <em>sealed</em></p>
-        <h2 class="big">The result that would kill it <b>was written down first.</b></h2>
-        <p class="say">File 001 and the two sealed files are in the notebook feed as <a href="/notebook.json">JSON</a> and <a href="/notebook.xml">RSS</a>.</p>
-      </div>
-    </section>
-  </div>
-</main>
-
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>

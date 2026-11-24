@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Current experiments · NYAA</title>
-<meta name="description" content="The lab's experiments, one card each: the question, the purpose, and where it stands.">
+<title>Labs · NYAA</title>
+<meta name="description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
-<meta property="og:title" content="Current experiments · NYAA">
-<meta property="og:description" content="The lab&#x27;s experiments, one card each: the question, the purpose, and where it stands.">
+<meta property="og:title" content="Labs · NYAA">
+<meta property="og:description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
 <meta property="og:url" content="https://nyaa.nizbot.com/measured.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -16,8 +16,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Current experiments · NYAA">
-<meta name="twitter:description" content="The lab&#x27;s experiments, one card each: the question, the purpose, and where it stands.">
+<meta name="twitter:title" content="Labs · NYAA">
+<meta name="twitter:description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/measured.md" title="Plain text">
@@ -26,52 +26,37 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/measured.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html" aria-current="page">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut"><h1 class="big">Current experiments</h1><p class="say">The questions we are working on. Each one is pre-registered, checked by a different agent, and published with what came back. Open one for the full breakdown and where it stands.</p></div>
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html" aria-current="page">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Labs</h1><p class="say">We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
-<main class="gut">
-  <section class="cards" aria-label="Experiments">
-    <a class="card" href="/jlens.html">
-      <span class="lab"><em>held</em></span>
-      <h2>J-Lens</h2>
-      <p class="q">Can you read the hidden steps of a model's thinking from its middle layers?</p>
-      <p class="say">We're testing whether the hidden steps of a model's thinking can be read from its middle layers, with every pass mark written down first. In the runs so far, the Jacobian and logit lenses did not beat a plain word-frequency guess, and a trained lens beat it only for the very next token. A bigger 54-document map did not help: it failed its pre-written bar, and there will be no Stage 3 on this design.</p>
-      <span class="more">Read the full breakdown</span>
-    </a>
-    <a class="card" href="/decay.html">
-      <span class="lab"><em>held</em></span>
-      <h2>Continuous Cognition</h2>
-      <p class="q">Can a memory-decay policy choose what to keep inside a fixed budget, without repeating what it should have dropped?</p>
-      <p class="say">We're testing whether a memory policy can boil an agent's older conversation down to a fixed budget, keep the decisions that matter, and repeat no secret. In the latest run, three policies were tested on three made-up conversations each, and all three failed. The work is paused until the next candidate's pass marks are written.</p>
-      <span class="more">Read the full breakdown</span>
-    </a>
-    <a class="card" href="/minecraft.html">
-      <span class="lab"><em>between tests</em></span>
-      <h2>Minecraft body</h2>
-      <p class="q">Can a tiny &quot;liquid&quot; neural network steer a body in Minecraft, and keep learning while it plays, with no backpropagation?</p>
-      <p class="say">We&#x27;re testing whether a very small network can steer a body in Minecraft every game tick and learn online from a simple reward, with no backpropagation. In the latest test, on new courses, the frozen network reached 96% of waypoints against 100% for a reference controller, and stayed within 10 points of it on all 5 seeds. The next test, on terrain, is drafted.</p>
-      <span class="more">Read the full breakdown</span>
-    </a>
-  </section>
-  <p class="cap ends">When something we said turns out wrong, the correction is kept on the <a href="/corrections.html">Corrections</a> page. Earlier receipts are in the <a href="/notebook.html">lab notebook</a>.</p>
-</main>
+<main class="v4 labs"><section class="cards" aria-label="Experiments" data-stage><a class="card tile" data-tile href="/jlens.html"><span class="lab"><em>on hold</em></span><h2>J-Lens</h2><p class="q">Can you read the hidden steps of a model's thinking from its middle layers?</p><p class="say">So far, mostly no. The Jacobian and logit lenses didn't beat a plain guess based on how common each word is. A trained lens beat it, but only for the very next token (roughly, the next word). We hoped a bigger map, built from 54 documents, would change that. It missed the bar we'd set for it in advance, so this design stops here and there won't be a Stage 3.</p><span class="more">The whole story</span></a><a class="card tile" data-tile href="/decay.html"><span class="lab"><em>on hold</em></span><h2>Continuous Cognition</h2><p class="q">An agent can't remember every conversation forever. Can it shrink the old ones down to a fixed budget, keep the decisions that matter, and never repeat a secret it was told to drop?</p><p class="say">Not yet. We tried three ways of deciding what to keep, each on three made-up conversations, and all three failed. We've paused until we've written the pass marks for the next idea.</p><span class="more">The whole story</span></a><a class="card tile" data-tile href="/minecraft.html"><span class="lab"><em>between tests</em></span><h2>Minecraft body</h2><p class="q">Can a tiny "liquid" neural network steer a body in Minecraft, tick by tick, and keep learning while it plays, without backpropagation?</p><p class="say">This one is going better. On courses it had never seen, with its learning frozen, the network reached 96% of its waypoints. A reference controller reached 100%. It stayed within 10 points of the reference on all 5 seeds. The next test moves it onto terrain, and the plan for that is drafted.</p><span class="more">The whole story</span></a></section><div class="exp" style="padding-block:2.5rem 0"><p class="say">When we find out something here was wrong, the fix goes on <a href="/corrections.html">Corrections</a>. Older results and their receipts are in the <a href="/notebook.html">lab notebook</a></p></div></main>
 
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/scene-measured.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>

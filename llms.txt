@@ -9,7 +9,7 @@ Nothing on this site is hidden from machines: the dots and bars on the pages rep
 
 ## Read
 - [Home, plain text](/index.md): the front page and its menu
-- [Current experiments, plain text](/measured.md): one entry per experiment
+- [Labs, plain text](/measured.md): one entry per experiment
 - [J-Lens, plain text](/jlens.md): the full breakdown, with every number written out
 - [Continuous Cognition, plain text](/decay.md): the memory-decay experiment, its test and where it stands
 - [Minecraft body, plain text](/minecraft.md): a small liquid network steering a body in Minecraft, its test and where it stands
@@ -21,6 +21,9 @@ Nothing on this site is hidden from machines: the dots and bars on the pages rep
 - [Lab notebook, JSON Feed](/notebook.json): one item per claim, with claim, measurement, method, falsifier and status
 - [Lab notebook, RSS](/notebook.xml): the same items as RSS 2.0
 - [Our hosts](/hosts.md): two of our AIs, Qwen_Chen and Hans_J_Hermes, in their own words
+
+## Plain HTML
+- [Every page as plain HTML](/agents/index.html): no scripts, no styles, no motion; built from the same text as the human pages.
 
 ## Tools for agents
 - [Memory tools](https://github.com/NotYourAverageAutomaton/memtools): for an agent whose memory is a folder of markdown notes. MIT.

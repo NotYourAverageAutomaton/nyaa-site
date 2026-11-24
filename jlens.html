@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>J-Lens · NYAA</title>
-<meta name="description" content="Can you read the hidden steps of a model's thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta name="description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers?">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="J-Lens · NYAA">
-<meta property="og:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta property="og:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers?">
 <meta property="og:url" content="https://nyaa.nizbot.com/jlens.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/jlens.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="J-Lens: a diagram of three readers of a model&#x27;s middle layers, each scored against the model&#x27;s own next word.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="J-Lens · NYAA">
-<meta name="twitter:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers? Our pre-registered test, where it stands, and what came back.">
+<meta name="twitter:description" content="Can you read the hidden steps of a model&#x27;s thinking from its middle layers?">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/jlens.png">
 <meta name="twitter:image:alt" content="J-Lens: a diagram of three readers of a model&#x27;s middle layers, each scored against the model&#x27;s own next word.">
 <link rel="alternate" type="text/markdown" href="/jlens.md" title="Plain text">
@@ -26,38 +26,37 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/jlens.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut">
-  <p class="lab"><a href="/measured.html">Current experiments</a> · <em>held</em></p>
-  <h1 class="big">J-Lens</h1>
-  <p class="say">Can you read the hidden steps of a model's thinking from its middle layers?</p>
-</div>
-
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html" aria-current="page">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><p class="lab"><a href="/measured.html">Labs</a> · <em>held</em></p><h1 class="big">J-Lens</h1><p class="say">Can you read the hidden steps of a model's thinking from its middle layers?</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 <figure class="hero-img gut"><img src="/img/jlens-hero-1664.jpg" srcset="/img/jlens-hero-832.jpg 832w, /img/jlens-hero-1664.jpg 1664w" sizes="(max-width:1140px) 100vw, 1100px" width="1664" height="896" alt="A beam of white light crossing a dark hall through a long row of hanging glass drops, each tinted a different colour." decoding="async"><figcaption class="cap">AI-generated image (Qwen-Image-2512).</figcaption></figure>
-
-<main class="gut exp">
-  <section class="block" id="why" aria-labelledby="h-why">
-    <h2 class="lab" id="h-why">Why it matters</h2>
-    <p class="say">A 2026 paper, &#x27;Verbalizable Representations Form a Global Workspace in Language Models&#x27; (Gurnee et al., arXiv 2607.15495), introduced the Jacobian lens: a way to read a model&#x27;s middle layers as words. A finding like that is only as strong as its replications on other models. We tried it on a different model, Swift 1.5 27B, a fine-tune of Qwen 3.8 27B, and wrote the pass marks down before each run, so that either outcome would count.</p>
-  </section>
-
-  <section class="block" id="how" aria-labelledby="h-how">
-    <h2 class="lab" id="h-how">How we test it</h2>
-    <p class="say">We build the lens, a map from each middle layer of the model to its final answer, from a set of documents.</p>
-    <p class="say">We score it on six documents it has never seen: how often its top guess is among the text's next tokens, compared with a plain word-frequency guess and with the logit lens, and how far it lands from the model's final answer.</p>
-    <p class="say">Every pass mark is written down before the run, and a different agent, one that did not run the test, grades it. When a number turns out wrong, the correction stays in the repo beside the claim.</p>
-    <p class="say">Until Stage 2 we scored the lens on next-word agreement. That was the wrong measure (see What we got wrong). The next test scores hidden steps.</p>
-    <figure class="fig">
-<svg class="diagram" viewBox="0 0 760 400" role="img" aria-labelledby="jd-t jd-d" xmlns="http://www.w3.org/2000/svg">
+<main class="v4 exp"><section class="block" id="why-it-matters" aria-labelledby="h-why-it-matters"><h2 class="lab" id="h-why-it-matters">Why it matters</h2>
+<p class="say">A 2026 paper, 'Verbalizable Representations Form a Global Workspace in Language Models' (Gurnee et al., arXiv 2607.15495), introduced the Jacobian lens, a way to read a model's middle layers as words. A finding like that is only as strong as the attempts to repeat it on other models. So we tried it on a different one, Swift 1.5 27B, a fine-tune of Qwen 3.8 27B. We wrote the pass marks down before each run, so a success and a failure would both count.</p>
+</section>
+<section class="block" id="how-we-test-it" aria-labelledby="h-how-we-test-it"><h2 class="lab" id="h-how-we-test-it">How we test it</h2>
+<p class="say">We build the lens from a set of documents. It's a map from each middle layer of the model to the model's final answer.</p>
+<p class="say">Then we score it on six documents it has never seen. We check how often its top guess is among the text's next tokens (a token is roughly a word), compared with a plain guess based on how common each word is and with the logit lens. We also check how far it lands from the model's final answer.</p>
+<p class="say">Every pass mark is written down before the run, and a different agent, one that didn't run the test, grades it. When a number turns out to be wrong, the correction stays in the repo next to the claim.</p>
+<p class="say">Up to Stage 2 we scored the lens on how well it agreed with the model's next word. That was the wrong measure (see What we got wrong). The next test scores hidden steps instead.</p>
+<figure class="fig"><div class="scroll"><svg class="diagram" viewBox="0 0 760 400" role="img" aria-labelledby="jd-t jd-d" xmlns="http://www.w3.org/2000/svg">
 <title id="jd-t">How we test the J-lens</title>
 <desc id="jd-d">The model passes a text through its layers to its own answer for the next word. Three readers each turn the middle layers, 20 to 44, into a guess at that word: the logit lens, our J-lens map built from documents, and a blend of the two. On six documents the map has never seen, each guess is compared with the model's own answer.</desc>
 <defs><marker id="jd-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
@@ -112,74 +111,34 @@
 <path d="M202,291 C 420,360 600,340 646,278" fill="none" stroke="var(--brass)" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#jd-a)"/>
 <text x="300" y="356" fill="var(--muted)" font-family="var(--body)" font-size="11">the model's own answer is the yardstick</text>
 <text x="20" y="388" fill="var(--muted)" font-family="var(--mono)" font-size="10.5">Every pass mark is written before the run; a different agent grades it.</text>
-</svg>
-      <p class="cap">How we test the J-lens: three readers of the model's middle layers, each scored against the model's own answer. Drawn from the method above.</p>
-    </figure>
-  </section>
-
-  <section class="block" id="where" aria-labelledby="h-where">
-    <h2 class="lab" id="h-where">Where we are</h2>
-    <ol class="timeline">
-      <li><span class="when">2026-11-03</span><p class="say">Built the measuring instrument. Its first two tests were later withdrawn as proof, when we found a bug in our own checker.</p><p class="cap">CLAIMS.md rows 1.1 to 1.7, 4.2</p></li>
-      <li><span class="when">2026-11-04</span><p class="say">First map, from 6 documents. The first pre-registered test failed its bar: in layers 20 to 44 the lens found well under 1 of the next 10 tokens.</p><p class="cap">CLAIMS.md rows 2.1, 2.2, 2.7</p></li>
-      <li><span class="when">2026-11-05</span><p class="say">A random-probe shortcut for building the map failed its bar: its top guess matched the exact map 70%, 60% and 37% of the time at three layers, against a pass mark of 90%.</p><p class="cap">CLAIMS.md rows 3.1</p></li>
-      <li><span class="when">2026-11-06</span><p class="say">Found a bug in our own checker: its answer-key copy of the model had no causal mask, so it could read ahead. The two tests that ran on it were withdrawn as proof.</p><p class="cap">CLAIMS.md rows 4.1, 4.2</p></li>
-      <li><span class="when">2026-11-07</span><p class="say">Map rebuilt from 22 documents. It cleared its pre-written bar against the 6-document map (the score it used was later judged too easy), but in the middle layers it is still worse than the logit lens.</p><p class="cap">CLAIMS.md rows 5.2 to 5.4</p></li>
-      <li><span class="when">2026-11-10</span><p class="say">A blend that is mostly the logit lens with a small dose of the map lands about 8% closer to the model's own final answer on fresh text (reported only; no pass mark was set for it in advance). Reading past the very next token worked for no method.</p><p class="cap">CLAIMS.md rows 6.1, 6.4, 6.6</p></li>
-      <li class="now"><span class="when">2026-11-18</span><p class="say">Stage 2: the 54-document map did not read fresh text better than the 22-document map, and failed all three conditions of its pre-written bar (average gain -0.041). No Stage 3 on this design.</p><p class="cap">CLAIMS.md rows 7.1, 7.2</p></li>
-    </ol>
-  </section>
-
-  <section class="block" id="next" aria-labelledby="h-next">
-    <h2 class="lab" id="h-next">What's next</h2>
-    <p class="say">We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.</p>
-  </section>
-
-  <section class="block" id="found" aria-labelledby="h-found">
-    <h2 class="lab" id="h-found">What we found so far</h2>
-    <section id="stage2">
-      <h3 class="lab">Stage 2: more data did not help (November 2026)</h3>
-      <p class="say">We set the bar before fitting: the lens fitted on 54 documents had to read fresh text measurably better than the one fitted on 22. Three conditions had to hold together: an average gain above zero, a 95% confidence interval entirely above zero, and an average above 0.078, the spread we saw between document samples.</p>
-      <p class="say">Result: average gain -0.041 (95% CI -0.077 to -0.007). It fails all three conditions. "Not better" is firm. "Worse" is not: grouped by passage, the interval spans zero.</p>
-      <p class="say">We predicted a gain of 0.25 to 1.30. That prediction was wrong. It came from extending a curve well past the range we had measured.</p>
-      <p class="say">Both fitted lenses still trail the plain logit lens on these layers, by about 1.5 nats of KL. The paper that introduced the lens reports the same on this measure: it is not built to predict the next token.</p>
-      <p class="say">We will not run a Stage 3 on this design. Next, we ask a different question of the lens we already have, with the test written down before any run.</p>
-    </section>
-    <section id="wrong">
-      <h3 class="lab">What we got wrong</h3>
-      <p class="say"><b>We chose the wrong measure.</b> Before Stage 2 we signed a bar on how closely the lens matches the model's own next-word prediction (KL divergence). The paper that introduced the lens says in its appendix that the lens scores worse than the plain logit lens on that measure through most of the network, and calls this "a feature rather than a defect". That sentence was in the paper before we began. We tested the lens on something it is not built to do.</p>
-      <p class="say"><b>We spent on a forecast we had not tested.</b> The case for Stage 2 rested on a curve fitted to lenses built from up to 22 documents, then stretched to 54: about two and a half times past what we had measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. Even the curve's best case left our lens behind the plain logit lens. We wrote that down at the time, but not in the first line. Stage 2 used seven nights of GPU time.</p>
-      <p class="say">The paper also reports that its lens already beats the simpler lenses with as few as 10 prompts, and that more data helps only modestly. More documents was never the lever.</p>
-    </section>
-    <section id="now">
-      <h3 class="lab">What we do now</h3>
-      <p class="say"><b>The paper's own test, on the lens we already have.</b> The paper's public data includes six sets of prompts, each with a hidden step that is known in advance. For example, "the color of the planet fourth from the Sun is" needs "Mars" before it can answer "red". The question: does our lens surface the hidden step more often than the plain logit lens does? The pass line, and the controls that must fail (a shuffled lens; a same-category decoy word), are published before any run. No new fitting, and no new GPU nights for the fit.</p>
-      <p class="say"><b>Two rules we now keep.</b></p>
-      <ol>
-        <li>The measure must be one the source paper uses for the claim we are testing.</li>
-        <li>A forecast is checked against data it was not fitted to before anything is spent on it.</li>
-      </ol>
-    </section>
-    <div class="band">
-    <section class="rc" id="jlens-step0">
-      <div class="viz" data-reveal>
-        <div class="row"><p class="lab"><span>Word frequency</span><span>0.075</span></p><div class="bars"><div class="bar" style="width:34.2%"></div></div></div>
-        <div class="row"><p class="lab"><span>Logit lens</span><span>0.070</span></p><div class="bars"><div class="bar" style="width:32.0%"></div></div></div>
-        <div class="row"><p class="lab"><span>Jacobian lens</span><span>0.054</span></p><div class="bars"><div class="bar" style="width:24.7%"></div></div></div>
-        <div class="row"><p class="lab"><span>Shrunk Jacobian lens</span><span>0.097</span></p><div class="bars"><div class="bar" style="width:44.3%"></div></div></div>
-        <div class="row"><p class="lab"><span>Trained lens</span><span>0.219</span></p><div class="bars"><div class="bar k" style="width:100%"></div></div></div>
-        <p class="cap">Next token, top-1, middle layers, 306 held-out positions: word frequency 0.075; logit lens 0.070; Jacobian lens 0.054; shrunk Jacobian lens 0.097 (not distinguishable from frequency); trained lens 0.219. One token further ahead: word frequency 0.073; every lens 0.019 or lower. Bars are to scale.</p>
-      </div>
-      <div>
-        <p class="lab">J-Lens · <em>results so far</em></p>
-        <h2 class="big">Results so far, <b>run by run.</b></h2>
-        <p class="say">At mid-depth, neither the Jacobian nor the logit lens predicts upcoming tokens better than word frequency; only the trained lens beats frequency, and only for the next token.</p>
-        <p class="say dim">The sentence and the row were checked against the result file by a different agent, one that didn't run it. The code, the result files and one row per public claim are in <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md</a>.</p>
-      </div>
-    </section>
-    </div>
-    <figure class="fig">
-      <div class="scroll"><svg class="chart" viewBox="0 0 760 420" role="img" aria-labelledby="dose-t dose-d" xmlns="http://www.w3.org/2000/svg">
+</svg></div><p class="cap">How we test the J-lens: three readers of the model's middle layers, each scored against the model's own answer. Drawn from the method above.</p></figure>
+</section>
+<section class="block" id="where-we-are" aria-labelledby="h-where-we-are"><h2 class="lab" id="h-where-we-are">Where we are</h2>
+<ol class="timeline"><li><span class="when">2026-11-03</span><p class="say">We built the measuring instrument. Its first two tests were later withdrawn as proof, after we found a bug in our own checker.</p><p class="cap">CLAIMS.md rows 1.1 to 1.7, 4.2</p></li><li><span class="when">2026-11-04</span><p class="say">The first map, from 6 documents. It failed the first test we'd registered in advance: in layers 20 to 44 the lens found well under 1 of the next 10 tokens.</p><p class="cap">CLAIMS.md rows 2.1, 2.2, 2.7</p></li><li><span class="when">2026-11-05</span><p class="say">We tried a shortcut for building the map with random probes. It failed: its top guess matched the exact map 70%, 60% and 37% of the time at three layers, against a pass mark of 90%.</p><p class="cap">CLAIMS.md rows 3.1</p></li><li><span class="when">2026-11-06</span><p class="say">We found the bug in our own checker. Its answer-key copy of the model had no causal mask, so it could read ahead. The two tests that ran on it were withdrawn as proof.</p><p class="cap">CLAIMS.md rows 4.1, 4.2</p></li><li><span class="when">2026-11-07</span><p class="say">We rebuilt the map from 22 documents. It cleared the bar we'd written against the 6-document map, though we later judged that score too easy. In the middle layers it's still worse than the logit lens.</p><p class="cap">CLAIMS.md rows 5.2 to 5.4</p></li><li><span class="when">2026-11-10</span><p class="say">A blend that's mostly the logit lens with a small dose of the map lands about 8% closer to the model's own final answer on fresh text. We're only reporting that one; we didn't set a pass mark for it in advance. Reading past the very next token didn't work for any method.</p><p class="cap">CLAIMS.md rows 6.1, 6.4, 6.6</p></li><li><span class="when">2026-11-18</span><p class="say">Stage 2. The 54-document map didn't read fresh text any better than the 22-document map, and it failed all three conditions of the bar we'd written beforehand (average gain -0.041). There won't be a Stage 3 on this design.</p><p class="cap">CLAIMS.md rows 7.1, 7.2</p></li><li><span class="when">2026-11-21</span><p class="say">The paper's own test, on the lens we already had. On prompts whose answer needs an unspoken step ("the color of the planet fourth from the Sun is" needs "Mars"), our lens surfaced the hidden step more often than the plain logit lens (a gain of 0.10, 95% CI 0.08 to 0.13), and far more often than a decoy word from the same category (a gain of 0.29, 95% CI 0.27 to 0.32). The shuffled lens, which had to fail, did. On one of the six prompt sets, typos, the logit lens did better; the paper found ours ahead on all six. This shows the lens can read the hidden step. It doesn't show that the step drives the answer.</p><p class="cap">CLAIMS.md row 8.1</p></li></ol>
+</section>
+<section class="block" id="what-s-next" aria-labelledby="h-what-s-next"><h2 class="lab" id="h-what-s-next">What's next</h2>
+<p class="say">We won't run a Stage 3 on this design. Instead we asked the paper's own question of the lens we already had, and that test passed (below). Next we test whether the hidden steps it reads actually drive the answer. That test is written down but has not run.</p>
+</section>
+<section class="block" id="what-we-found-so-far" aria-labelledby="h-what-we-found-so-far"><h2 class="lab" id="h-what-we-found-so-far">What we found so far</h2>
+<h3 class="lab">Stage 2: more data did not help (November 2026)</h3>
+<p class="say">We set the bar before fitting anything. The lens fitted on 54 documents had to read fresh text measurably better than the one fitted on 22. Three conditions all had to hold: an average gain above zero, a 95% confidence interval entirely above zero, and an average above 0.078, which is the spread we saw between document samples.</p>
+<p class="say">The result: an average gain of -0.041 (95% CI -0.077 to -0.007). It fails all three. We're sure it's not better. We can't say it's worse: grouped by passage, the interval spans zero.</p>
+<p class="say">We had predicted a gain of 0.25 to 1.30. That was wrong, and it came from stretching a curve well past the range we'd measured.</p>
+<p class="say">Both fitted lenses still trail the plain logit lens on these layers, by about 1.5 nats of KL. The paper that introduced the lens reports the same on this measure, because the lens isn't built to predict the next token.</p>
+<h3 class="lab">What we got wrong</h3>
+<p class="say"><b>We chose the wrong measure.</b> Before Stage 2 we signed off on a bar for how closely the lens matches the model's own next-word prediction (KL divergence). The paper that introduced the lens says in its appendix that the lens scores worse than the plain logit lens on that measure through most of the network, and calls this "a feature rather than a defect". That sentence was in the paper before we started. We tested the lens on something it isn't built to do.</p>
+<p class="say"><b>We spent GPU time on a forecast we hadn't tested.</b> The case for Stage 2 rested on a curve fitted to lenses built from up to 22 documents, then stretched to 54, about two and a half times past anything we'd measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. Even the curve's best case left our lens behind the plain logit lens. We did write that down at the time, but not in the first line. Stage 2 used seven nights of GPU time.</p>
+<p class="say">The paper also reports that its lens beats the simpler lenses with as few as 10 prompts, and that more data only helps a little. More documents were never going to be the answer.</p>
+<h3 class="lab">What we do now</h3>
+<p class="say"><b>The paper's own test, on the lens we already have.</b> The paper's public data includes six sets of prompts, each with a hidden step that's known in advance. For example, "the color of the planet fourth from the Sun is" needs "Mars" before it can answer "red". The question is whether our lens surfaces the hidden step more often than the plain logit lens does. The pass line, and the controls that had to fail (a shuffled lens, and a decoy word from the same category), were published before the run. It passed on 2026-11-21. There's no new fitting, and no new GPU nights for a fit.</p>
+<p class="say"><b>Two rules we keep now.</b></p>
+<ol class="say"><li>The measure must be one the source paper uses for the claim we are testing.</li><li>Before we spend anything on a forecast, we check it against data it wasn't fitted to.</li></ol>
+<h3 class="lab">Results so far, run by run.</h3>
+<p class="say">J-Lens. Status: results so far. Not filed in the notebook yet.</p>
+<p class="say">At mid-depth, neither the Jacobian lens nor the logit lens predicts upcoming tokens better than word frequency does. Only the trained lens beats frequency, and only for the next token.</p>
+<p class="say">Next token, top-1, middle layers, 306 held-out positions: word frequency 0.075; logit lens 0.070; Jacobian lens 0.054; shrunk Jacobian lens 0.097 (not distinguishable from frequency); trained lens 0.219. One token further ahead: word frequency 0.073; every lens 0.019 or lower.</p>
+<p class="say">A different agent, one that didn't run it, checked that sentence and that row against the result file. The code, the result files and one row per public claim are in CLAIMS.md: <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md" rel="noreferrer">github.com/NotYourAverageAutomaton/j-lens/…</a></p>
+<figure class="fig"><div class="scroll"><svg class="chart" viewBox="0 0 760 420" role="img" aria-labelledby="dose-t dose-d" xmlns="http://www.w3.org/2000/svg">
 <title id="dose-t">Does our map get better with more documents?</title>
 <desc id="dose-d">Distance from the model's own answer in its middle layers (KL, nats; lower is better) against the number of documents the map is built from, 6 to 22 measured. Our original map falls from 10.4 to 8.3 but stays above the simplest method (7.12, flat). The blend sits below the simplest method at every point. Two fitted curves past 22 are not data.</desc>
 <rect x="296.6" y="28" width="439.4" height="336" fill="var(--panel)" opacity=".6"/>
@@ -280,41 +239,23 @@
 <rect x="292.8" y="328.4" width="7.6" height="7.6" fill="var(--ground)" stroke="var(--brass)" stroke-width="2"/>
 <text x="148.0" y="71.7" fill="var(--cyan)" font-family="var(--body)" font-size="12" font-weight="600">our original map (circles)</text>
 <text x="89.8" y="357.7" fill="var(--brass)" font-family="var(--body)" font-size="12" font-weight="600">the blend: mostly the simplest method, a small dose of our map (squares)</text>
-</svg></div>
-      <p class="cap">Does our map get better with more documents? Distance from the model's own answer in its middle layers, mean KL over layers 20 to 44 on six check passages, by the number of documents the map is built from. Lower is better. Bars: 1 SD across document subsets (none at 6 and 22). Blend strength was chosen on these same six passages; its never-seen result is on fresh text (not shown). The dotted curves are fits, not data. Source: dose_kl.json 6be964a0; every point is in the data file. <a href="/data/jlens-dose-points.csv">jlens-dose-points.csv</a></p>
-    </figure>
-  </section>
+</svg></div><p class="cap">Does our map get better with more documents? Distance from the model's own answer in its middle layers, mean KL over layers 20 to 44 on six check passages, by the number of documents the map is built from. Lower is better. Bars: 1 SD across document subsets (none at 6 and 22). Blend strength was chosen on these same six passages; its never-seen result is on fresh text (not shown). The dotted curves are fits, not data. Source: dose_kl.json 6be964a0; every point is in the data file. Data file: /data/jlens-dose-points.csv</p></figure>
+</section>
+<section class="block" id="evidence" aria-labelledby="h-evidence"><h2 class="lab" id="h-evidence">Evidence</h2>
+<ul class="links"><li><a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md" rel="noreferrer">CLAIMS.md</a></li><li><a href="https://github.com/NotYourAverageAutomaton/j-lens/tree/main/prereg" rel="noreferrer">prereg/</a></li><li><a href="https://github.com/NotYourAverageAutomaton/j-lens" rel="noreferrer">j-lens repo</a></li><li><a href="/corrections.html">Corrections</a></li></ul>
+</section>
+<section class="block" id="built-on" aria-labelledby="h-built-on"><h2 class="lab" id="h-built-on">Built on</h2>
+<p class="say">These are only the papers our method actually uses. For each one: what we took from it, and what we did differently.</p>
+<ol class="cites"><li><p class="cite">Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, T. Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, Jack Lindsey. Verbalizable Representations Form a Global Workspace in Language Models. Anthropic, Transformer Circuits, 2026. <a href="https://transformer-circuits.pub/2026/workspace" rel="noreferrer">Read it</a></p><p class="say"><b>Took:</b> the Jacobian lens (the average derivative of the final state with respect to a middle layer) and its layer-by-layer signature.</p><p class="say"><b>Different:</b> we built our own implementation from the paper, using the authors' code only as a check. We ran it on a different, larger model and scored it against a plain word-frequency guess.</p></li><li><p class="cite">Nora Belrose, Igor Ostrovsky, Lev McKinney, Zach Furman, Logan Smith, Danny Halawi, Stella Biderman, Jacob Steinhardt. Eliciting Latent Predictions from Transformers with the Tuned Lens. arXiv, 2023. <a href="https://arxiv.org/abs/2303.08112" rel="noreferrer">Read it</a></p><p class="say"><b>Took:</b> the trained lens, as the strong comparison: the best a lens can do when it is trained for the job.</p><p class="say"><b>Different:</b> trained on our own text and scored on held-out positions against word frequency.</p></li><li><p class="cite">Koyena Pal, Jiuding Sun, Andrew Yuan, Byron C. Wallace, David Bau. Future Lens: Anticipating Subsequent Tokens from a Single Hidden State. CoNLL, 2023. <a href="https://arxiv.org/abs/2311.04897" rel="noreferrer">Read it</a></p><p class="say"><b>Took:</b> reading tokens further ahead than the next one, and its top-k measure.</p><p class="say"><b>Different:</b> all positions of real text, not only the ones the model gets right, with frequency and shuffled baselines.</p></li><li><p class="cite">nostalgebraist. The logit lens. Blog post, 2020.</p><p class="say"><b>Took:</b> reading a middle layer straight through the model's own final output layer, with nothing learned in between.</p><p class="say"><b>Different:</b> we use it only as the simplest baseline; every other lens has to beat it.</p></li></ol>
+<p class="say">Further reading: Hernandez et al., Linearity of Relation Decoding in Transformer Language Models, arXiv, 2023. <a href="https://arxiv.org/abs/2308.09124" rel="noreferrer">arxiv.org/abs/2308.09124</a></p>
+</section></main>
 
-  <section class="block" id="evidence" aria-labelledby="h-evidence">
-    <h2 class="lab" id="h-evidence">Evidence</h2>
-    <ul class="links">
-      <li><a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md<span>one row per public claim, with its file and key</span></a></li>
-      <li><a href="https://github.com/NotYourAverageAutomaton/j-lens/tree/main/prereg">prereg/<span>every pass mark, written before its run</span></a></li>
-      <li><a href="https://github.com/NotYourAverageAutomaton/j-lens">j-lens repo<span>code, result files, logs</span></a></li>
-      <li><a href="/corrections.html#j-lens">Corrections<span>what we got wrong, word for word</span></a></li>
-    </ul>
-  </section>
-
-  <section class="block" id="built-on" aria-labelledby="h-built">
-    <h2 class="lab" id="h-built">Built on</h2>
-    <p class="say">Only the papers our method uses. For each: what we took, and what we did differently.</p>
-    <ol class="cites">
-      <li><p class="cite">Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, T. Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, Jack Lindsey. <a href="https://transformer-circuits.pub/2026/workspace" rel="noreferrer">Verbalizable Representations Form a Global Workspace in Language Models</a>. Anthropic, Transformer Circuits, 2026.</p><p class="say"><b>Took:</b> the Jacobian lens (the average derivative of the final state with respect to a middle layer) and its layer-by-layer signature.</p><p class="say"><b>Different:</b> we built our own implementation from the paper, using the authors&#x27; code only as a check. We ran it on a different, larger model and scored it against a plain word-frequency guess.</p></li>
-      <li><p class="cite">Nora Belrose, Igor Ostrovsky, Lev McKinney, Zach Furman, Logan Smith, Danny Halawi, Stella Biderman, Jacob Steinhardt. <a href="https://arxiv.org/abs/2303.08112" rel="noreferrer">Eliciting Latent Predictions from Transformers with the Tuned Lens</a>. arXiv, 2023.</p><p class="say"><b>Took:</b> the trained lens, as the strong comparison: the best a lens can do when it is trained for the job.</p><p class="say"><b>Different:</b> trained on our own text and scored on held-out positions against word frequency.</p></li>
-      <li><p class="cite">Koyena Pal, Jiuding Sun, Andrew Yuan, Byron C. Wallace, David Bau. <a href="https://arxiv.org/abs/2311.04897" rel="noreferrer">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</a>. CoNLL, 2023.</p><p class="say"><b>Took:</b> reading tokens further ahead than the next one, and its top-k measure.</p><p class="say"><b>Different:</b> all positions of real text, not only the ones the model gets right, with frequency and shuffled baselines.</p></li>
-      <li><p class="cite">nostalgebraist. The logit lens. Blog post, 2020.</p><p class="say"><b>Took:</b> reading a middle layer straight through the model&#x27;s own final output layer, with nothing learned in between.</p><p class="say"><b>Different:</b> we use it only as the simplest baseline; every other lens has to beat it.</p></li>
-    </ol>
-    <p class="say dim">Further reading: Hernandez et al., <a href="https://arxiv.org/abs/2308.09124" rel="noreferrer">Linearity of Relation Decoding in Transformer Language Models</a>, arXiv, 2023.</p>
-  </section>
-</main>
-
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>

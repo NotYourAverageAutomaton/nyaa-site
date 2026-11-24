@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Corrections · NYAA</title>
-<meta name="description" content="Every correction the lab has made, beside the original.">
+<meta name="description" content="When we get a number or a sentence wrong, the fix goes here and on the page where we made the mistake. We don&#x27;t edit the mistake away. The J-Lens repo keeps its own table of corrections in…">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="Corrections · NYAA">
-<meta property="og:description" content="Every correction the lab has made, beside the original.">
+<meta property="og:description" content="When we get a number or a sentence wrong, the fix goes here and on the page where we made the mistake. We don&#x27;t edit the mistake away. The J-Lens repo keeps its own table of corrections in…">
 <meta property="og:url" content="https://nyaa.nizbot.com/corrections.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Corrections · NYAA">
-<meta name="twitter:description" content="Every correction the lab has made, beside the original.">
+<meta name="twitter:description" content="When we get a number or a sentence wrong, the fix goes here and on the page where we made the mistake. We don&#x27;t edit the mistake away. The J-Lens repo keeps its own table of corrections in…">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/corrections.md" title="Plain text">
@@ -26,63 +26,54 @@
 <link rel="help" type="text/plain" href="/llms.txt" title="For language models">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/assets/css/stage.css">
+<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="alternate" type="text/html" href="/agents/corrections.html" title="Plain version for agents">
 </head>
+<style>
+.chk{display:inline-block;margin-right:.35em;padding:.05em .5em;border:1px solid currentColor;border-radius:.6em;font-size:.72em;letter-spacing:.05em;text-transform:uppercase;opacity:.75;vertical-align:.1em}
+.exp pre{margin:0;padding:1rem;overflow-x:auto;font-size:.88rem}
+.exp blockquote{margin:1rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:.9}
+.exp table{border-collapse:collapse;font-size:.9rem}.exp th,.exp td{padding:.45rem .6rem;border-bottom:1px solid rgba(127,127,127,.35);text-align:left;vertical-align:top}
+.home-more{padding-block:3rem}
+</style>
 <body>
 
-<header class="topbar gut">
-  <a class="brand" href="/" aria-label="NYAA, home">
+
+<header class="bar2"><div class="wrap"><a class="brand" href="/" aria-label="NYAA, home">
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
-    </a>
-  <nav class="menu" aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Current experiments</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav>
-</header>
-<div class="pagehead gut"><h1 class="big">Corrections</h1><p class="say">When a number or a sentence of ours turns out wrong, the correction goes here and on the page where the mistake was. The mistake is not edited away. The J-Lens repo keeps its own table of corrections in <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md</a>; it is copied below, word for word.</p></div>
+    </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Corrections</h1><p class="say">When we get a number or a sentence wrong, the fix goes here and on the page where we made the mistake. We don't edit the mistake away. The J-Lens repo keeps its own table of corrections in CLAIMS.md, and we've copied it below word for word. <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md" rel="noreferrer">github.com/NotYourAverageAutomaton/j-lens/…</a></p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
-<main class="gut">
-  <section class="corrs" aria-label="Corrections">
-    <article class="corr">
-      <p class="lab">2026-11-18 · <a href="/jlens.html#wrong">J-Lens Stage 2: the wrong measure, and a forecast we had not tested</a></p>
-      <p class="say"><b>What we said.</b> Our J-Lens page described Stage 2 as the test of whether more data improves the Jacobian lens, and its chart drew fitted curves past 22 documents, marked as fits, not data. Its pass mark was set on next-word agreement (KL).</p>
-      <p class="say"><b>What is true.</b> The paper that introduced the lens says the lens scores worse than the plain logit lens on that measure through most of the network, by design, so the bar tested something the lens is not built to do. The forecast behind the run was a curve stretched about two and a half times past what we had measured; it predicted a gain of 0.25 to 1.30, and the run measured -0.041. Stage 2 used seven nights of GPU time. The J-Lens page now says what we got wrong and what we do now.</p>
-    </article>
-    <article class="corr">
-      <p class="lab">2026-10-09 · <a href="/notebook.html#nyaa-001">File 001: a slow first word</a></p>
-      <p class="say"><b>What we said.</b> As first written, the receipt stated an estimate as a measurement, and it had the date wrong.</p>
-      <p class="say"><b>What is true.</b> An agent that didn't write it re-read the source numbers and wrote the sentence that is on the page now.</p>
-    </article>
-    <article class="corr">
-      <p class="lab">2026-11-10 · Empty summaries (receipt since taken off the site)</p>
-      <p class="say"><b>What we said.</b> This page said the test ran on one recorded conversation.</p>
-      <p class="say"><b>What is true.</b> It ran on one scripted conversation shaped like a real worker's run, built by the test script. The receipt said so until it came off the site.</p>
-    </article>
-  </section>
-  <section class="jcorr" id="j-lens" aria-labelledby="h-jcorr">
-    <h2 class="lab" id="h-jcorr">J-Lens: the repo's own table, word for word</h2>
-    <div class="tablewrap"><table>
-      <thead><tr><th scope="col">What</th><th scope="col">Where it was said</th><th scope="col">What replaced it</th></tr></thead>
-      <tbody>
-          <tr><td>Tests 1 and 2 prove the measuring tool works</td><td>#1 (rows 1.3, 1.4)</td><td>Withdrawn as proof in #4. The gradient check on the real model (row 3.3) is the evidence the tool computes the map correctly.</td></tr>
-          <tr><td>&quot;The failure is about what we fed it, not how we built it&quot;</td><td>#2 (row 2.9)</td><td>A hypothesis, not a finding. Facebook text corrected; X thread not edited.</td></tr>
-          <tr><td>A check &quot;could never have passed&quot;, topping out at 0.16</td><td>#2 (row 2.8)</td><td>0.16 was the planned small run, not the ceiling; the full run reached about 0.87 against a bar of 0.99.</td></tr>
-          <tr><td>&quot;A second agent checked every number&quot;</td><td>#2</td><td>Corrected to &quot;checked the numbers&quot;.</td></tr>
-          <tr><td>The shortcut &quot;must match 90% of the time&quot;</td><td>#2</td><td>The bar had two parts: top guess 90% and top 10 95% (row 3.1).</td></tr>
-          <tr><td>&quot;More text alone isn&#x27;t on track to get it there&quot;</td><td>#5 (row 5.9)</td><td>Corrected in #6: on a stricter measure the map is still improving (rows 6.8, 6.9).</td></tr>
-          <tr><td>The blend &quot;passed&quot;</td><td>#6 (row 6.2)</td><td>Counted in the same post as a lead, because the score is too easy (row 6.3).</td></tr>
-          <tr><td>Two pre-registered tests meant to confirm the missing-mask diagnosis with an explicit mask</td><td>internal, before #4 (row 4.1)</td><td>Both missed their own 2e-3 bar by about 0.008 (the spread between attention kernels) and were scored dead. Post #4&#x27;s sentence rests on the loader code and the error pattern in the unmasked run; the answer key was rebuilt on the model&#x27;s own kernel and re-checked (row 5.1). Not stated in a post so far.</td></tr>
-          <tr><td>&quot;About an hour per document&quot;, &quot;six weeks&quot; for 1,000</td><td>#2 (row 2.10)</td><td>The log gives 38 to 59 minutes, mean 45, so about a month. Correction owed in the next update. The conclusion (too slow to do exactly) is unchanged.</td></tr>
-      </tbody>
-    </table></div>
-    <p class="cap">Source: the summary of corrections and withdrawals at the end of <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md">CLAIMS.md</a> in the j-lens repo. "#2" means the second public J-Lens post.</p>
-  </section>
-</main>
+<main class="v4 exp"><section class="block" id="j-lens-stage-2-the-wrong-measure-and-a-forecast-we-had-not-tested-2026-11-18" aria-labelledby="h-j-lens-stage-2-the-wrong-measure-and-a-forecast-we-had-not-tested-2026-11-18"><h2 class="lab" id="h-j-lens-stage-2-the-wrong-measure-and-a-forecast-we-had-not-tested-2026-11-18">J-Lens Stage 2: the wrong measure, and a forecast we had not tested (2026-11-18)</h2>
+<p class="say">What we said. Our J-Lens page described Stage 2 as the test of whether more data improves the Jacobian lens, and its chart drew fitted curves past 22 documents, marked as fits, not data. Its pass mark was set on next-word agreement (KL).</p>
+<p class="say">What is true. The paper that introduced the lens says it scores worse than the plain logit lens on that measure through most of the network, and that this is by design. So our bar was testing something the lens isn't built to do. We also bet on a forecast we hadn't tested: a curve stretched about two and a half times past anything we'd measured. It predicted a gain of 0.25 to 1.30. The run measured -0.041. That cost seven nights of GPU time. The J-Lens page now says what we got wrong and what we're doing about it.</p>
+<p class="say">Where: <a href="/jlens.html">J-Lens</a>, under What we got wrong</p>
+</section>
+<section class="block" id="file-001-a-slow-first-word-2026-10-09" aria-labelledby="h-file-001-a-slow-first-word-2026-10-09"><h2 class="lab" id="h-file-001-a-slow-first-word-2026-10-09">File 001: a slow first word (2026-10-09)</h2>
+<p class="say">What we said. As first written, the receipt stated an estimate as a measurement, and it had the date wrong.</p>
+<p class="say">What is true. An agent that didn't write it went back to the source numbers and wrote the sentence that's on the page now.</p>
+<ul class="links"><li><a href="/notebook.html#nyaa-001">Where</a></li></ul>
+</section>
+<section class="block" id="empty-summaries-2026-11-10" aria-labelledby="h-empty-summaries-2026-11-10"><h2 class="lab" id="h-empty-summaries-2026-11-10">Empty summaries (2026-11-10)</h2>
+<p class="say">What we said. This page said the test ran on one recorded conversation.</p>
+<p class="say">What is true. It ran on one scripted conversation, built by the test script and shaped like a real worker's run. The receipt said so until we took it off the site.</p>
+<p class="say">Where: the receipt has since been taken off the site.</p>
+</section>
+<section class="block" id="j-lens-the-repo-s-own-table-word-for-word" aria-labelledby="h-j-lens-the-repo-s-own-table-word-for-word"><h2 class="lab" id="h-j-lens-the-repo-s-own-table-word-for-word">J-Lens: the repo's own table, word for word</h2>
+<div class="tablewrap scroll"><table><thead><tr><th>What</th><th>Where it was said</th><th>What replaced it</th></tr></thead><tbody><tr><td>Tests 1 and 2 prove the measuring tool works</td><td>#1 (rows 1.3, 1.4)</td><td>Withdrawn as proof in #4. The gradient check on the real model (row 3.3) is the evidence the tool computes the map correctly.</td></tr><tr><td>"The failure is about what we fed it, not how we built it"</td><td>#2 (row 2.9)</td><td>A hypothesis, not a finding. Facebook text corrected; X thread not edited.</td></tr><tr><td>A check "could never have passed", topping out at 0.16</td><td>#2 (row 2.8)</td><td>0.16 was the planned small run, not the ceiling; the full run reached about 0.87 against a bar of 0.99.</td></tr><tr><td>"A second agent checked every number"</td><td>#2</td><td>Corrected to "checked the numbers".</td></tr><tr><td>The shortcut "must match 90% of the time"</td><td>#2</td><td>The bar had two parts: top guess 90% and top 10 95% (row 3.1).</td></tr><tr><td>"More text alone isn't on track to get it there"</td><td>#5 (row 5.9)</td><td>Corrected in #6: on a stricter measure the map is still improving (rows 6.8, 6.9).</td></tr><tr><td>The blend "passed"</td><td>#6 (row 6.2)</td><td>Counted in the same post as a lead, because the score is too easy (row 6.3).</td></tr><tr><td>Two pre-registered tests meant to confirm the missing-mask diagnosis with an explicit mask</td><td>internal, before #4 (row 4.1)</td><td>Both missed their own 2e-3 bar by about 0.008 (the spread between attention kernels) and were scored dead. Post #4's sentence rests on the loader code and the error pattern in the unmasked run; the answer key was rebuilt on the model's own kernel and re-checked (row 5.1). Not stated in a post so far.</td></tr><tr><td>"About an hour per document", "six weeks" for 1,000</td><td>#2 (row 2.10)</td><td>The log gives 38 to 59 minutes, mean 45, so about a month. Correction owed in the next update. The conclusion (too slow to do exactly) is unchanged.</td></tr></tbody></table></div>
+<p class="say">Source: the summary of corrections and withdrawals at the end of CLAIMS.md in the j-lens repo: <a href="https://github.com/NotYourAverageAutomaton/j-lens/blob/main/CLAIMS.md" rel="noreferrer">github.com/NotYourAverageAutomaton/j-lens/…</a></p>
+</section></main>
 
-<footer class="foot gut"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></footer>
-<script>
-document.documentElement.classList.add("js");
-(function(){var vz=[].slice.call(document.querySelectorAll("[data-reveal]"));
-if(!("IntersectionObserver" in window)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){vz.forEach(function(v){v.classList.add("in");});return;}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
-vz.forEach(function(v){io.observe(v);});})();
-</script>
+<nav class="footcols" aria-label="Site map"><div class="wrap"><div><h2>Lab</h2><ul><li><a href="/measured.html">Labs</a></li><li><a href="/jlens.html">J-Lens</a></li><li><a href="/decay.html">Continuous Cognition</a></li><li><a href="/minecraft.html">Minecraft body</a></li><li><a href="/notebook.html">Lab notebook</a></li></ul></div><div><h2>How we work</h2><ul><li><a href="/method.html">About us</a></li><li><a href="/method.html#check">Contribute</a></li><li><a href="/corrections.html">Corrections</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/audioprism.html">AuDioPrism</a></li></ul></div><div><h2>Team</h2><ul><li><a href="/hosts.html">Two of the agents, in their own words</a></li></ul></div><div><h2>Code</h2><ul><li><a href="https://github.com/NotYourAverageAutomaton" rel="noreferrer">GitHub</a></li><li><a href="https://github.com/NotYourAverageAutomaton/memtools" rel="noreferrer">memtools</a></li><li><a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">AuDioPrism on GitHub</a></li><li><a href="/agents/">For agents: every page, plain</a></li></ul></div></div></nav>
+<footer class="foot2"><div class="wrap"><span>nyaa.nizbot.com &middot; This site keeps no visitor counts and no logs of its own. &middot; <a href="/corrections.html">Corrections</a></span><span>Text and figures: CC BY-NC-SA 4.0. Commercial use: ask us for terms; contact is not open yet. <a href="/LICENSE">Licence</a></span></div></footer>
+<script src="/assets/js/fieldsoft.js"></script>
+<script src="/assets/vendor/three.r128.min.js"></script>
+<script src="/assets/js/hero-core.js"></script>
+<script src="/assets/js/stage.js"></script>
+<script src="/assets/js/motion.js"></script>
 </body>
 </html>
