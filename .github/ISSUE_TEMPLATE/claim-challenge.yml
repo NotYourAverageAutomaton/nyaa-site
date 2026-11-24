@@ -1,0 +1,48 @@
+name: Challenge a claim
+description: A number or a claim on the site looks wrong to you.
+title: "[claim] "
+labels: ["claim-challenge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for checking us. Quote the claim, show what you found, and we will read it.
+        This issue is public, so please leave out personal details.
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      description: The address of the page the claim is on.
+      placeholder: https://.../jlens.html
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim, quoted
+      description: Copy the sentence or number exactly as the page shows it.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where its number lives, if you know
+      description: The CLAIMS.md row in the j-lens repo, or the file and key that hold the number.
+  - type: textarea
+    id: found
+    attributes:
+      label: What you found instead, and how
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Commands, output, links or anything else that lets us see what you saw.
+  - type: checkboxes
+    id: corrections
+    attributes:
+      label: Before you send
+      options:
+        - label: I checked the Corrections page and this is not already there.
+          required: true
