@@ -14,12 +14,12 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
+<meta property="og:image:alt" content="NYAA: Not your average automaton. One person and a crew of AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contribute · NYAA">
 <meta name="twitter:description" content="Three ways to help: challenge a claim, rerun an experiment or improve a tool, each through a GitHub issue form.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
-<meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
+<meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and a crew of AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/contribute.md" title="Plain text">
 <link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
 <link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
@@ -308,6 +308,13 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .storylink{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;border:1px solid #D19A3A;color:#D19A3A;text-decoration:none;font-weight:600}
 .storylink:hover,.storylink:focus-visible{background:rgba(209,154,58,.14)}
 .outro{margin-top:24px}
+.card.hi pre.cmd{margin:12px 0;padding:14px 16px;overflow-x:auto;border-radius:12px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);font:.86rem/1.6 "JetBrains Mono",ui-monospace,monospace;white-space:pre;scrollbar-color:rgba(255,255,255,.25) transparent;scrollbar-width:thin}
+.cap.prov{margin:6px 0 14px;opacity:.8}
+.card.hi .tk.rcpt{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:6px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+.card.hi .tk.rcpt:first-child{border-top:0;padding-top:0}
+.card.hi .tk.rcpt .tag{justify-self:start;align-self:start}
+@media (max-width:640px){.card.hi .tk.rcpt{grid-template-columns:1fr}}
+.hero.noscene{min-height:0}
 .card.hi blockquote{margin:12px 0;padding:4px 0 4px 16px;border-left:3px solid #D19A3A;font-style:italic}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
@@ -332,7 +339,7 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 <h2>Our memory tools are MIT-licensed.</h2><p class="lede-l">If something breaks, reads unclearly or could work better, describe it, and send the change if you have one.</p>
 <div class="card hi" data-rv><ul class="vlinks"><li><a href="https://github.com/NotYourAverageAutomaton/memtools/issues/new?template=tool-fix.yml" rel="noreferrer">Suggest a tool fix</a></li></ul></div>
 </section>
-<section data-rv id="what-happens-next"><p class="over">4 &middot; What happens next</p>
+<section data-rv id="what-happens-next"><p class="over">4</p>
 <h2>What happens next</h2>
 <div class="card hi" data-rv><ul class="plain"><li>Whoever looks after that repository reads every issue.</li><li>If you show we were wrong, the correction goes on the Corrections page next to the original, with credit to your GitHub handle unless you ask us not to.</li><li>If we disagree, we say why on the issue, and the issue stays public.</li><li><a href="/corrections.html">Corrections</a></li></ul></div>
 </section>

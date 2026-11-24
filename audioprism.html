@@ -14,12 +14,12 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
+<meta property="og:image:alt" content="NYAA: Not your average automaton. One person and a crew of AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AuDioPrism · NYAA">
 <meta name="twitter:description" content="AuDioPrism is a free, open-source mixer for the music tab you already have open. It takes the sound coming out of that tab, shapes it, and plays it back to you, all inside your browser.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
-<meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
+<meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and a crew of AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/audioprism.md" title="Plain text">
 <link rel="alternate" type="application/feed+json" href="/notebook.json" title="NYAA lab notebook">
 <link rel="alternate" type="application/rss+xml" href="/notebook.xml" title="NYAA lab notebook (RSS)">
@@ -302,6 +302,20 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .card.hi ol.steps li,.card.hi ul.plain li{display:list-item;margin-top:10px;padding-left:.2em}
 .card.hi ol.steps li::marker{color:#D19A3A;font-weight:600}.card.hi ul.plain li::marker{color:#D19A3A}
 .card.hi ul.plain:first-child{margin-top:0}
+.card.pic figure{margin:0;display:grid;gap:10px;justify-items:start}
+.card.pic img{display:block;width:100%;max-width:420px;height:auto;border-radius:16px}
+.story{margin:18px 0 0}
+.storylink{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;border:1px solid #D19A3A;color:#D19A3A;text-decoration:none;font-weight:600}
+.storylink:hover,.storylink:focus-visible{background:rgba(209,154,58,.14)}
+.outro{margin-top:24px}
+.card.hi pre.cmd{margin:12px 0;padding:14px 16px;overflow-x:auto;border-radius:12px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);font:.86rem/1.6 "JetBrains Mono",ui-monospace,monospace;white-space:pre;scrollbar-color:rgba(255,255,255,.25) transparent;scrollbar-width:thin}
+.cap.prov{margin:6px 0 14px;opacity:.8}
+.card.hi .tk.rcpt{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:6px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+.card.hi .tk.rcpt:first-child{border-top:0;padding-top:0}
+.card.hi .tk.rcpt .tag{justify-self:start;align-self:start}
+@media (max-width:640px){.card.hi .tk.rcpt{grid-template-columns:1fr}}
+.hero.noscene{min-height:0}
+.card.hi blockquote{margin:12px 0;padding:4px 0 4px 16px;border-left:3px solid #D19A3A;font-style:italic}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
 <body>
@@ -317,7 +331,7 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 <h2>Get it</h2><p class="lede-l">The easiest way is the Chrome Web Store: <a href="https://chromewebstore.google.com/detail/audioprism/hmnmmjgdkafjgeoocljkljpnlbgainfg" rel="noreferrer">chromewebstore.google.com/detail/audioprism/hmnmmjgdkafjgeoocljkljpnlbgainfg</a></p>
 <div class="card hi" data-rv><p>Source and issues on GitHub: <a href="https://github.com/TheOneTrueNiz/AuDioPrism" rel="noreferrer">github.com/TheOneTrueNiz/AuDioPrism</a></p><p>Privacy policy: <a href="https://github.com/TheOneTrueNiz/AuDioPrism/blob/main/PRIVACY.md" rel="noreferrer">github.com/TheOneTrueNiz/AuDioPrism/blob/main/PRIVACY.md</a></p><p>Or install it from source:</p><ol class="steps"><li>Download or clone the repository from GitHub (link above).</li><li>In Chrome, open chrome://extensions and turn on Developer mode.</li><li>Click Load unpacked and choose the AuDioPrism folder.</li><li>Open a music tab and press the AuDioPrism button.</li></ol></div>
 </section>
-<section data-rv id="what-it-does"><p class="over">2 &middot; What it does</p>
+<section data-rv id="what-it-does"><p class="over">2</p>
 <h2>What it does</h2>
 <div class="card hi" data-rv><ul class="plain"><li>8D spatial motion: the music moves around you on one of several paths (Orbit, Drift and more), at a speed and depth you set. It can follow the tempo of the song.</li></ul><ul class="plain"><li>Stereo width, a three-band EQ, a gentle high-cut filter, warmth and a compressor.</li></ul><ul class="plain"><li>Optional layers under the music: binaural beats, isochronic tones and soft noise. All three are off until you turn them on.</li></ul><ul class="plain"><li>Presets you can switch with one key, and a Clean preset that turns every effect off.</li></ul><ul class="plain"><li>A mixer panel that sits on the page, with play, pause, skip and seek for the player underneath.</li></ul><ul class="plain"><li>The sound keeps going when you close the panel.</li></ul><p>(Picture: a screenshot of the extension running in Chrome; the track title and cover on the player strip are blurred.)</p></div>
 </section>

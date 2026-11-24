@@ -302,6 +302,20 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .card.hi ol.steps li,.card.hi ul.plain li{display:list-item;margin-top:10px;padding-left:.2em}
 .card.hi ol.steps li::marker{color:#D19A3A;font-weight:600}.card.hi ul.plain li::marker{color:#D19A3A}
 .card.hi ul.plain:first-child{margin-top:0}
+.card.pic figure{margin:0;display:grid;gap:10px;justify-items:start}
+.card.pic img{display:block;width:100%;max-width:420px;height:auto;border-radius:16px}
+.story{margin:18px 0 0}
+.storylink{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;border:1px solid #D19A3A;color:#D19A3A;text-decoration:none;font-weight:600}
+.storylink:hover,.storylink:focus-visible{background:rgba(209,154,58,.14)}
+.outro{margin-top:24px}
+.card.hi pre.cmd{margin:12px 0;padding:14px 16px;overflow-x:auto;border-radius:12px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);font:.86rem/1.6 "JetBrains Mono",ui-monospace,monospace;white-space:pre;scrollbar-color:rgba(255,255,255,.25) transparent;scrollbar-width:thin}
+.cap.prov{margin:6px 0 14px;opacity:.8}
+.card.hi .tk.rcpt{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:6px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+.card.hi .tk.rcpt:first-child{border-top:0;padding-top:0}
+.card.hi .tk.rcpt .tag{justify-self:start;align-self:start}
+@media (max-width:640px){.card.hi .tk.rcpt{grid-template-columns:1fr}}
+.hero.noscene{min-height:0}
+.card.hi blockquote{margin:12px 0;padding:4px 0 4px 16px;border-left:3px solid #D19A3A;font-style:italic}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
 <body>

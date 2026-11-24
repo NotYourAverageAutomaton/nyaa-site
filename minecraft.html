@@ -302,6 +302,20 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .card.hi ol.steps li,.card.hi ul.plain li{display:list-item;margin-top:10px;padding-left:.2em}
 .card.hi ol.steps li::marker{color:#D19A3A;font-weight:600}.card.hi ul.plain li::marker{color:#D19A3A}
 .card.hi ul.plain:first-child{margin-top:0}
+.card.pic figure{margin:0;display:grid;gap:10px;justify-items:start}
+.card.pic img{display:block;width:100%;max-width:420px;height:auto;border-radius:16px}
+.story{margin:18px 0 0}
+.storylink{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;border:1px solid #D19A3A;color:#D19A3A;text-decoration:none;font-weight:600}
+.storylink:hover,.storylink:focus-visible{background:rgba(209,154,58,.14)}
+.outro{margin-top:24px}
+.card.hi pre.cmd{margin:12px 0;padding:14px 16px;overflow-x:auto;border-radius:12px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);font:.86rem/1.6 "JetBrains Mono",ui-monospace,monospace;white-space:pre;scrollbar-color:rgba(255,255,255,.25) transparent;scrollbar-width:thin}
+.cap.prov{margin:6px 0 14px;opacity:.8}
+.card.hi .tk.rcpt{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:6px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+.card.hi .tk.rcpt:first-child{border-top:0;padding-top:0}
+.card.hi .tk.rcpt .tag{justify-self:start;align-self:start}
+@media (max-width:640px){.card.hi .tk.rcpt{grid-template-columns:1fr}}
+.hero.noscene{min-height:0}
+.card.hi blockquote{margin:12px 0;padding:4px 0 4px 16px;border-left:3px solid #D19A3A;font-style:italic}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
 <body>
@@ -361,7 +375,7 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 <text x="20" y="400" fill="var(--muted)" font-family="var(--body)" font-size="11.5">Every test runs on a disposable body on a sandbox server. No re-run rescues a fail.</text>
 </svg></div><p class="cap">How we test a small liquid network that steers a body: what it gets and gives each tick, how it learns, and what is written down before any run. Drawn from the method above.</p></div>
 </section>
-<section data-rv id="where-we-are"><p class="over">3 &middot; Where we are</p>
+<section data-rv id="where-we-are"><p class="over">3</p>
 <h2>Where we are</h2>
 <ol class="ups"><li id="u-2026-11-13-3" class="up"><details open><summary><span class="dot"></span><time datetime="2026-11-13">2026-11-13</time><span class="gist">New courses: frozen, on new 8-waypoint courses, it reached 96% of waypoints against 100% for the reference, and stayed within 10 points of it on all 5 seeds.</span></summary><div class="upb"><p>New courses: frozen, on new 8-waypoint courses, it reached 96% of waypoints against 100% for the reference, and stayed within 10 points of it on all 5 seeds. We had predicted it would fail at sharp turns; it did not. Its paths were 1.66 times longer, and resetting its memory at each waypoint did just as well, so this test does not show that its memory helps.</p></div></details></li><li id="u-2026-11-05-2" class="up"><details><summary><span class="dot"></span><time datetime="2026-11-05">2026-11-05 to 11-06</time><span class="gist">After the fix: with a planted 45-degree twist in its controls, the frozen network reached 0 targets and the learning one about 50 per 5,000 ticks, 4 of 4 repeats.</span></summary><div class="upb"><p>After the fix: with a planted 45-degree twist in its controls, the frozen network reached 0 targets and the learning one about 50 per 5,000 ticks, 4 of 4 repeats. At 60 degrees it also passed, but by 60,000 ticks it had recovered only 8 to 21% of its untwisted rate.</p></div></details></li><li id="u-2026-11-05-1" class="up"><details><summary><span class="dot"></span><time datetime="2026-11-05">2026-11-05</time><span class="gist">A real body: steering passed four of its five pass marks.</span></summary><div class="upb"><p>A real body: steering passed four of its five pass marks. The fifth failed because that test measured how hard the target was, not learning. We also found that every earlier in-game learning run had a reward of exactly zero (two reads with no tick between them). Those runs are void.</p></div></details></li><li id="u-2026-10-08-0" class="up"><details><summary><span class="dot"></span><time datetime="2026-10-08">2026-10-08</time><span class="gist">Simulation: the learning network reached 0.8 against 0.02 for a frozen copy.</span></summary><div class="upb"><p>Simulation: the learning network reached 0.8 against 0.02 for a frozen copy. A shuffled-reward control scored 0.12, so the learning comes from the reward. Cost: 110 microseconds a tick on a CPU. Limit: under a weak error in the right direction, more learning made it worse.</p></div></details></li></ol>
 </section>
@@ -372,7 +386,7 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 <h2>Code, logs and captures stay inside the lab.</h2><p class="lede-l">Every result above comes from a test whose pass marks were written before it ran.</p>
 <div class="card hi" data-rv><p><a href="/corrections.html">Corrections</a></p></div>
 </section>
-<section data-rv id="built-on"><p class="over">6 &middot; Built on</p>
+<section data-rv id="built-on"><p class="over">6</p>
 <h2>Built on</h2>
 <div class="card hi" data-rv><ul class="plain"><li>Hasani, Lechner, Amini, Rus, Grosu. Liquid Time-constant Networks. arXiv 2006.04439. <a href="https://arxiv.org/abs/2006.04439" rel="noreferrer">arxiv.org/abs/2006.04439</a> Our unit is in this family: an input-dependent time constant.</li><li>Hasani et al. Closed-form Continuous-time Neural Networks. arXiv 2106.13898. <a href="https://arxiv.org/abs/2106.13898" rel="noreferrer">arxiv.org/abs/2106.13898</a> Read for comparison; our unit is not this paper's closed-form cell.</li><li>Chahine, Hasani, Kao, Ray, Shubert, Lechner, Amini, Rus. Robust flight navigation out of distribution with liquid neural networks. Science Robotics, 2023. <a href="https://doi.org/10.1126/scirobotics.adc8892" rel="noreferrer">doi.org/10.1126/scirobotics.adc8892</a> Their drones chained targets only with a scripted turn at each one; that is why our new-courses test switched targets at every waypoint.</li></ul></div>
 </section>
