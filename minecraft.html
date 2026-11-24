@@ -297,6 +297,11 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .vlinks a{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none}
 .vlinks a::after{content:"\2192";color:#D19A3A}
 .card.hi p+p{margin-top:12px}
+.card.hi ol.steps,.card.hi ul.plain{display:block;margin:12px 0 0;padding-left:1.5em;columns:auto}
+.card.hi ol.steps{list-style:decimal outside}.card.hi ul.plain{list-style:disc outside}
+.card.hi ol.steps li,.card.hi ul.plain li{display:list-item;margin-top:10px;padding-left:.2em}
+.card.hi ol.steps li::marker{color:#D19A3A;font-weight:600}.card.hi ul.plain li::marker{color:#D19A3A}
+.card.hi ul.plain:first-child{margin-top:0}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
 <body>
@@ -369,7 +374,7 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 </section>
 <section data-rv id="built-on"><p class="over">6 &middot; Built on</p>
 <h2>Built on</h2>
-<div class="card hi" data-rv><ul class="vlinks"><li>Hasani, Lechner, Amini, Rus, Grosu. Liquid Time-constant Networks. arXiv 2006.04439. <a href="https://arxiv.org/abs/2006.04439" rel="noreferrer">arxiv.org/abs/2006.04439</a> Our unit is in this family: an input-dependent time constant.</li><li>Hasani et al. Closed-form Continuous-time Neural Networks. arXiv 2106.13898. <a href="https://arxiv.org/abs/2106.13898" rel="noreferrer">arxiv.org/abs/2106.13898</a> Read for comparison; our unit is not this paper's closed-form cell.</li><li>Chahine, Hasani, Kao, Ray, Shubert, Lechner, Amini, Rus. Robust flight navigation out of distribution with liquid neural networks. Science Robotics, 2023. <a href="https://doi.org/10.1126/scirobotics.adc8892" rel="noreferrer">doi.org/10.1126/scirobotics.adc8892</a> Their drones chained targets only with a scripted turn at each one; that is why our new-courses test switched targets at every waypoint.</li></ul></div>
+<div class="card hi" data-rv><ul class="plain"><li>Hasani, Lechner, Amini, Rus, Grosu. Liquid Time-constant Networks. arXiv 2006.04439. <a href="https://arxiv.org/abs/2006.04439" rel="noreferrer">arxiv.org/abs/2006.04439</a> Our unit is in this family: an input-dependent time constant.</li><li>Hasani et al. Closed-form Continuous-time Neural Networks. arXiv 2106.13898. <a href="https://arxiv.org/abs/2106.13898" rel="noreferrer">arxiv.org/abs/2106.13898</a> Read for comparison; our unit is not this paper's closed-form cell.</li><li>Chahine, Hasani, Kao, Ray, Shubert, Lechner, Amini, Rus. Robust flight navigation out of distribution with liquid neural networks. Science Robotics, 2023. <a href="https://doi.org/10.1126/scirobotics.adc8892" rel="noreferrer">doi.org/10.1126/scirobotics.adc8892</a> Their drones chained targets only with a scripted turn at each one; that is why our new-courses test switched targets at every waypoint.</li></ul></div>
 </section>
 </main>
 </div>

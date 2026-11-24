@@ -297,6 +297,11 @@ h2{font:600 clamp(2rem,4.6vw,3.3rem)/1.02 var(--display);letter-spacing:.005em;m
 .vlinks a{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none}
 .vlinks a::after{content:"\2192";color:#D19A3A}
 .card.hi p+p{margin-top:12px}
+.card.hi ol.steps,.card.hi ul.plain{display:block;margin:12px 0 0;padding-left:1.5em;columns:auto}
+.card.hi ol.steps{list-style:decimal outside}.card.hi ul.plain{list-style:disc outside}
+.card.hi ol.steps li,.card.hi ul.plain li{display:list-item;margin-top:10px;padding-left:.2em}
+.card.hi ol.steps li::marker{color:#D19A3A;font-weight:600}.card.hi ul.plain li::marker{color:#D19A3A}
+.card.hi ul.plain:first-child{margin-top:0}
 </style>
 <link rel="stylesheet" href="/assets/css/phone.css"></head>
 <body>
