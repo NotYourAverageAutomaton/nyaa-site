@@ -77,3 +77,15 @@
 .footcols a{text-decoration:none;color:var(--text)} .footcols a:hover{color:var(--brass)}
 /* v10 stage slot (module contract): the .tiles grid is [data-stage]; its direct children are the [data-tile] tiles. Static until the module lands. */
 .stage-wrap{position:relative}
+/* Niz 23:44: "there needs to be more of a indication that the cards are clickable". Every linked card: the pointer,
+   its existing label ("The whole story", "Tools", "More about it") shown as a button with an arrow, always visible
+   (phones have no hover), a clear hover and keyboard-focus state (accent edge, lift by shadow, the label fills) and a
+   focus ring. Lift is a shadow, not a transform: the tilt and the stage write transforms inline on these tiles. */
+a.tile,a.card{cursor:pointer}
+a.tile .go,a.card .more{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:14px;padding:10px 16px;
+  border:1px solid var(--brass);border-radius:999px;color:var(--brass);background:transparent;transition:background .2s,color .2s}
+a.tile:hover,a.card:hover,a.tile:focus-visible,a.card:focus-visible{border-color:var(--brass);
+  box-shadow:0 22px 44px -22px rgba(0,0,0,.85),inset 0 0 0 1px var(--brass)}
+a.tile:hover .go,a.card:hover .more,a.tile:focus-visible .go,a.card:focus-visible .more{background:var(--brass);color:var(--ground)}
+a.tile:focus-visible,a.card:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){a.tile .go,a.card .more{transition:none}}
