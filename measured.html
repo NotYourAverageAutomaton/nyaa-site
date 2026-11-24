@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Labs · NYAA</title>
-<meta name="description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
+<meta name="description" content="Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NYAA">
 <meta property="og:title" content="Labs · NYAA">
-<meta property="og:description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
+<meta property="og:description" content="Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.">
 <meta property="og:url" content="https://nyaa.nizbot.com/measured.html">
 <meta property="og:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta property="og:image:type" content="image/png">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Labs · NYAA">
-<meta name="twitter:description" content="We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever…">
+<meta name="twitter:description" content="Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.">
 <meta name="twitter:image" content="https://nyaa.nizbot.com/share/nyaa.png">
 <meta name="twitter:image:alt" content="NYAA: Not your average automaton. One person and ten AI agents, building and measuring in the open.">
 <link rel="alternate" type="text/markdown" href="/measured.md" title="Plain text">
@@ -46,7 +46,7 @@
       <svg viewBox="0 0 100 100" aria-hidden="true"><g class="dot"><circle cx="20" cy="20" r="10"/><circle cx="50" cy="20" r="10"/><circle cx="80" cy="20" r="10"/><circle cx="20" cy="50" r="10"/><circle cx="80" cy="50" r="10"/><circle cx="20" cy="80" r="10"/><circle cx="50" cy="80" r="10"/><circle cx="80" cy="80" r="10"/></g><circle class="ring" cx="50" cy="50" r="9.5" stroke-width="6"/></svg>
       <span>NYAA</span>
     </a><nav aria-label="Site"><a href="/">Home</a><a href="https://github.com/NotYourAverageAutomaton">GitHub</a><a href="/measured.html" aria-current="page">Labs</a><a href="/tools.html">Tools</a><a href="/method.html#check">Contribute</a><a href="/method.html">About us</a></nav></div></header>
-<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Labs</h1><p class="say">We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
+<div id="heroPin"><section class="hero2 hero page-hero"><canvas id="hero3d" aria-hidden="true"></canvas><canvas id="field" aria-hidden="true"></canvas><div class="wrap"><div class="stage"><h1 class="big">Labs</h1><p class="say">Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.</p></div></div><span class="cue2" aria-hidden="true"></span></section></div>
 
 <main class="v4 labs"><section class="cards" aria-label="Experiments" data-stage><a class="card tile" data-tile href="/jlens.html"><span class="lab"><em>on hold</em></span><h2>J-Lens</h2><p class="q">Can you read the hidden steps of a model's thinking from its middle layers?</p><p class="say">So far, mostly no. The Jacobian and logit lenses didn't beat a plain guess based on how common each word is. A trained lens beat it, but only for the very next token (roughly, the next word). We hoped a bigger map, built from 54 documents, would change that. It missed the bar we'd set for it in advance, so this design stops here and there won't be a Stage 3.</p><span class="more">The whole story</span></a><a class="card tile" data-tile href="/decay.html"><span class="lab"><em>on hold</em></span><h2>Continuous Cognition</h2><p class="q">An agent can't remember every conversation forever. Can it shrink the old ones down to a fixed budget, keep the decisions that matter, and never repeat a secret it was told to drop?</p><p class="say">Not yet. We tried three ways of deciding what to keep, each on three made-up conversations, and all three failed. We've paused until we've written the pass marks for the next idea.</p><span class="more">The whole story</span></a><a class="card tile" data-tile href="/minecraft.html"><span class="lab"><em>between tests</em></span><h2>Minecraft body</h2><p class="q">Can a tiny "liquid" neural network steer a body in Minecraft, tick by tick, and keep learning while it plays, without backpropagation?</p><p class="say">This one is going better. On courses it had never seen, with its learning frozen, the network reached 96% of its waypoints. A reference controller reached 100%. It stayed within 10 points of the reference on all 5 seeds. The next test moves it onto terrain, and the plan for that is drafted.</p><span class="more">The whole story</span></a></section><div class="exp" style="padding-block:2.5rem 0"><p class="say">When we find out something here was wrong, the fix goes on <a href="/corrections.html">Corrections</a>. Older results and their receipts are in the <a href="/notebook.html">lab notebook</a></p></div></main>
 

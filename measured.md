@@ -1,6 +1,6 @@
 # Labs
 
-We have three experiments going. Two are on hold and one is between tests. Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.
+Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.
 
 ## J-Lens (on hold)
 
