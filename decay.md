@@ -32,7 +32,7 @@ The next candidate keeps a ledger of decisions. Each one is noted with the optio
 
 ## Evidence
 
-The pre-registrations and result files are kept inside the lab for now. When we publish them, they'll be linked here.
+Evidence coming: the pre-registrations and result files are kept inside the lab for now. When we publish them, they'll be linked here.
 
 - Corrections: /corrections.md
 
