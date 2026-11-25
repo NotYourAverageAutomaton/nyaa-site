@@ -18,9 +18,11 @@ The whole story: /jlens.md
 
 An agent can't remember every conversation forever. Can it shrink the old ones down to a fixed budget, keep the decisions that matter, and never repeat a secret it was told to drop?
 
+Status: next run booked. Its pass marks are written and co-signed, and nothing about them changes once it starts. (A fact update, being checked.)
+
 Evidence coming: this lab's code and logs are being published; until they are, read these results as ours, without the files behind them yet.
 
-Not yet. We tried three ways of deciding what to keep, each on three made-up conversations, and all three failed. We've paused until we've written the pass marks for the next idea.
+We tried three policies for what to keep, 3 seeds each; all three failed. One fix did work: keeping decision lines whenever the summarizer's input gets cut passed the bar we'd written beforehand (162 of 170 decisions kept).
 
 The whole story: /decay.md
 
