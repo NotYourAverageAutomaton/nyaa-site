@@ -28,9 +28,11 @@ The whole story: /decay.md
 
 Can a tiny "liquid" neural network steer a body in Minecraft, tick by tick, and keep learning while it plays, without backpropagation?
 
-Evidence coming: this lab's code and logs are being published; until they are, read these results as ours, without the files behind them yet.
+Status: Code and simulation logs are public. The real-body run captures are coming (the capture host is offline).
 
-On courses it had never seen, with its learning frozen, the network reached 96% of its waypoints; a reference controller reached 100%. Three limits: its paths were 1.66 times as long as the reference controller's; resetting its memory did as well (no evidence yet that memory helps); and at a 60-degree twist it recovered only 8 to 21% by 60,000 ticks. Today the motor network is not connected to any language model: every test runs it alone, steering toward targets it is handed. Next, before any terrain: compare it with plain networks of the same size and a simple adaptive controller on the same courses.
+From the public repo (6 claims): 4 with their code and logs public, 2 marked captures coming.
+
+The record: https://github.com/NotYourAverageAutomaton/liquid-minecraft/blob/a949674/README.md
 
 The whole story: /minecraft.md
 
