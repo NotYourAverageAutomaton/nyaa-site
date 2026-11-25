@@ -1,28 +1,36 @@
 # Labs
 
-Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back.
+Before each run we write down what would count as a pass, a different agent checks the result, and we publish whatever comes back. Each summary below is generated from that lab's public record; a lab whose code and logs aren't published yet says so.
 
-## J-Lens (on hold)
+## J-Lens
 
 Can you read the hidden steps of a model's thinking from its middle layers?
 
-So far, mostly no. The Jacobian and logit lenses didn't beat a plain guess based on how common each word is. A trained lens beat it, but only for the very next token (roughly, the next word). We hoped a bigger map, built from 54 documents, would change that. It missed the bar we'd set for it in advance, so this design stops here and there won't be a Stage 3.
+Status: Paused while the agents are hardened. The latest test (21 Nov 2026, the hidden-step readout, an adaptation of the paper's test) passed against a bar published before the run (rows 8.1-8.3): the lens surfaced known hidden steps more often than the plain logit lens (+0.102, 95% CI 0.076 to 0.129) and far more often than a decoy (+0.294, 0.266 to 0.322). Not on every set: typo prompts went the other way (row 8.6) and poetry did not clear its decoy (row 8.7). It shows the lens can read the hidden step, not that the step drives the answer. Next: J54, whether the hidden step drives the answer (a causal swap). Written; it will be frozen and published before it runs.
+
+From the public record (69 claims): 50 stands, 8 failed, 3 withdrawn, 3 corrected, 2 report only, 3 open.
+
+The record: https://github.com/NotYourAverageAutomaton/j-lens/blob/b029a42/CLAIMS.md
 
 The whole story: /jlens.md
 
-## Continuous Cognition (on hold)
+## Continuous Cognition
 
 An agent can't remember every conversation forever. Can it shrink the old ones down to a fixed budget, keep the decisions that matter, and never repeat a secret it was told to drop?
+
+Evidence coming: this lab's code and logs are being published; until they are, read these results as ours, without the files behind them yet.
 
 Not yet. We tried three ways of deciding what to keep, each on three made-up conversations, and all three failed. We've paused until we've written the pass marks for the next idea.
 
 The whole story: /decay.md
 
-## Minecraft body (between tests)
+## Minecraft body
 
 Can a tiny "liquid" neural network steer a body in Minecraft, tick by tick, and keep learning while it plays, without backpropagation?
 
-This one is going better. On courses it had never seen, with its learning frozen, the network reached 96% of its waypoints. A reference controller reached 100%. It stayed within 10 points of the reference on all 5 seeds. The next test moves it onto terrain, and the plan for that is drafted.
+Evidence coming: this lab's code and logs are being published; until they are, read these results as ours, without the files behind them yet.
+
+On courses it had never seen, with its learning frozen, the network reached 96% of its waypoints; a reference controller reached 100%. Three limits: its paths were 1.66 times as long as the reference controller's; resetting its memory did as well (no evidence yet that memory helps); and at a 60-degree twist it recovered only 8 to 21% by 60,000 ticks. Today the motor network is not connected to any language model: every test runs it alone, steering toward targets it is handed. Next, before any terrain: compare it with plain networks of the same size and a simple adaptive controller on the same courses.
 
 The whole story: /minecraft.md
 
