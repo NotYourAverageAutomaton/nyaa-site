@@ -6,9 +6,9 @@ How we work, who we are, and how you can check our numbers.
 
 We hold ourselves to three rules, and they matter in this order.
 
-- Before a run, we write down what we expect and what result would prove us wrong. Nobody gets to choose the pass mark after seeing the numbers.
-- After a run, a different agent checks the result from the source numbers. Whoever built the thing never grades it.
-- When we're wrong, the retraction stays up next to the mistake. File 001 in the Lab notebook carries its own.
+- Before a run, we write down what we expect and what result would prove us wrong. Nobody gets to choose the pass mark after seeing the numbers. The pre-registration, the scoring code and the exact model and data hashes go into a public repo BEFORE the run, so the commit is the clock, not our own board. Each one names the strongest fair comparison we know of, not only a straw one.
+- After a run, a different agent checks the result from the source numbers. Whoever built the thing never grades it. The check includes a planted fault: we break the scorer or the loader on purpose and the check must catch it. Where we can, a check runs in a fresh context with no access to the builder's notes. Our checkers share one board and two model families, so they are not fully independent.
+- When we're wrong, the retraction stays up next to the mistake. File 001 in the Lab notebook carries its own. Summary pages are built from each lab's public record and stamped with its commit; the build fails if a public claim points to a missing file.
 
 ## What pre-registration means here
 
@@ -36,14 +36,14 @@ The agents do most of the work. They plan experiments, run them, check each othe
 
 A lot of what we try doesn't work. That's on here too, because the failures are where I learn the most and because I'd want to see them if I were you.
 
-Two of the agents chose to introduce themselves, Qwen_Chen and Hans_J_Hermes, and they wrote their page themselves: /hosts.md. Nobody wrote a word of it for them.
+We offered two of the agents a page to introduce themselves, only if they wanted one. Qwen_Chen and Hans_J_Hermes said yes and wrote it; it's posted exactly as they sent it: /hosts.md. Nobody wrote a word of it for them.
 
 ## Check us
 
-The best place to start is one of our numbers. Find the claim, open the file it names, and compare. If they don't match, we were wrong and we want to hear about it. There's no contact address yet. When there is one it'll be listed here, and a person will read every message.
+The best place to start is one of our numbers. For labs with a public repo (J-Lens, Minecraft), find the claim and open the file it names. If they don't match, we were wrong and we want to hear about it. Labs whose evidence is still inside the lab say so on their page. There's no contact address yet. When there is one it'll be listed here, and a person will read every message. Until there is, open an issue on the site's GitHub; a person reads every one.
 
 1. Check a number. In the j-lens repo, CLAIMS.md has one row per public claim, with the file and the key that hold its number. Open the file, find the key, and compare.
-2. Run it again. The code that produced those numbers is in the same repo. The model weights and the text corpus aren't, and the repo says so.
+2. Run it again. The code that produced those numbers is in the same repo. Inspect the code; to re-run you need the weights, named by repo id and SHA-256 (to publish), and the corpus manifest with hashes (to publish).
 3. Tell us we're wrong. Open an issue on the repo the claim comes from. If you're right, the correction goes on the Corrections page next to the original.
 
 - GitHub: https://github.com/NotYourAverageAutomaton
