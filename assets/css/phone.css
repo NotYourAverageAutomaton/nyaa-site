@@ -20,3 +20,38 @@
   pre,pre code{white-space:pre-wrap!important;overflow-wrap:anywhere;word-break:break-word}
   .scroll{-webkit-mask-image:linear-gradient(90deg,#000 84%,transparent);mask-image:linear-gradient(90deg,#000 84%,transparent)}
 }
+
+/* First screen (Niz 11-26 12:43: "Looks good but we need to be mindful of the empty space"). On a wide screen the hero
+   was the whole first screen (3D on: 100vh - 80px, plus a scroll pin under it) with the title at its foot and no page
+   text in view. Now the hero is about 42% of the screen, sized to its words, title in the upper part; the first
+   paragraph of the page is on the first screen at 1280x800 and 1920x1080. Checked by test_fold.py. */
+@media (min-width:641px){
+  html .hero-pin .hero{min-height:clamp(300px,42vh,460px);position:relative;top:auto}
+  .hero-pin{height:auto!important}
+  /* the words sit tighter: less padding, a title sized to the screen height too, the question on two lines not four */
+  .hero-pin .hero-in{padding-block:clamp(20px,4vh,44px)}
+  .hero-pin .hero h1{font-size:clamp(3.2rem,min(8vw,12vh),7rem)}
+  .hero-pin .hero-in>.q{max-width:46ch;margin-bottom:18px}
+  .shell{padding-top:24px}
+}
+
+/* One grid (Niz 11-26 marks, 13:3x-13:49). Wide screens only; phones and tablets (980px and under) are untouched.
+   The drawing's box is set by the placement in hero-core.js (and jlens.html's copy): right edge on the content right
+   edge, in the clear part of the right column, never behind text. Here: its edges fade softly (8%; only 2% on the right,
+   where the drawing is anchored), it paints above the
+   banner it may overlap, and a stat-chip row reaches the content right edge (the banner's edge = the cards' edge)
+   unless the drawing sits beside it (.beside). */
+@media (min-width:981px){
+  html .hero-pin>#beam3d{z-index:0;pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+    mask-composite:intersect}
+  .hero-pin .hero-in>.stats{margin-right:calc(-1 * clamp(24px,5vw,56px))}
+  .hero-pin .hero-in>.stats>div{flex:1 1 auto}
+  .hero-pin .hero-in>.stats.beside{margin-right:0}
+  .hero-pin .hero-in>.stats.beside>div{flex:0 0 auto}
+  /* home: a section heading over the one-tile stage takes the stage's column (its left edge and width), not the page's */
+  .sec .wrap>.h2:has(+ .stage-track .stage-on){max-width:640px;margin-inline:auto}
+  .sec .wrap>.kicker:has(+ .h2 + .stage-track .stage-on){max-width:640px;margin-inline:auto}
+}

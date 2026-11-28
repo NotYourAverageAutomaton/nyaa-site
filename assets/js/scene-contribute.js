@@ -4,7 +4,7 @@ NYAAHero.scene(function(THREE, api){
 var S=api.scene,cam=api.camera,C=api.colors;
 var cl=function(x){return x<0?0:x>1?1:x;},ease=function(x){x=cl(x);return 1-Math.pow(1-x,3);},
     eio=function(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;},lerp=function(a,b,k){return a+(b-a)*k;};
-var A=1.6,OX=0;function setA(w,h){A=(w>0&&h>0)?w/h:1.6;if(!(A>0&&isFinite(A)))A=1.6;cam.fov=A<.9?58:42;OX=(A>1.1&&w>700)?.22:0;
+var A=1.6,OX=0;function setA(w,h){A=(w>0&&h>0)?w/h:1.6;if(!(A>0&&isFinite(A)))A=1.6;cam.fov=A<.9?58:42;OX=(A>1.1&&w>700&&!api.placed)?.22:0;
  if(w>0&&h>0&&OX)cam.setViewOffset(w,h,-OX*w,0,w,h);else cam.clearViewOffset();cam.aspect=A;cam.updateProjectionMatrix();}
 var root=new THREE.Group();S.add(root);
 /* floor: a hairline grid */

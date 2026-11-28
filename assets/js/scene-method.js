@@ -8,7 +8,7 @@ var cl=function(x){return x<0?0:x>1?1:x;},ease=function(x){x=cl(x);return 1-Math
 function hash(i,k){var s=Math.sin(i*127.1+k*311.7)*43758.5453;return s-Math.floor(s);}
 /* framing: on wide screens the view is offset so the scene sits right of centre (the text is on the left); on
    narrow screens it sits in the lower part of the hero, under the text. Offsets are fractions of the canvas. */
-var A=1.6,OX=0,OY=0;function setA(w,h){A=(w>0&&h>0)?w/h:1.6;if(!(A>0&&isFinite(A)))A=1.6;cam.fov=A<.9?58:42;OX=A>1.1?.22:0;OY=A<.9?.2:0;
+var A=1.6,OX=0,OY=0;function setA(w,h){A=(w>0&&h>0)?w/h:1.6;if(!(A>0&&isFinite(A)))A=1.6;cam.fov=A<.9?58:42;OX=A>1.1&&!api.placed?.22:0;OY=A<.9?.2:0;
  if(w>0&&h>0)cam.setViewOffset(w,h,-OX*w,-OY*h,w,h);else cam.clearViewOffset();cam.aspect=A;cam.updateProjectionMatrix();}
 var dot=(function(){var c=document.createElement("canvas");c.width=c.height=64;var x=c.getContext("2d");x.fillStyle="#fff";x.beginPath();x.arc(32,32,26,0,Math.PI*2);x.fill();return new THREE.CanvasTexture(c);})();
 var glow=(function(){var c=document.createElement("canvas");c.width=c.height=128;var x=c.getContext("2d"),g=x.createRadialGradient(64,64,0,64,64,64);

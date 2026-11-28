@@ -1,0 +1,152 @@
+/* v4.12: one design system on every page (Niz 20:1x: "Things are still not scaled and aligned properly").
+   Loaded last on every page, so it is the one place the layout is decided. Words are untouched: this file only places
+   and sizes them.
+   CONTAINER: one max-width (1200px) centred, one gutter (16px on phones up to 48px). The header, the title block, the
+   drawing, the section rail, the content column, cards, tables, chips and the footer all start and end on its two lines.
+   GRID: 12 columns inside the container, one column gap. Wide screens (981px and up): title block cols 1-7, drawing
+   cols 8-12 (same top line as the title block), chip row cols 1-12, rail cols 1-3, content cols 4-12. Home uses the
+   same container and grid. 980px and under: one column, every block on the container's two lines.
+   TYPE: one modular scale, ratio 1.25 (1.2 on phones): body 17px; h3 = body x r; title subtitle = body x r^2;
+   h2 = body x r^4; h1 = body x r^7 (home too, capped by its column width). Body measure 64ch. */
+:root{
+  --max:1200px;
+  --gut:max(clamp(16px,4vw,48px),env(safe-area-inset-left,0px),env(safe-area-inset-right,0px));
+  --colgap:clamp(16px,2vw,24px);
+  --cwidth:min(var(--max),100% - 2 * var(--gut));
+  --r:1.25;
+  --fs-0:1.0625rem;
+  --fs--1:calc(var(--fs-0) / var(--r));
+  --fs-1:calc(var(--fs-0) * var(--r));
+  --fs-2:calc(var(--fs-1) * var(--r));
+  --fs-3:calc(var(--fs-2) * var(--r));
+  --fs-4:calc(var(--fs-3) * var(--r));
+  --fs-7:calc(var(--fs-4) * var(--r) * var(--r) * var(--r));
+  --fs-body:var(--fs-0); --fs-h3:var(--fs-1); --fs-sub:var(--fs-2); --fs-h2:var(--fs-4); --fs-h1:var(--fs-7);
+  --measure:64ch;
+  /* vertical rhythm: one step for the space above every section, one inside the title block */
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:40px; --sp-5:clamp(48px,6vw,80px);
+}
+@media (max-width:640px){:root{--r:1.2}}
+
+/* ---------- the container ---------- */
+body{padding-inline:0!important}
+.site-wrap,.wrap,.shell,#heroPin>.hero:not(.hero2),.foot{width:var(--cwidth);max-width:none!important;margin-inline:auto!important;padding-inline:0!important}
+
+/* ---------- header: logo on the left line, the last menu item ends on the right line ---------- */
+header.bar2 nav{gap:4px clamp(14px,1.8vw,28px)}
+header.bar2 nav a{padding-inline:0!important;border-radius:0}
+header.bar2 nav a:hover{background:none;color:var(--brass,#D19A3A)}
+header.bar2 nav a[aria-current]{border-radius:0}
+
+/* ---------- type ---------- */
+body{font-size:var(--fs-body)}
+#heroPin .hero h1{font-size:var(--fs-h1)!important;line-height:.9;margin:0}
+.shell main section>h2{font:600 var(--fs-h2)/1.08 var(--display);letter-spacing:.005em;max-width:34ch;margin:0 0 var(--sp-3);text-wrap:balance}
+.shell main h3{font-size:var(--fs-h3)}
+.shell main .over{margin:0 0 var(--sp-1)}
+.shell main p,.shell main blockquote{max-width:var(--measure)}
+.shell main .lede-l{font-size:var(--fs-0);line-height:1.6;color:var(--on-var);margin:0 0 var(--sp-3);max-width:var(--measure)}
+.shell main section{padding-bottom:var(--sp-5)}
+
+/* ---------- inner pages, wide: title block + drawing on the grid ---------- */
+@media (min-width:981px){
+  #heroPin>.hero:not(.hero2){display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--colgap);row-gap:0;
+    grid-template-rows:repeat(5,auto) 1fr;align-items:start;min-height:0!important;border-radius:0;overflow:visible;
+    padding-block:var(--sp-5) 0;background:none}
+  #heroPin>.hero>.hero-in{display:contents}
+  #heroPin .hero-in>*{grid-column:1/8;margin:0;min-width:0}
+  #heroPin .hero-in>.tag{justify-self:start;margin:0 0 var(--sp-2)}
+  #heroPin .hero-in>.tag+.tag{margin-top:calc(-1 * var(--sp-1))}
+  #heroPin .hero-in>.q{margin:var(--sp-2) 0 0;max-width:32ch}
+  #heroPin .hero-in>.lede-l{margin:var(--sp-2) 0 0!important;max-width:var(--measure)}
+  #heroPin .hero-in>.stats{grid-column:1/-1;margin:var(--sp-4) 0 0}
+  #heroPin .hero-in>.credit{grid-column:1/-1}
+  #heroPin .hero-in>.band{display:none}
+  /* the drawing: cols 8-12, top line = the title block's top, a 3:2 box; the scene is fitted into it (hero-core.js) */
+  #heroPin #beam3d,#heroPin #beam{position:relative!important;inset:auto!important;grid-column:8/13;grid-row:1/7;align-self:start;
+    width:100%!important;height:auto!important;aspect-ratio:3/2;z-index:0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(180deg,transparent,#000 3%,#000 97%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(180deg,transparent,#000 3%,#000 97%,transparent);
+    mask-composite:intersect}
+  #heroPin .beam-cap{position:static!important;grid-column:8/13;grid-row:7;justify-self:start;margin:var(--sp-1) 0 0;padding:0;background:none}
+  /* the rail and the content column */
+  .shell{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--colgap);padding-block:var(--sp-5) 0}
+  .shell>.rail{grid-column:1/4;top:var(--sp-3)}
+  .shell>main{grid-column:4/13}
+}
+/* rail: the number circles sit on the container's left line */
+.shell>.rail a{padding-left:0}
+.shell>.rail a:hover{background:none;color:var(--on-surface)}
+
+/* ---------- chips: equal tiles on the grid, one colour for the numbers ---------- */
+#heroPin .hero-in>.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--colgap)}
+#heroPin .hero-in>.stats>div{min-width:0;margin:0}
+#heroPin .hero-in>.stats b,#heroPin .hero-in>.stats b.pos,#heroPin .hero-in>.stats b.neg,#heroPin .hero-in>.stats b.mid{color:var(--on-surface)}
+.mo #heroPin .stats b{text-shadow:none!important}
+@media (max-width:980px){#heroPin .hero-in>.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){#heroPin .hero-in>.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* the photo credit: the photo is the hero's faint background, so the line stays, quiet, at the hero's foot */
+#heroPin .hero-in>.credit{justify-self:end;margin:var(--sp-1) 0 0;font-size:var(--fs--1);opacity:.6}
+
+/* ---------- cards: the box spans the column, the words keep a readable measure ---------- */
+.shell main .card{border-radius:var(--r-l,20px)}
+.shell main .card p,.shell main .card li,.shell main .card blockquote{max-width:var(--measure)}
+
+/* ---------- 980px and under: one column on the container lines ---------- */
+@media (max-width:980px){
+  #heroPin>.hero:not(.hero2){border-radius:0;padding-inline:0}
+  #heroPin>.hero:not(.hero2)>.hero-in{padding-inline:0}
+  .shell>.rail{margin-inline:0!important;padding-inline:0!important}
+}
+
+/* ---------- home: the same container and grid ---------- */
+#heroPin .hero2 .stage h1{font-size:min(var(--fs-h1),calc(100cqi / 8.2))!important}
+/* phones: the same h1 step, set narrower (Archivo's own condensed width) so AUTOMATON fits the column */
+@media (max-width:640px){#heroPin .hero2 .stage h1{font-stretch:75%;font-size:min(var(--fs-h1),calc(100cqi / 5.5))!important}}
+.hero2 .stage .tag{color:var(--text);text-shadow:0 1px 12px rgba(10,13,20,.9)}
+main .sec>.wrap>.h2{font:600 var(--fs-h2)/1.08 var(--display);letter-spacing:.005em;text-transform:none;max-width:34ch;margin:0 0 var(--sp-4)}
+main .sec>.wrap>.kicker{max-width:var(--measure);line-height:1.5}
+main .sec .tiles,main .sec .rules2{gap:var(--colgap)}
+main .sec .tile h3{font-size:var(--fs-h3)}
+/* the one-tile stage spans the container: picture cols 1-7, words cols 8-12 on wide screens */
+.stage-on{grid-template-columns:minmax(0,1fr)!important}
+.stage-on>.tile{max-width:none!important}
+.stage-live .stage-meter{max-width:none}
+@media (min-width:981px){
+  .stage-on>.tile{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--colgap)}
+  .stage-on>.tile>.pic{grid-column:1/8;border-bottom:0;height:100%;aspect-ratio:16/9}
+  .stage-on>.tile>.body{grid-column:8/13;padding:var(--sp-3) var(--sp-3) var(--sp-3) 0}
+}
+/* the scroll cue sits on the content's left line, under the left-aligned hero */
+.hero2 .cue2{left:calc((100% - var(--cwidth)) / 2);margin-left:0}
+/* phone.css (v4.11) centred the heading over the 640px stage; the stage now spans the container, so the heading takes the left line */
+@media (min-width:981px){
+  .sec .wrap>.h2:has(+ .stage-track .stage-on),.sec .wrap>.kicker:has(+ .h2 + .stage-track .stage-on){max-width:34ch;margin-inline:0}
+}
+main .sec>.wrap>.h2{font-family:"Big Shoulders Display","Arial Narrow",sans-serif}
+footer.foot2{max-width:none;margin:0}
+/* a long bare link (a repo or store address) breaks inside the column instead of running past the container */
+.shell main a,#heroPin .hero-in a,main .sec a{overflow-wrap:anywhere}
+/* home rules: three in a row (4 columns each) from tablet width up, one column on phones; never two and one */
+@media (min-width:700px){main .sec .rules2{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:699px){main .sec .rules2{grid-template-columns:minmax(0,1fr)}}
+/* tablets (641-980px): the drawing is a band of its own under the words, the container's width, never behind the title */
+@media (min-width:641px) and (max-width:980px){
+  #heroPin>.hero:not(.hero2){display:flex;flex-direction:column;min-height:0!important;padding-block:var(--sp-4) 0}
+  #heroPin>.hero:not(.hero2)>#beam3d{position:relative!important;inset:auto!important;order:2;width:100%!important;height:auto!important;aspect-ratio:16/7;margin-top:var(--sp-3);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+  #heroPin>.hero:not(.hero2)>.hero-in{padding-block:0}
+  .shell{padding-top:var(--sp-4)}
+}
+/* title and subtitle are one block at every width: one small step between them */
+#heroPin .hero-in>.q{margin-top:var(--sp-2)}
+#heroPin .hero-in>h1{margin-top:var(--sp-1)}
+@media (min-width:981px){#heroPin .hero-in>h1:first-child{margin-top:0}}
+/* link rows are rows, not reading text: they run to the card's inner edge */
+.shell main .vlinks li{max-width:none}
+/* footer site map: four columns of three on the grid from tablet width up */
+@media (min-width:700px){.footcols .site-wrap,.footcols .wrap{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--colgap)}}
+/* phones: J-Lens draws its scene in its own band inside the words, so the 236px space phone.css keeps at the foot of
+   every hero for the scene stays empty there (it was ~260px of nothing above the rail): close it */
+@media (max-width:640px){#heroPin .hero:has(#band){padding-bottom:var(--sp-3)!important}}

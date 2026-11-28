@@ -1,4 +1,6 @@
-/* J-Lens v10 motion (fe670a2f), byte-identical below this line, loaded as a file by the v10-level pages. */
+/* J-Lens v10 motion (fe670a2f), byte-identical below this line except one change, loaded as a file by the v10-level pages.
+   v4.10 (Niz 11-26, "mindful of the empty space"): wantPin() returns false, as motion.js did on 19:09. The pin held the
+   hero for a further screen of scroll before any page text, so no page could show its first paragraph on the first screen. */
 /* v10 motion (presentation only). Scroll drives the hero scene, tiles tilt toward the pointer and lift in with depth,
    section layers reveal at different depths, numbers count up to their exact original text.
    Off entirely under prefers-reduced-motion: the page stays as written, numbers final, nothing scroll-linked. */
@@ -13,7 +15,7 @@ var fine=!!(window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").ma
 /* 1. hero pin: on a wide screen with 3D running, the hero holds still while the scroll sends the beam through the drops */
 var prog=document.createElement("span");prog.className="hero-prog";prog.setAttribute("aria-hidden","true");prog.appendChild(document.createElement("i"));if(hero)hero.appendChild(prog);var progI=prog.firstChild;
 var PIN_TOP=12,pinD=0,pinned=false;
-function wantPin(){return !!(hero&&pin&&hin)&&D.classList.contains("has3d")&&!D.classList.contains("narrow")&&innerWidth>980&&innerHeight>=560&&hin.offsetHeight+110<=innerHeight;}
+function wantPin(){return false&&!!(hero&&pin&&hin)&&D.classList.contains("has3d")&&!D.classList.contains("narrow")&&innerWidth>980&&innerHeight>=560&&hin.offsetHeight+110<=innerHeight;}
 function layoutPin(){var w=wantPin();if(w!==pinned){pinned=w;D.classList.toggle("pinned",w);}
  if(pinned){pinD=Math.round(Math.min(900,Math.max(480,innerHeight*.9)));var h=(hero.offsetHeight+pinD)+"px";if(pin.style.height!==h)pin.style.height=h;}else if(pin&&pin.style.height)pin.style.height="";queue();}
 if(window.MutationObserver)new MutationObserver(function(){var h=D.classList.contains("has3d"),n=D.classList.contains("narrow");if(h!==layoutPin.h||n!==layoutPin.n){layoutPin.h=h;layoutPin.n=n;layoutPin();}}).observe(D,{attributes:true,attributeFilter:["class"]});
